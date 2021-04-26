@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import DraggableWrapper from './components/DraggableWrapper';
 
 function App() {
   return (
@@ -17,6 +18,12 @@ function App() {
         >
           Learn React
         </a>
+        <DraggableWrapper>
+          <p>
+            Hello World!<br/>
+            I am draggable!
+          </p>
+        </DraggableWrapper>
       </header>
     </div>
   );

@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.bound0 {
+  background-color: cyan;
+  position: fixed;
+  top: 400px;
+  left:0px;
+  width: 100px;
+  height: 100px;
+}
+
+.bound1 {
+  background-color: cyan;
+  position: fixed;
+  top: 400px;
+  /* left: 600px; */
+  right: 0px;
+  width: 100px;
+  height: 100px;
+}

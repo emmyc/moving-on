@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -50,7 +51,6 @@
   background-color: cyan;
   position: fixed;
   top: 400px;
-  /* left: 600px; */
   right: 0px;
   width: 100px;
   height: 100px;

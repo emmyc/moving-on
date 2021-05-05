@@ -9,6 +9,7 @@ function DraggableWrapper(props) {
   const prevLoc = useRef(null); //use previous location to distinguish between click and drag
   const duration = 500;
   const [opened, setOpened] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   let bounds = [
     {
       left: 0,
@@ -17,8 +18,8 @@ function DraggableWrapper(props) {
       bottom: 500,
     },
     {
-      left: window.innerWidth - 100,
-      right: window.innerWidth,
+      left: windowWidth - 100,
+      right: windowWidth,
       top: 400,
       bottom: 500,
     }
@@ -30,19 +31,25 @@ function DraggableWrapper(props) {
       easing: 'easeInOutSine',            //possible fix: try to have a different animation each time, that is dependent on the position moved
     })
       .add({
-        targets: '.draggable-wrapper',
+        targets: '#' + props.name,
         scale: 5,
         duration: duration,
-      })
+      });
+    window.addEventListener('resize', updateWindowWidth);
+    return () => window.removeEventListener('resize', updateWindowWidth);
   }, []);
 
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
+  }
+
   const inDropBox = (currLoc) => {
-    for (let i =0; i < bounds.length; i++) {
+    for (let i = 0; i < bounds.length; i++) {
       if (overlaps(bounds[i], currLoc) || overlaps(currLoc, bounds[i])) {
-        return true;
+        return i + 1;
       }
     }
-    return false;
+    return 0;
   }
 
   const overlaps = (box1, box2) => {  //checks if box1 overlaps box2, note: sometimes it isn't commutative when box1 or box2 is much bigger than the other
@@ -72,15 +79,17 @@ function DraggableWrapper(props) {
         setOpened(true);
       }
     } else {
-      if (inDropBox(currLoc)) {
-        console.log("i am in a drop bound");
+      const dropLoc = inDropBox(currLoc);
+      if (dropLoc) {
+        console.log("i am in a drop box: " + dropLoc);
+        props.dropped && props.dropped(dropLoc);
         timeline.current.add({
-          targets: '.draggable-wrapper',
-          opacity: [1,0],
+          targets: '#' + props.name,
+          opacity: [1, 0],
           duration: duration
         });
         timeline.current.pause();
-        timeline.current.seek(duration+1);
+        timeline.current.seek(duration + 1);
         timeline.current.play();
       }
       setOpened(false);
@@ -101,7 +110,7 @@ function DraggableWrapper(props) {
       onStart={handleStart}
       onStop={handleStop}
       nodeRef={nodeRef}>
-      <div className='draggable-wrapper' ref={nodeRef}>
+      <div className='draggable-wrapper' id={props.name} ref={nodeRef}>
         {props.children}
       </div >
     </Draggable>

@@ -4,41 +4,33 @@ import './App.css';
 import CustomDraggable from './components/CustomDraggable';
 import DraggableWrapper from './components/DraggableWrapper';
 
+const El = (props) => {
+  return (
+    <div>
+      <ol>
+        {Array(props.size).fill("hello world").map((phrase) => <li>{phrase}</li>)}
+      </ol>
+    </div>
+  );
+}
 function App() {
-  const ref1 = useState(null);
-  const ref2 = useState(null);
 
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-        <DraggableWrapper bounds={[ref1,ref2]}>
+
+        <DraggableWrapper name='helloworld'>
           <p>
             Hello World!<br/>
             I am draggable!
           </p>
         </DraggableWrapper>
-        <div className='bound0' ref={ref1}/>
+        <DraggableWrapper name="list">
+          <El size={6} />
+        </DraggableWrapper>
+        <div className='bound0'/>
 
-        <div className='bound1'ref={ref2}/>
-        {/* <CustomDraggable>
-          <p>
-            Hello World!<br/>
-            I am a custom draggable component!
-          </p>
-        </CustomDraggable> */}
-        {/* <div className='dropzone'></div> */}
+        <div className='bound1'/>
       </header>
     </div>
   );

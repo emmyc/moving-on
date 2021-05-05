@@ -10,6 +10,7 @@ function DraggableWrapper(props) {
   const duration = 500;
   const [opened, setOpened] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isDisplaying, SetIsDisplaying] = useState(true);   //can probably remove this once integrated with the parent, since parent would deal with conditional rendering
   let bounds = [
     {
       left: 0,
@@ -54,7 +55,7 @@ function DraggableWrapper(props) {
 
   const overlaps = (box1, box2) => {  //checks if box1 overlaps box2, note: sometimes it isn't commutative when box1 or box2 is much bigger than the other
     let xOverlaps, yOverlaps;
-    if ((box1.left >= box2.left && box1.left <= box2.right) || (box1.right >= box2.left && box1.rigth <= box2.right)) {
+    if ((box1.left >= box2.left && box1.left <= box2.right) || (box1.right >= box2.left && box1.right <= box2.right)) {
       xOverlaps = true;
     } else {
       xOverlaps = false;
@@ -67,12 +68,15 @@ function DraggableWrapper(props) {
     return xOverlaps && yOverlaps;
   }
 
-  const handleStart = (e) => {
-    prevLoc.current = e.target.getBoundingClientRect();
+  const handleStart = () => {
+    if (!isDisplaying) return;
+    prevLoc.current = nodeRef.current.getBoundingClientRect();
+    console.log(nodeRef.current);
   };
 
-  const handleStop = (e) => {
-    const currLoc = e.target.getBoundingClientRect();
+  const handleStop = () => {
+    if (!isDisplaying) return;
+    const currLoc = nodeRef.current.getBoundingClientRect();
     if (currLoc.x === prevLoc.current.x && currLoc.y === prevLoc.current.y) {
       if (!opened) {
         handleClick();
@@ -91,6 +95,7 @@ function DraggableWrapper(props) {
         timeline.current.pause();
         timeline.current.seek(duration + 1);
         timeline.current.play();
+        setTimeout(() => SetIsDisplaying(false), duration);
       }
       setOpened(false);
     }

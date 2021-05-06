@@ -1,30 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import DraggableWrapper from './components/DraggableWrapper';
+import Exposition from './components/Exposition';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <DraggableWrapper>
-          <p>
-            Hello World!<br/>
-            I am draggable!
-          </p>
-        </DraggableWrapper>
-      </header>
+      <Exposition />
     </div>
   );
 }

@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import React, { useRef, useState } from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './App.css';
-import CustomDraggable from './components/CustomDraggable';
 import DraggableWrapper from './components/DraggableWrapper';
+import Yearbook from './components/Yearbook';
 
 const El = (props) => {
   return (
@@ -11,13 +11,11 @@ const El = (props) => {
     </div>
   );
 }
-function App() {
-
+function Demo() {
   return (
-    <div className="App">
-      {/* <header className="App-header"> */}
-
-        <DraggableWrapper name='helloworld'>
+    <>
+    
+    <DraggableWrapper name='helloworld'>
           <p>
             Hello World!<br/>
             I am draggable!
@@ -32,6 +30,26 @@ function App() {
 
         <div className='bound1'/>
         <span id='keep'>keep</span>
+        </>
+  );
+};
+
+function App() {
+
+  return (
+    <div className="App">
+      <Router>
+        <Link to='/yearbook'>Yearbook</Link>
+        <Link to='/'>Explore</Link>
+        <Route exact path='/yearbook'>
+          <Yearbook />
+        </Route>
+        <Route exact path='/'>
+          <Demo />
+        </Route>
+      </Router>
+      {/* <header className="App-header"> */}
+
 
       {/* </header> */}
     </div>

@@ -1,0 +1,28 @@
+.yearbook {
+  margin: auto;
+  margin-top: 5%;
+  // background-color: burlywood;
+  width: fit-content;
+  outline: 3px solid black;
+}
+
+.team-grid {
+  display: inline-grid;
+  width: 70%;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(2, 50%);
+  height: 60%;
+  * {
+    padding: 5%;
+  }
+}
+
+.fake-pic {
+  background: gray;
+  width: 80%;
+  height: 40%;
+}
+
+.page {
+  outline: 3px solid black;
+}

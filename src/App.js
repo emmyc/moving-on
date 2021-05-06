@@ -1,8 +1,6 @@
-import logo from './logo.svg';
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import './App.css';
-import CustomDraggable from './components/CustomDraggable';
-import DraggableWrapper from './components/DraggableWrapper';
+import GameWrapper from './GameWrapper';
 
 const El = (props) => {
   return (
@@ -17,21 +15,17 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-
-        <DraggableWrapper name='helloworld'>
-          <p>
-            Hello World!<br/>
-            I am draggable!
-          </p>
-        </DraggableWrapper>
-        <DraggableWrapper name="list">
-          <El size={6} />
-        </DraggableWrapper>
-        <div className='bound0'/>
-
-        <div className='bound1'/>
-      </header>
+      <div className='bound0'/>
+      <div className='bound1'/>
+      <GameWrapper>
+        <div>test</div>
+        <div>test2</div>
+        <p>
+          Hello World!<br/>
+          I am draggable!
+        </p>
+        <El size={6} />
+      </GameWrapper>
     </div>
   );
 }

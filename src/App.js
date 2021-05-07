@@ -5,9 +5,7 @@ import GameWrapper from './GameWrapper';
 const El = (props) => {
   return (
     <div>
-      <ol>
-        {Array(props.size).fill("hello world").map((phrase) => <li>{phrase}</li>)}
-      </ol>
+      {Array(props.size).fill("hello world").map((phrase) => <div>{phrase}</div>)}
     </div>
   );
 }
@@ -26,6 +24,25 @@ function App() {
         </p>
         <El size={6} />
       </GameWrapper>
+      {/* <header className="App-header"> */}
+
+        <DraggableWrapper name='helloworld'>
+          <p>
+            Hello World!<br/>
+            I am draggable!
+          </p>
+        </DraggableWrapper>
+        <DraggableWrapper name="list">
+          <El size={6} />
+        </DraggableWrapper>
+        <div className='bound0'/>
+        <span id='discard'>discard</span>
+        
+
+        <div className='bound1'/>
+        <span id='keep'>keep</span>
+
+      {/* </header> */}
     </div>
   );
 }

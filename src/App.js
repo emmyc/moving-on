@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import GameWrapper from './GameWrapper';
+import DraggableWrapper from './components/DraggableWrapper';
 
 const El = (props) => {
   return (
@@ -24,25 +25,20 @@ function App() {
         </p>
         <El size={6} />
       </GameWrapper>
-      {/* <header className="App-header"> */}
-
-        <DraggableWrapper name='helloworld'>
-          <p>
-            Hello World!<br/>
-            I am draggable!
-          </p>
-        </DraggableWrapper>
-        <DraggableWrapper name="list">
-          <El size={6} />
-        </DraggableWrapper>
-        <div className='bound0'/>
-        <span id='discard'>discard</span>
-        
-
-        <div className='bound1'/>
-        <span id='keep'>keep</span>
-
-      {/* </header> */}
+      <DraggableWrapper name='helloworld'>
+        <p>
+          Hello World!<br/>
+          I am draggable!
+        </p>
+      </DraggableWrapper>
+      <DraggableWrapper name="list">
+        <El size={6} />
+      </DraggableWrapper>
+      <div className='bound0'/>
+      <span id='discard'>discard</span>
+      
+      <div className='bound1'/>
+      <span id='keep'>keep</span>
     </div>
   );
 }

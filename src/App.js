@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import GameWrapper from './GameWrapper';
 import DraggableWrapper from './components/DraggableWrapper';
+import IntroPageWrapper from './components/IntroPage';
 
 const El = (props) => {
   return (
@@ -39,6 +40,9 @@ function App() {
       
       <div className='bound1'/>
       <span id='keep'>keep</span>
+      <header>
+        <IntroPageWrapper />
+      </header>
     </div>
   );
 }

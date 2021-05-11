@@ -40,13 +40,13 @@
 height : 50px;
 align-items: right;
 position:relative;
-right:650px;
+left:680px;
 top:10px;
 }
 .audioIcon{
 height : 50px;
 align-items: right;
 position:relative;
-left:650px;
-top:10px;
+right:-10px;
+top:-42px;
 }

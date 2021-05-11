@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
-import ActionLinks from './components/ActionLinks';
 import Audio from './components/Audio';
 import IntroPageWrapper from './components/IntroPage';
+import YearBookIcon from './components/YearBookIcon';
 function App() {
   //toggler for audio Icon
     const [toggle, setToggle]= useState(false);
@@ -15,7 +15,7 @@ function App() {
   }
   return (
     <div>
-      <ActionLinks onClick={handleClick}/>
+      <YearBookIcon onClick={handleClick}/>
       <Audio onClick={toggler} toggle={toggle} />
       <header>
         <IntroPageWrapper />

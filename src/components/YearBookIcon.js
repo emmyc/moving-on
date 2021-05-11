@@ -1,7 +1,7 @@
 import React from 'react';
 import yearbookIcon from '../icons/yearbookIcon.svg';
 
-function ActionLinks() {
+function YearBookIcon() {
   //takes to the yearbook when clicked
   function handleClick(e) {
     e.preventDefault();
@@ -15,4 +15,4 @@ function ActionLinks() {
     </div>
   );
 }
-export default ActionLinks;
+export default YearBookIcon;

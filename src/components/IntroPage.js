@@ -4,7 +4,6 @@ import '../styles/IntroPage.css';
 import boxIcon from '../images/boxIcon.png';
 import Narrative from './Narrative.js';
 
-
 function IntroPage() {
     return (
         <div className="intro-page">

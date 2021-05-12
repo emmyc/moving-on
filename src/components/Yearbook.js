@@ -1,13 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Yearbook.scss';
 
-const Page = React.forwardRef((props, ref) => {
+
+const Page = React.forwardRef(function Page(props, ref) {
   return (
     <div className='page' ref={ref}>
       {props.children}
     </div>
-  )
+  );
 });
 
 function Yearbook() {
@@ -17,113 +18,113 @@ function Yearbook() {
       title: 'DEV TEAM',
       members: [
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
-      ]
+      ],
     },
     {
       title: 'NARRATIVE TEAM',
       members: [
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
-      ]
+      ],
     },
     {
       title: 'SUPERLATIVES',
       members: [
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
         {
-          name: "Name",
+          name: 'Name',
           year: 2024,
           major: 'Major',
         },
-      ]
+      ],
     },
-  ]
-  const [pageNum, setPageNum] = useState(0);
+  ];
+  // const [pageNum, setPageNum] = useState(0);
 
-  const handlePageChange = (e) => {
-    setPageNum(e.data);
-  };
+  // const handlePageChange = (e) => {
+  //   setPageNum(e.data);
+  // };
 
   const goNextPage = () => {
     bookRef.current.pageFlip().flipNext();
@@ -146,21 +147,21 @@ function Yearbook() {
         maxShadowOpacity={0.5}
         showCover={true}
         mobileScrollSupport={true}
-        onFlip={handlePageChange}
+        // onFlip={handlePageChange}
         className='yearbook'
         ref={bookRef}
       >
         <Page>
           <h1>Yearbook</h1>
         </Page>
-        {teams.map((team) => {
+        {teams.map((team, index) => {
           return (
-            <Page>
+            <Page key={'page'+index}>
               <h1>{team.title}</h1>
               <div className='team-grid'>
-                {team.members.map((member) => {
+                {team.members.map((member, memIdx) => {
                   return (
-                    <div className='profile'>
+                    <div className='profile' key={`page${index}-member${memIdx}`}>
                       <div className='fake-pic' />
                       {member.name}<br />
                       {member.year}<br />
@@ -182,12 +183,5 @@ function Yearbook() {
       <button className='flip-page-btn' onClick={goNextPage} style={{ gridColumnStart: 3 }}>Next Page</button>
     </div>
   );
-};
+}
 export default Yearbook;
-
-
-{/* <FlipPage showHint={true}>
-<article>Hello this is a test</article>
-<article>this is page 2, testing testing</article>
-{/* {Array(5).fill("hello world").map((text,index) => <article>{text + index}</article>)} */}
-// </FlipPage> */}

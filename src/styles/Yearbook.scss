@@ -1,9 +1,14 @@
+.yearbook-page {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  width: 100%;
+  height: 80vh;
+}
+
 .yearbook {
-  margin: auto;
-  margin-top: 5%;
-  // background-color: burlywood;
+  grid-column: 2;
   width: fit-content;
-  outline: 3px solid black;
+  margin: auto;
 }
 
 .team-grid {
@@ -25,4 +30,14 @@
 
 .page {
   outline: 3px solid black;
+  opacity: 1;
+  background: white;
+}
+
+.flip-page-btn {
+  width: fit-content;
+  height: fit-content;
+  grid-row-start: 1;
+  margin: auto;
+  // margin-top: 50%;
 }

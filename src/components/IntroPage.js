@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import '../styles/IntroPage.css';
-import boxIcon from '../images/boxIcon.png';
+import boxIcon from '../assets/boxIcon.png';
 import Narrative from './Narrative.js';
 
 

@@ -1,5 +1,5 @@
 const ITEM_STATES = {
-  NEW: 1, SAVED: 2, DROPPED: 3
-}
+  NEW: 0, DROPPED: 1, SAVED: 2,
+};
 
 export default ITEM_STATES;

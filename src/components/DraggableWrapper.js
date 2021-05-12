@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
 import anime from 'animejs';
+import React, { useEffect, useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import '../styles/DraggableWrapper.scss';
 
@@ -23,7 +23,7 @@ function DraggableWrapper(props) {
       right: windowWidth,
       top: 400,
       bottom: 500,
-    }
+    },
   ];
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function DraggableWrapper(props) {
 
   const updateWindowWidth = () => {
     setWindowWidth(window.innerWidth);
-  }
+  };
 
   const inDropBox = (currLoc) => {
     for (let i = 0; i < bounds.length; i++) {
@@ -51,7 +51,7 @@ function DraggableWrapper(props) {
       }
     }
     return 0;
-  }
+  };
 
   const overlaps = (box1, box2) => {  //checks if box1 overlaps box2, note: sometimes it isn't commutative when box1 or box2 is much bigger than the other
     let xOverlaps, yOverlaps;
@@ -66,12 +66,12 @@ function DraggableWrapper(props) {
       yOverlaps = false;
     }
     return xOverlaps && yOverlaps;
-  }
+  };
 
   const handleStart = () => {
     if (!isDisplaying) return;
     prevLoc.current = nodeRef.current.getBoundingClientRect();
-    console.log(nodeRef.current);
+    // console.log(nodeRef.current);
   };
 
   const handleStop = () => {
@@ -85,12 +85,12 @@ function DraggableWrapper(props) {
     } else {
       const dropLoc = inDropBox(currLoc);
       if (dropLoc) {
-        console.log("i am in a drop box: " + dropLoc);
+        // console.log("i am in a drop box: " + dropLoc);
         props.dropped && props.dropped(dropLoc);
         timeline.current.add({
           targets: '#' + props.name,
           opacity: [1, 0],
-          duration: duration
+          duration: duration,
         });
         timeline.current.pause();
         timeline.current.seek(duration + 1);
@@ -100,7 +100,7 @@ function DraggableWrapper(props) {
       setOpened(false);
     }
     prevLoc.current = currLoc;
-  }
+  };
 
   const handleClick = () => {
     timeline.current.pause();
@@ -120,5 +120,5 @@ function DraggableWrapper(props) {
       </div >
     </Draggable>
   );
-};
+}
 export default DraggableWrapper;

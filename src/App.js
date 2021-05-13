@@ -1,32 +1,45 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import GameWrapper from './components/GameWrapper';
-import IntroPageWrapper from './components/IntroPage';
+import IntroPage from './components/IntroPage';
+import Yearbook from './components/Yearbook';
+import Narrative from './components/Narrative';
+import YearbookIcon from './components/YearbookIcon';
 
-const El = (props) => {
-  return (
-    <div>
-      {Array(props.size).fill('hello world').map((phrase) =>
-        <div key={phrase.id}>{phrase}</div>)}
-    </div>
-  );
-};
 function App() {
 
   return (
     <div className="App">
-      <GameWrapper>
-        <div>test</div>
-        <div>test2</div>
-        <p>
-          Hello World!<br/>
-          I am draggable!
-        </p>
-        <El size={6} />
-      </GameWrapper>
-      <header>
-        <IntroPageWrapper />
-      </header>
+      <Router>
+        <YearbookIcon />
+        <Switch>
+
+          <Route path='/yearbook'>
+            <Yearbook />
+          </Route>
+
+          <Route path='/explore'>
+            <GameWrapper>
+              <div>test</div>
+              <div>test2</div>
+              <p>
+                Hello World!<br />
+                I am draggable!
+              </p>
+            </GameWrapper>
+          </Route>
+
+          <Route path='/narrative'>
+            <Narrative />
+          </Route>
+
+          <Route path='/'>
+            <IntroPage />
+          </Route>
+
+        </Switch>
+      </Router>
     </div>
   );
 }

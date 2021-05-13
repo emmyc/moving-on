@@ -40,7 +40,7 @@ function GameWrapper(props) {
         {itemFocus}
       </div>
       <div id='audio-button'/>
-      <div id='yearbook-button'/>
+      {/* <div id='yearbook-button'/> */}
       <div className='bound bound0'/>
       <span id='discard'>discard</span>
       <div className='bound bound1'/>

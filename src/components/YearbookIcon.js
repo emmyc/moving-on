@@ -11,7 +11,6 @@ function YearbookIcon() {
         <Link to='/yearbook' className='yearbook-icon'>
           <img src={YearbookSvg} alt='' />
               yearbook/ about the team
-              {pathname}
         </Link>}
     </>
   );

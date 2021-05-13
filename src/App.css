@@ -2,24 +2,29 @@
   text-align: center;
 }
 
-.bound0 {
-  background-color: cyan;
+.bound {
+  border: 2px solid black;
   position: fixed;
-  top: 400px;
-  left:0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('./assets/dropbox.svg');
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100px;
   height: 100px;
   z-index: -1;
 }
 
+.bound0 {
+  top: 400px;
+  left: 0px;
+}
+
 .bound1 {
-  background-color: cyan;
-  position: fixed;
   top: 400px;
   right: 0px;
-  width: 100px;
-  height: 100px;
-  z-index: -1;
 }
 
 #discard {

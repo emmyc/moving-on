@@ -89,7 +89,7 @@ module.exports = {
       ],
   
       // Don't leave log statements littering the premises!
-      'no-console': ['error'],
+      'no-console': ['warn'],
   
       // Useless diff results
       'no-trailing-spaces': ['error'],
@@ -98,6 +98,6 @@ module.exports = {
       'dot-notation': ['error'],
   
       // Are you sure | is not a typo for || ?
-      'no-bitwise': ['error'],
+      'no-bitwise': ['warn'],
     },
   };

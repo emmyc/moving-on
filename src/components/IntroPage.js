@@ -2,8 +2,6 @@ import React from 'react';
 import {  Link } from 'react-router-dom';
 import '../styles/IntroPage.css';
 import boxIcon from '../assets/boxIcon.png';
-// import Narrative from './Narrative.js';
-
 
 function IntroPage() {
     return (
@@ -28,23 +26,5 @@ function IntroPage() {
 
     );
 }
-
-// function IntroPageWrapper() {
-//     return (
-//         <Router>
-//             <Switch>
-//                 <Route path='/narrative'>
-//                     <Narrative />
-//                 </Route>
-//                 <Route path='/explore'>
-
-//                 </Route>
-//                 <Route path='/'>
-//                     <IntroPage />
-//                 </Route>
-//             </Switch>
-//         </Router>
-//     );
-// }
 
 export default IntroPage;

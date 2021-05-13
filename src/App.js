@@ -4,8 +4,8 @@ import './App.css';
 import GameWrapper from './components/GameWrapper';
 import IntroPage from './components/IntroPage';
 import Yearbook from './components/Yearbook';
-import YearbookIcon from './components/YearbookIcon';
 import Narrative from './components/Narrative';
+import YearbookIcon from './components/YearbookIcon';
 
 function App() {
 

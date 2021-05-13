@@ -30,3 +30,31 @@
   width: 100vw;
   overflow-x: hidden;
 }
+
+#yearbook-button {
+  background-image: url('../images/yearbook.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  cursor: pointer;
+}
+
+#audio-button {
+  background-image: url('../images/audio.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  cursor: pointer;
+}

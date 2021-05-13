@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import DraggableWrapper from './components/DraggableWrapper';
 import GameWrapper from './components/GameWrapper';
 import IntroPageWrapper from './components/IntroPage';
 
@@ -25,11 +24,6 @@ function App() {
         </p>
         <El size={6} />
       </GameWrapper>
-      <div className='bound0'/>
-      <span id='discard'>discard</span>
-
-      <div className='bound1'/>
-      <span id='keep'>keep</span>
       <header>
         <IntroPageWrapper />
       </header>

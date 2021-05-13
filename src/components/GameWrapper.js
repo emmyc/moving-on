@@ -25,7 +25,7 @@ function GameWrapper(props) {
   };
 
   const handleDrop = (dropLoc, id) => {
-    setCaption(caption + dropLoc);
+    setCaption(dropLoc);
     const newRenders = [...renderItems];
     newRenders[id] = dropLoc;
     setRenderItems(newRenders);
@@ -37,7 +37,14 @@ function GameWrapper(props) {
       <div id='overlay' onClick={()=>setItemFocus(null)}
         style={{ display: itemFocus ? '' : 'none'}}
       >
+        {itemFocus}
       </div>
+      <div id='audio-button'/>
+      <div id='yearbook-button'/>
+      <div className='bound bound0'/>
+      <span id='discard'>discard</span>
+      <div className='bound bound1'/>
+      <span id='keep'>keep</span>
       <div id='item-display'>
         <div id='discard'>
           discard

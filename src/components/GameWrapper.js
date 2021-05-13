@@ -8,28 +8,29 @@ function GameWrapper(props) {
   const items = props.children;
   const [caption, setCaption] = useState('text text');
   const [itemFocus, setItemFocus] = useState(null);
-
   const [renderItems, setRenderItems] = useState([]);
+  const { DISPLAYING } = ITEM_STATES;
 
-  const { NEW } = ITEM_STATES;
   useEffect(() => {
     const newItems = [];
     items && items.forEach(() => {
-      newItems.push(NEW);
+      newItems.push(DISPLAYING);
     });
     setRenderItems(newItems);
   }, []);
 
   const handleClick = (val) => {
-    // val && setCaption(val);
     val && val;
     setItemFocus(true);
-    // console.log('click')
   };
 
-  // const handleDrop = (dropLoc) => {
-  //   return true;
-  // };
+  const handleDrop = (dropLoc, id) => {
+    setCaption(caption + dropLoc);
+    const newRenders = [...renderItems];
+    newRenders[id] = dropLoc;
+    setRenderItems(newRenders);
+    return true;
+  };
 
   return (
     <div>
@@ -42,15 +43,15 @@ function GameWrapper(props) {
           discard
         </div>
         <div style={{width: 'inherit', height: 'inherit'}}>
-          {items.filter((item, id) => renderItems[id] === NEW).map((item) =>
+          {items.map((item, id) =>
             <DraggableWrapper
               key={Math.random()*1000}
               name={Math.random()*1000}
               click={() => handleClick(item.id)}
-              dropped={(dropLoc) => setCaption(caption + dropLoc)}>
+              dropped={(dropLoc) => handleDrop(dropLoc, id)}>
               {item}
             </DraggableWrapper>,
-          )}
+          ).filter((item, id) => renderItems[id] === DISPLAYING)}
         </div>
         <div id='keep'>
           keep

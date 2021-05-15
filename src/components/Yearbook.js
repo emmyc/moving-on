@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Yearbook.scss';
-
+import yearbookCoverImg from '../assets/yearbook_cover.jpeg';
 
 const Page = React.forwardRef(function Page(props, ref) {
   return (
@@ -137,8 +137,8 @@ function Yearbook() {
   return (
     <div className='yearbook-page'>
       <HTMLFlipBook
-        width={400}
-        height={600}
+        width={512}
+        height={640}
         size='stretch'
         minWidth={315}
         maxWidth={400}
@@ -152,19 +152,24 @@ function Yearbook() {
         ref={bookRef}
       >
         <Page>
-          <h1>Yearbook</h1>
+          <img className='cover-img' src={yearbookCoverImg} />
         </Page>
         {teams.map((team, index) => {
           return (
-            <Page key={'page'+index}>
+            <Page key={'page' + index}>
               <h1>{team.title}</h1>
               <div className='team-grid'>
                 {team.members.map((member, memIdx) => {
                   return (
-                    <div className='profile' key={`page${index}-member${memIdx}`}>
+                    <div
+                      className='profile'
+                      key={`page${index}-member${memIdx}`}
+                    >
                       <div className='fake-pic' />
-                      {member.name}<br />
-                      {member.year}<br />
+                      {member.name}
+                      <br />
+                      {member.year}
+                      <br />
                       {member.major}
                     </div>
                   );
@@ -179,8 +184,20 @@ function Yearbook() {
         <Page />
       </HTMLFlipBook>
 
-      <button className='flip-page-btn' onClick={goPrevPage} style={{ gridColumnStart: 1 }}>Prev Page</button>
-      <button className='flip-page-btn' onClick={goNextPage} style={{ gridColumnStart: 3 }}>Next Page</button>
+      <button
+        className='flip-page-btn'
+        onClick={goPrevPage}
+        style={{ gridColumnStart: 1 }}
+      >
+        Prev Page
+      </button>
+      <button
+        className='flip-page-btn'
+        onClick={goNextPage}
+        style={{ gridColumnStart: 3 }}
+      >
+        Next Page
+      </button>
     </div>
   );
 }

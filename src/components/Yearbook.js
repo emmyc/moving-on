@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Yearbook.scss';
-import yearbookCoverImg from '../assets/yearbook_cover.jpeg';
+import yearbookCoverImg from '../assets/yearbook-cover.jpeg';
 
 const Page = React.forwardRef(function Page(props, ref) {
   return (

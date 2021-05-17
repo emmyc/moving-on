@@ -19,9 +19,8 @@ function GameWrapper() {
     setRenderItems(newItems);
   }, []);
 
-  const handleClick = (val) => {
-    val && val;
-    setItemFocus(true);
+  const handleClick = (id) => {
+    setItemFocus(GAME_ITEMS[id].focus);
   };
 
   const handleDrop = (dropLoc, id) => {
@@ -35,10 +34,10 @@ function GameWrapper() {
 
   return (
     <div>
+      <div id='focus-content' onClick={() => {console.log('hi');}}>{itemFocus}</div>
       <div id='overlay' onClick={()=>setItemFocus(null)}
         style={{ display: itemFocus ? '' : 'none'}}
       >
-        {itemFocus}
       </div>
       <div id='audio-button'/>
       <div className='bound bound0'/>
@@ -54,7 +53,7 @@ function GameWrapper() {
             <DraggableWrapper
               key={Math.random()*1000}
               name={Math.random()*1000}
-              click={() => handleClick(item.id)}
+              click={() => handleClick(id)}
               dropped={(dropLoc) => handleDrop(dropLoc, id)}>
               {item.explore}
             </DraggableWrapper>,

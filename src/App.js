@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import GameWrapper from './components/GameWrapper';
 import IntroPage from './components/IntroPage';
-import Yearbook from './components/Yearbook';
 import Narrative from './components/Narrative';
+import Yearbook from './components/Yearbook';
 import YearbookIcon from './components/YearbookIcon';
 
 function App() {

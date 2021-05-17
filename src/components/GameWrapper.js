@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/GameWrapper.scss';
 import ITEM_STATES from '../constants.js';
+import { GAME_ITEMS } from '../Items';
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
-function GameWrapper(props) {
-  const items = props.children;
+function GameWrapper() {
   const [caption, setCaption] = useState('text text');
   const [itemFocus, setItemFocus] = useState(null);
   const [renderItems, setRenderItems] = useState([]);
@@ -13,7 +13,7 @@ function GameWrapper(props) {
 
   useEffect(() => {
     const newItems = [];
-    items && items.forEach(() => {
+    GAME_ITEMS && GAME_ITEMS.forEach(() => {
       newItems.push(DISPLAYING);
     });
     setRenderItems(newItems);
@@ -25,7 +25,8 @@ function GameWrapper(props) {
   };
 
   const handleDrop = (dropLoc, id) => {
-    setCaption(dropLoc);
+    const newCaption = dropLoc === 1 ? GAME_ITEMS[id].trashCaption : GAME_ITEMS[id].keepCaption;
+    setCaption(newCaption);
     const newRenders = [...renderItems];
     newRenders[id] = dropLoc;
     setRenderItems(newRenders);
@@ -40,7 +41,6 @@ function GameWrapper(props) {
         {itemFocus}
       </div>
       <div id='audio-button'/>
-      {/* <div id='yearbook-button'/> */}
       <div className='bound bound0'/>
       <span id='discard'>discard</span>
       <div className='bound bound1'/>
@@ -50,13 +50,13 @@ function GameWrapper(props) {
           discard
         </div>
         <div style={{width: 'inherit', height: 'inherit'}}>
-          {items.map((item, id) =>
+          {GAME_ITEMS.map((item, id) =>
             <DraggableWrapper
               key={Math.random()*1000}
               name={Math.random()*1000}
               click={() => handleClick(item.id)}
               dropped={(dropLoc) => handleDrop(dropLoc, id)}>
-              {item}
+              {item.explore}
             </DraggableWrapper>,
           ).filter((item, id) => renderItems[id] === DISPLAYING)}
         </div>

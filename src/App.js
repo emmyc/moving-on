@@ -20,14 +20,7 @@ function App() {
           </Route>
 
           <Route path='/explore'>
-            <GameWrapper>
-              <div>test</div>
-              <div>test2</div>
-              <p>
-                Hello World!<br />
-                I am draggable!
-              </p>
-            </GameWrapper>
+            <GameWrapper />
           </Route>
 
           <Route path='/narrative'>

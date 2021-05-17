@@ -12,6 +12,8 @@ function App() {
   return (
     <div className="App">
       <Router>
+        {/* TODO: remove placeholder audio button */}
+        <div id='audio-button'/>
         <YearbookIcon />
         <Switch>
 

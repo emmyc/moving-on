@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/GameWrapper.scss';
 import ITEM_STATES from '../constants.js';
-import { GAME_ITEMS } from '../Items';
+import { GAME_ITEMS } from '../GameItems';
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
 function GameWrapper() {
-  const [caption, setCaption] = useState('text text');
+  const [caption, setCaption] = useState('what should i look at next?');
   const [itemFocus, setItemFocus] = useState(null);
   const [renderItems, setRenderItems] = useState([]);
   const { DISPLAYING } = ITEM_STATES;
@@ -20,6 +20,7 @@ function GameWrapper() {
   }, []);
 
   const handleClick = (id) => {
+    setCaption(GAME_ITEMS[id].focusCaption);
     setItemFocus(GAME_ITEMS[id].focus);
   };
 
@@ -34,16 +35,15 @@ function GameWrapper() {
 
   return (
     <div>
+      {/* STATE_ZOOMED_IN */}
       <div id='focus-content' onClick={() => {console.log('hi');}}>{itemFocus}</div>
-      <div id='overlay' onClick={()=>setItemFocus(null)}
-        style={{ display: itemFocus ? '' : 'none'}}
-      >
-      </div>
-      <div id='audio-button'/>
+      <div id='overlay' onClick={()=>setItemFocus(null)} style={{ display: itemFocus ? '' : 'none'}} />
       <div className='bound bound0'/>
       <span id='discard'>discard</span>
       <div className='bound bound1'/>
       <span id='keep'>keep</span>
+
+      {/* STATE_EXPLORE */}
       <div id='item-display'>
         <div id='discard'>
           discard
@@ -63,6 +63,8 @@ function GameWrapper() {
           keep
         </div>
       </div>
+
+      {/* CAPTION */}
       <Caption caption={caption}/>
     </div>
   );

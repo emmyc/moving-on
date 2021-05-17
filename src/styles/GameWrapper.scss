@@ -25,7 +25,10 @@
 
 #focus-content {
   z-index: 20;
-  position: relative;
+  position: absolute;
+  // TODO: remove hardcoding!!
+  left: 500px;
+  top: 400px;
 }
 
 #item-display {

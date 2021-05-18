@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import GameWrapper from './components/GameWrapper';
+import IntroPage from './components/IntroPage';
+import Narrative from './components/Narrative';
+import Yearbook from './components/Yearbook';
+import YearbookIcon from './components/YearbookIcon';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <YearbookIcon />
+        <Switch>
+          <Route path='/yearbook'>
+            <Yearbook />
+          </Route>
+
+          <Route path='/explore'>
+            <GameWrapper>
+              <div>test</div>
+              <div>test2</div>
+              <p>
+                Hello World!
+                <br />I am draggable!
+              </p>
+            </GameWrapper>
+          </Route>
+
+          <Route path='/narrative'>
+            <Narrative />
+          </Route>
+
+          <Route path='/'>
+            <IntroPage />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

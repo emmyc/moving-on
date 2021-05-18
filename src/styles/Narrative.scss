@@ -1,0 +1,37 @@
+.page-container {
+    background-color:white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    text-align: left;*/
+    color: black;
+}
+
+.narrative-container {
+    /*background-color:white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;*/
+    /*align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    text-align: left;*/
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+
+.page-content {
+    width: 500px;
+}
+
+.prevButton {
+    height: 50px;
+}
+
+.nextButton {
+    height: 50px;
+}

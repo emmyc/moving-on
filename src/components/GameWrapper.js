@@ -8,6 +8,7 @@ import DraggableWrapper from './DraggableWrapper';
 function GameWrapper() {
   const [caption, setCaption] = useState('what should i look at next?');
   const [itemFocus, setItemFocus] = useState(null);
+  const [overlayColor, setOverlayColor] = useState('black');
   const [renderItems, setRenderItems] = useState([]);
   const { DISPLAYING } = ITEM_STATES;
 
@@ -22,6 +23,7 @@ function GameWrapper() {
   const handleClick = (id) => {
     setCaption(GAME_ITEMS[id].focusCaption);
     setItemFocus(GAME_ITEMS[id].focus);
+    setOverlayColor(GAME_ITEMS[id].overlayColor);
   };
 
   const handleDrop = (dropLoc, id) => {
@@ -37,7 +39,7 @@ function GameWrapper() {
     <div>
       {/* STATE_ZOOMED_IN */}
       <div id='focus-content' onClick={() => {console.log('hi');}}>{itemFocus}</div>
-      <div id='overlay' onClick={()=>setItemFocus(null)} style={{ display: itemFocus ? '' : 'none'}} />
+      <div id='overlay' onClick={()=>setItemFocus(null)} style={{ display: itemFocus ? '' : 'none', backgroundColor: overlayColor}} />
       <div className='bound bound0'/>
       <span id='discard'>discard</span>
       <div className='bound bound1'/>

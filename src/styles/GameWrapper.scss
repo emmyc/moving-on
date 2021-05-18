@@ -14,11 +14,11 @@
 }
 
 #overlay {
-  opacity: 0.1;
+  // opacity: 0.1;
   background-color: black;
   position: absolute;
   top: 0;
-  height: 100vh;
+  height: calc(100vh - 100px);
   width: 100vw;
   z-index: 10;
 }
@@ -27,8 +27,8 @@
   z-index: 20;
   position: absolute;
   // TODO: remove hardcoding!!
-  left: 500px;
-  top: 400px;
+  // left: 500px;
+  // top: 400px;
 }
 
 #item-display {

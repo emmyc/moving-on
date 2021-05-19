@@ -6,6 +6,10 @@ import IndexCardSVG from './assets/index-card.svg';
 import NintendoSVG from './assets/nintendo.svg';
 import DraggableWrapper from './components/DraggableWrapper';
 
+import SeashellPreview from './assets/seashell-preview.svg';
+
+import CookiePreview from './assets/cookie-preview.svg';
+
 export const GAME_ITEMS = [
   /*
     TEMPLATE:
@@ -36,11 +40,11 @@ export const GAME_ITEMS = [
     </>,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
-    focusCaption: 'owo whats this a cardboard box',
+    focusCaption: 'a pile of stuff relating to FIshing Friend; a keychain of Sailor, the game cartridge, and a note. click on each item to interact',
     overlayColor: 'rgba(31, 202, 48, 0.45)',
   },
   {
-    explore: <div>test2</div>,
+    explore: <img src={SeashellPreview} draggable='false' alt='SOMETHING' />,
     focus: <img src={Box} />,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
@@ -48,11 +52,7 @@ export const GAME_ITEMS = [
     overlayColor: 'rgba(118, 118, 118, 0.73)',
   },
   {
-    explore:
-    <p>
-      Hello World!<br />
-      I am draggable!
-    </p>,
+    explore: <img src={CookiePreview} draggable='false' alt='SOMETHING' />,
     focus: <img src={Box} />,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',

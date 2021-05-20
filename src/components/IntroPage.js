@@ -4,6 +4,7 @@ import '../styles/IntroPage.css';
 import boxIcon from '../assets/boxIcon.png';
 
 function IntroPage() {
+
     return (
         <div className="intro-page">
             <div className="title">

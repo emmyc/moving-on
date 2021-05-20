@@ -1,0 +1,55 @@
+.page-container {
+    background-color:white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //justify-content: center;
+    /*font-size: calc(10px + 2vmin);
+    text-align: left;*/
+    color: black;
+}
+
+.narrative-container {
+    /*background-color:white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;*/
+    /*align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    text-align: left;*/
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+
+.page-content {
+    position: absolute;
+    width: 1138px;
+    height: 750px;
+    left: 152px;
+    top: 147px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.button-container {
+    position: absolute;
+    width: 1344px;
+    left: 48px;
+    top: 283px;
+}
+
+.prevButton {
+    height: 50px;
+    margin-right: 1250px;
+}
+
+.nextButton {
+    height: 50px;
+}
+
+.progress-bar {
+    color: black;
+}

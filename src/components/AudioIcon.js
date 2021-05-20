@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import mute from '../icons/mute.svg';
 import unmute from '../icons/unmute.svg';
 
-function Audio() {
-  //switching icon from unmute to mute
+//this handles the audio icon, keeping the unmute image as a default and turning to the mute image when its off
+function AudioIcon() {
   const [toggle, setToggle]= useState(false);
   const toggler =() => {
     toggle ? setToggle(false):setToggle(true);
@@ -17,4 +17,4 @@ function Audio() {
     </div>
   );
 }
-export default Audio;
+export default AudioIcon;

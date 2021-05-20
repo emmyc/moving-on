@@ -1,6 +1,6 @@
 import React from 'react';
 import yearbookIcon from '../icons/yearbookIcon.svg';
-
+//this creates a yearbook icon that leads to the yearbook page
 function YearBookIcon() {
   //takes to the yearbook when clicked
   function handleClick(e) {

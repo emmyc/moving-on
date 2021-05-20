@@ -57,18 +57,47 @@ module.exports = {
           order: 'asc',
           caseInsensitive: true,
         },
-      ],
-  
-      // Don't leave log statements littering the premises!
-      'no-console': ['warn'],
-  
-      // Useless diff results
-      'no-trailing-spaces': ['error'],
-  
-      // Must use foo.bar instead of foo['bar'] if possible
-      'dot-notation': ['error'],
-  
-      // Are you sure | is not a typo for || ?
-      'no-bitwise': ['warn'],
-    },
-  };
+      },
+    ],
+
+    // Cannot import from the same module twice
+    'no-duplicate-imports': ['error'],
+
+    // Required spacing in property declarations (copied from TSLint, defaults are good)
+    'key-spacing': ['error'],
+
+    // Require semicolons
+    semi: ['error', 'always'],
+
+    // Don't unnecessarily quote properties
+    'quote-props': ['error', 'consistent-as-needed'],
+
+    // No multiple empty lines
+    'no-multiple-empty-lines': ['error'],
+
+    // Max line lengths
+    'max-len': [
+      'error',
+      {
+        code: 120,
+        ignoreUrls: true, // Most common reason to disable it
+        ignoreStrings: true, // These are not fantastic but necessary for error messages
+        ignoreTemplateLiterals: true,
+        ignoreComments: true,
+        ignoreRegExpLiterals: true,
+      },
+    ],
+
+    // Don't leave log statements littering the premises!
+    'no-console': ['warn'],
+
+    // Useless diff results
+    'no-trailing-spaces': ['error'],
+
+    // Must use foo.bar instead of foo['bar'] if possible
+    'dot-notation': ['error'],
+
+    // Are you sure | is not a typo for || ?
+    'no-bitwise': ['warn'],
+  },
+};

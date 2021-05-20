@@ -1,22 +1,16 @@
-import { React, useState } from 'react';
+import React from 'react';
 import './App.css';
-import ActionLinks from './ActionLinks.js';
+import AudioIcon from './components/AudioIcon';
 import IntroPageWrapper from './components/IntroPage';
-
 function App() {
-  const [toggle, setToggle] = useState(false);
-  const toggler = () => {
-    toggle ? setToggle(false) : setToggle(true);
-  };
-
   return (
-    <div className='App'>
+    <div>
+      <AudioIcon />
       <header>
-        <ActionLinks onClick={toggler} toggle={toggle} />
+        <IntroPageWrapper />
       </header>
       <IntroPageWrapper />
     </div>
   );
 }
-
 export default App;

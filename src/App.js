@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import AudioIcon from './components/AudioIcon';
 import GameWrapper from './components/GameWrapper';
 import IntroPage from './components/IntroPage';

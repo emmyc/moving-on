@@ -52,8 +52,8 @@ class Narrative extends React.Component {
                         Ahhh yes, freedom. Your friends always make fun of how many things were always
                         running on your computer. No wonder it whirred so much.
                     </p>
-                    <p>You&aposre excited to move back after a year in the city, but you remind yourself
-                        you&aposre not quite done packing for the summer.
+                    <p>You&apos;re excited to move back after a year in the city, but you remind yourself
+                        you&apos;re not quite done packing for the summer.
                     </p>
                 </div>
             </NarrativeContent>;
@@ -65,12 +65,12 @@ class Narrative extends React.Component {
             <NarrativeContent>
                 <div>
                     <p>You see your screensaver for the first time in what feels like months.
-                        It&aposs a photo of your hometown—one of those small towns with the quiet
+                        It&apos;s a photo of your hometown—one of those small towns with the quiet
                         beaches that tourists always overlook.
                     </p>
                     <p>
-                        You&aposre excited to move back after
-                        a year in the city, but you remind yourself you&aposre not quite done packing
+                        You&apos;re excited to move back after
+                        a year in the city, but you remind yourself you&apos;re not quite done packing
                         for the summer.
                     </p>
                 </div>

@@ -38,3 +38,11 @@
   top: 430px;
   right: 110px;
 }
+
+.audioIcon{
+  height : 50px;
+  align-items: right;
+  position:relative;
+  right:-10px;
+  top:10px;
+}

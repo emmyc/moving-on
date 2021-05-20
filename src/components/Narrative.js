@@ -12,11 +12,6 @@ function ProgressBar(props){
 
 class NarrativeContent extends React.Component {
 
-    // could also pass in page number here and render something different based on page number
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return(
             <div className="page-content">

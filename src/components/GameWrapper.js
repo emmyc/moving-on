@@ -44,7 +44,7 @@ function GameWrapper() {
         <div id='focus-content'>
           <span className='minimal-button top-right-pos x-btn' onClick={() => setFocusID(undefined)}>X</span>
           <span className='left-center-pos underline-item' onClick={() => { handleDrop(1, focusID); setFocusID(undefined); }}>discard</span>
-          <span className='underline-item right-center-pos' onClick={() => { handleDrop(2, focusID); setFocusID(undefined); }}>keep</span>
+          <span className='right-center-pos underline-item' onClick={() => { handleDrop(2, focusID); setFocusID(undefined); }}>keep</span>
           {GAME_ITEMS[focusID].focus}
         </div>
       }

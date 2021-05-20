@@ -10,6 +10,8 @@
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-draggable": "^4.4.3",
+    "react-pageflip": "^2.0.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.1"
@@ -23,7 +25,10 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "stylelint-config-sass-guidelines",
+      "eslint:recommended",
+      "plugin:react/recommended"
     ]
   },
   "browserslist": {
@@ -37,5 +42,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0"
   }
 }

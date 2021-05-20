@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import '../styles/IntroPage.css';
 import boxIcon from '../images/boxIcon.png';
 import Narrative from './Narrative.js';
 
 function IntroPage() {
+
     return (
         <div className="intro-page">
             <div className="title">
@@ -28,22 +29,4 @@ function IntroPage() {
     );
 }
 
-function IntroPageWrapper() {
-    return (
-        <Router>
-            <Switch>
-                <Route path='/narrative'>
-                    <Narrative />
-                </Route>
-                <Route path='/explore'>
-
-                </Route>
-                <Route path='/'>
-                    <IntroPage />
-                </Route>
-            </Switch>
-        </Router>
-    );
-}
-
-export default IntroPageWrapper;
+export default IntroPage;

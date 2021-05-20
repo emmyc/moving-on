@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from './assets/boxIcon.png';
 import FrogPreview from './assets/frog-preview.svg';
 import FrogSVG from './assets/frog.svg';
@@ -9,6 +9,29 @@ import DraggableWrapper from './components/DraggableWrapper';
 import SeashellPreview from './assets/seashell-preview.svg';
 
 import CookiePreview from './assets/cookie-preview.svg';
+
+
+function FocusElement(props) {
+  const [showFocusFocus, setShowFocusFocus] = useState(false);
+
+  return (
+    <>
+      <div className='over-focus'>
+        <DraggableWrapper click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
+          <img src={props.focusSVG} draggable='false' alt='index card' />
+        </DraggableWrapper>
+      </div>
+      {showFocusFocus &&
+        <div className={'background ' + props.cssImageClass}>
+          <div className={'frog-focus-focus ' + props.cssColorClass}>
+            <button className='left-center-pos minimal-button' onClick={() => setShowFocusFocus(false)}>go back</button>
+            <img src={props.focusFocusSVG} alt='index card' style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }} />
+          </div>
+        </div>
+      }
+    </>
+  );
+}
 
 export const GAME_ITEMS = [
   /*
@@ -27,20 +50,17 @@ export const GAME_ITEMS = [
   {
     explore: <img src={FrogPreview} draggable='false' alt='A Frog Keychain, Nintendo, and Index Card' />,
     focus:
-    <>
-      <DraggableWrapper>
-      <img src={IndexCardSVG} draggable='false' alt='index card'/>
-      </DraggableWrapper>
-      <DraggableWrapper>
-      <img src={NintendoSVG} draggable='false' alt='nintendo switch'/>
-      </DraggableWrapper>
-      <DraggableWrapper>
-      <img src={FrogSVG} draggable='false' alt='frog keychain'/>
-      </DraggableWrapper>
-    </>,
+      <>
+        <FocusElement focusSVG={IndexCardSVG} focusFocusSVG={IndexCardSVG}
+          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' />
+        <FocusElement focusSVG={NintendoSVG} focusFocusSVG={NintendoSVG}
+          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' />
+        <FocusElement focusSVG={FrogSVG} focusFocusSVG={FrogSVG}
+          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' />
+      </>,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
-    focusCaption: 'a pile of stuff relating to FIshing Friend; a keychain of Sailor, the game cartridge, and a note. click on each item to interact',
+    focusCaption: 'a pile of stuff relating to Fishing Friend; a keychain of Sailor, the game cartridge, and a note. click on each item to interact',
     overlayColor: 'rgba(31, 202, 48, 0.45)',
   },
   {

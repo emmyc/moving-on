@@ -38,3 +38,16 @@
   top: 430px;
   right: 110px;
 }
+
+.minimal-button {
+  border: none;
+  background: none;
+  font-family: 'B612', sans-serif;
+  font-size: calc(10px + 2vmin);
+  transition: 0.2s cubic-bezier(.08,.51,.95,.49);
+  cursor: pointer;
+}
+
+.minimal-button:hover {
+  transform: scale(1.1);
+}

@@ -30,9 +30,11 @@
   z-index: 20;
   position: absolute;
   width: 100vw;
+  height: calc(100vh - 100px);
   display: grid;
   grid-template-columns: repeat(6, 20%);
   align-items: center;
+  overflow: hidden;
   // TODO: remove hardcoding!!
   // left: 500px;
   // top: 400px;
@@ -45,7 +47,7 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 #yearbook-button {
@@ -77,15 +79,15 @@
 }
 
 // TODO: get rid of code duplication
-#focus-discard {
-  top: 600px;
-  left: 25px;
-}
+// #focus-discard {
+//   top: 600px;
+//   left: 25px;
+// }
 
-#focus-keep {
-  top: 600px;
-  right: 25px;
-}
+// #focus-keep {
+//   top: 600px;
+//   right: 25px;
+// }
 
 .underline-item {
   display: block;
@@ -94,6 +96,7 @@
   overflow: hidden;
   font-family: 'B612', sans-serif;
   font-size: calc(10px + 2vmin);
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -113,4 +116,65 @@
   .underline-item:hover::after{
     transform: translate3d(0, 0, 0);
   }
+}
+
+.frog-focus-focus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 100;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.left-center-pos {
+  position: absolute;
+  left: 10px;
+  top: 48vh;
+}
+
+.right-center-pos {
+  position: absolute;
+  right: 10px;
+  top: 48vh;
+}
+
+.top-right-pos {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.background {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.background-notebook-image {
+  background: url('../assets/frog-background.svg');
+}
+
+.frog-green-overlay {
+  background-color: rgba(31, 202, 48, 0.45);
+}
+
+.x-btn {
+  color: white;
+  font-weight: 1000;
+  font-size: 50px;
+  border-radius: 15px;
+  height: 60px;
+  width: 60px;
+  background: black;
+  border-radius: 30px;
+  text-align: center;
 }

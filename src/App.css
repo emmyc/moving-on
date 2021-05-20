@@ -38,3 +38,46 @@
   top: 430px;
   right: 110px;
 }
+.fadeInText {
+  display: inline-block;
+font-family: 'Farro', sans-serif;
+  font-style: normal;
+font-weight: normal;
+font-size: 25px;
+line-height: 34px;
+letter-spacing: 0.04em;
+  font-size: 27px;
+  color: black;
+  animation: fadeIn linear 2s;
+  -webkit-animation: fadeIn linear 2s;
+  -moz-animation: fadeIn linear 2s;
+  -o-animation: fadeIn linear 2s;
+  -ms-animation: fadeIn linear 2s;
+position: absolute;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}

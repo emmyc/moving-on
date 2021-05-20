@@ -47,13 +47,10 @@ class Narrative extends React.Component {
         if (this.state.pageNum <= 1) {
             content =
             <NarrativeContent>
-                <div>
+                <div className="fadeInText" >
                     <p>You sit down at your desk and close down all 40 of your tabs on your laptop.
                         Ahhh yes, freedom. Your friends always make fun of how many things were always
                         running on your computer. No wonder it whirred so much.
-                    </p>
-                    <p>You&apos;re excited to move back after a year in the city, but you remind yourself
-                        you&apos;re not quite done packing for the summer.
                     </p>
                 </div>
             </NarrativeContent>;
@@ -63,7 +60,7 @@ class Narrative extends React.Component {
             prev = <button className="prevButton" onClick={() => this.handlePrevClick()}>prev</button>;
             content =
             <NarrativeContent>
-                <div>
+                <div className="fadeInText">
                     <p>You see your screensaver for the first time in what feels like months.
                         It&apos;s a photo of your hometown—one of those small towns with the quiet
                         beaches that tourists always overlook.
@@ -81,11 +78,14 @@ class Narrative extends React.Component {
             prev = <button className="prevButton" onClick={() => this.handlePrevClick()}>prev</button>;
             content =
             <NarrativeContent>
-                <div>
+                <div className="fadeInText">
                     <p>Exhausted by your last final this morning, you collapse into bed for a
                         quick nap to recover from the excruciating exam.
                     </p>
                     <p>*Ding! Ding! Ding!*</p>
+                    <p>You groggily check your phone and see that your best friend from high school
+                     has texted you 13498 times in the past minute.
+                     You smile a little as you open up the chat—they always texted like that.</p>
                 </div>
             </NarrativeContent>;
             next = <Link to="/explore">

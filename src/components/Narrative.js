@@ -4,7 +4,9 @@ class Narrative extends React.Component {
     render() {
         return (
             <div className="intro-page">
-                <p>narrative page</p>
+      <header>
+        <p>narrative page</p>
+      </header>
             </div>
         );
     }

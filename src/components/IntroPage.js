@@ -12,7 +12,7 @@ function IntroPage() {
                         <p>moving (on)</p>
                     </div>
                     <div className="icon">
-                        <img src={boxIcon} height="150" width="150"></img>
+                        <img src={boxIcon} height="150" width="150" alt="box"></img>
                     </div>
                     <div className="options">
                         <div>

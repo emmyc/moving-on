@@ -38,18 +38,21 @@ function GameWrapper() {
   return (
     <div>
       {/* STATE_ZOOMED_IN */}
-      <div id='focus-content' onClick={() => {console.log('hi');}}>{itemFocus}</div>
+      {itemFocus &&
+        <div id='focus-content' onClick={() => {console.log('hi');}}>
+          <span id='focus-discard' className='underline-item'>discard</span>
+          <span id='focus-keep' className='underline-item'>keep</span>
+          {itemFocus}
+        </div>
+      }
       <div id='overlay' onClick={()=>setItemFocus(null)} style={{ display: itemFocus ? '' : 'none', backgroundColor: overlayColor}} />
-      <div className='bound bound0'/>
-      <span id='discard'>discard</span>
-      <div className='bound bound1'/>
-      <span id='keep'>keep</span>
 
       {/* STATE_EXPLORE */}
       <div id='item-display'>
-        <div id='discard'>
-          discard
-        </div>
+        <div className='bound bound0'/>
+        <span id='discard'>discard</span>
+        <div className='bound bound1'/>
+        <span id='keep'>keep</span>
         <div style={{width: 'inherit', height: 'inherit'}}>
           {GAME_ITEMS.map((item, id) =>
             <DraggableWrapper
@@ -60,9 +63,6 @@ function GameWrapper() {
               {item.explore}
             </DraggableWrapper>,
           ).filter((item, id) => renderItems[id] === DISPLAYING)}
-        </div>
-        <div id='keep'>
-          keep
         </div>
       </div>
 

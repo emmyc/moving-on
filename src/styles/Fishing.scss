@@ -1,0 +1,14 @@
+#game {
+  display: grid;
+  grid-template-columns: 202px 231px 168px;
+  grid-template-rows: 217px 72px 52px;
+  grid-template-areas:
+      ". . . "
+      ". boat boat"
+      "water water water";
+  background-color: #fafaaa
+}
+
+#page > water {
+  grid-area: water;  
+}

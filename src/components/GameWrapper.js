@@ -39,7 +39,7 @@ function GameWrapper() {
     <div>
       {/* STATE_ZOOMED_IN */}
       {itemFocus &&
-        <div id='focus-content' onClick={() => {console.log('hi');}}>
+        <div id='focus-content' onClick={() => setItemFocus(null)}>
           <span id='focus-discard' className='underline-item'>discard</span>
           <span id='focus-keep' className='underline-item'>keep</span>
           {itemFocus}
@@ -56,7 +56,7 @@ function GameWrapper() {
         <div style={{width: 'inherit', height: 'inherit'}}>
           {GAME_ITEMS.map((item, id) =>
             <DraggableWrapper
-              key={Math.random()*1000}
+              key={id}
               name={Math.random()*1000}
               click={() => handleClick(id)}
               dropped={(dropLoc) => handleDrop(dropLoc, id)}>

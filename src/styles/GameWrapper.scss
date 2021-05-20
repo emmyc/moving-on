@@ -29,6 +29,10 @@
 #focus-content {
   z-index: 20;
   position: absolute;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(6, 20%);
+  align-items: center;
   // TODO: remove hardcoding!!
   // left: 500px;
   // top: 400px;

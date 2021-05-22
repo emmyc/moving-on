@@ -59,7 +59,6 @@ class Narrative extends React.Component {
             </NarrativeContent>;
             next = <div><img src={rightArrow} onClick={() => this.handleNextClick()} style={{height: '50px', position: 'absolute', top: '100px', right: '7px'}}/>
             </div>;
-            //<button style={{height: '50px', position: 'absolute', top: '5px', right: '7px'}} onClick={() => this.handleNextClick()}>next</button>;
         }
         else if (this.state.pageNum === 2) {
             prev =<div><img src={leftArrow} onClick={() => this.handlePrevClick()} style={{height: '50px', position: 'absolute', top: '100px', left: '7px'}}/>

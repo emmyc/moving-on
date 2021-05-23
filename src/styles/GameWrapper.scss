@@ -1,5 +1,5 @@
 /* font imported inside public/index.html */
-#caption {
+.caption {
   background-color: #242A48;
   min-height: 100px;
   display: flex;
@@ -18,7 +18,7 @@
 
 #overlay {
   // opacity: 0.1;
-  background-color: black;
+  // background-color: black;
   position: absolute;
   top: 0;
   height: calc(100vh - 100px);
@@ -30,9 +30,10 @@
   z-index: 20;
   position: absolute;
   width: 100vw;
-  height: calc(100vh - 100px);
+  // height: calc(100vh - 100px);
   display: grid;
   grid-template-columns: repeat(6, 20%);
+  grid-template-rows: calc(100vh - 100px) 100px;
   align-items: center;
   overflow: hidden;
   // TODO: remove hardcoding!!
@@ -167,6 +168,16 @@
   background-color: rgba(31, 202, 48, 0.45);
 }
 
+.fortune-pink-overlay {
+  background-color: #D76CAC;
+  opacity: 0.8;
+}
+
+.seashell-blue-overlay {
+  background-color: #519FA4;
+  opacity: 0.8;
+}
+
 .x-btn {
   color: white;
   font-weight: 1000;
@@ -177,4 +188,9 @@
   background: black;
   border-radius: 30px;
   text-align: center;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
 }

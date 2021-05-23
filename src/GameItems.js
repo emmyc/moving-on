@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Caption from './components/Caption';
 import Box from './assets/boxIcon.png';
 import FrogPreview from './assets/frog-preview.svg';
 import FrogSVG from './assets/frog.svg';
@@ -22,17 +23,23 @@ function FocusElement(props) {
         </DraggableWrapper>
       </div>
       {showFocusFocus &&
-        <div className={'background ' + props.cssImageClass}>
-          <div className={'frog-focus-focus ' + props.cssColorClass}>
-            <button className='left-center-pos minimal-button' onClick={() => setShowFocusFocus(false)}>go back</button>
-            <img src={props.focusFocusSVG} alt='index card' style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }} />
+        <>
+          <div className={'background ' + props.cssImageClass}>
+            <div className={'frog-focus-focus ' + props.cssColorClass}>
+              <button className='left-center-pos minimal-button' onClick={() => setShowFocusFocus(false)}>go back</button>
+              <img src={props.focusFocusSVG} alt='index card' style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }} />
+            </div>
           </div>
-        </div>
+          {props.focusCaption !== undefined &&
+            <Caption caption={props.focusCaption} />
+          }
+        </>
       }
     </>
   );
 }
 
+const FISHING_FRIEND_HR_TXT = 'Fishing Friend.. you\'re pretty sure you have 1000+ hours on this baby';
 export const GAME_ITEMS = [
   /*
     TEMPLATE:
@@ -52,16 +59,17 @@ export const GAME_ITEMS = [
     focus:
       <>
         <FocusElement focusSVG={IndexCardSVG} focusFocusSVG={IndexCardSVG}
-          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' />
+          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
         <FocusElement focusSVG={NintendoSVG} focusFocusSVG={NintendoSVG}
-          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' />
+          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
         <FocusElement focusSVG={FrogSVG} focusFocusSVG={FrogSVG}
-          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' />
+          cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
       </>,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
     focusCaption: 'a pile of stuff relating to Fishing Friend; a keychain of Sailor, the game cartridge, and a note. click on each item to interact',
-    overlayColor: 'rgba(31, 202, 48, 0.45)',
+    // overlayColor: 'rgba(31, 202, 48, 0.45)',
+    background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },
   {
     explore: <img src={SeashellPreview} draggable='false' alt='SOMETHING' />,
@@ -69,7 +77,7 @@ export const GAME_ITEMS = [
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
     focusCaption: 'owo whats this a cardboard box',
-    overlayColor: 'rgba(118, 118, 118, 0.73)',
+    background: <div className='background-notebook-image full-size'><div className='seashell-blue-overlay full-size' /></div>,
   },
   {
     explore: <img src={CookiePreview} draggable='false' alt='SOMETHING' />,
@@ -77,6 +85,6 @@ export const GAME_ITEMS = [
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
     focusCaption: 'owo whats this a cardboard box',
-    overlayColor: 'rgba(118, 118, 118, 0.73)',
+    background: <div className='background-notebook-image full-size'><div className='fortune-pink-overlay full-size' /></div>,
   },
 ];

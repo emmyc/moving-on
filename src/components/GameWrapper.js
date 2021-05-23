@@ -9,7 +9,8 @@ function GameWrapper() {
   const [caption, setCaption] = useState('what should i look at next?');
   // const [itemFocus, setItemFocus] = useState(null);
   const [focusID, setFocusID] = useState(undefined);
-  const [overlayColor, setOverlayColor] = useState('black');
+  // const [overlayColor, setOverlayColor] = useState('black');
+  const [overlayBackground, setOverlayBackground] = useState();
   const [renderItems, setRenderItems] = useState([]);
   const { DISPLAYING } = ITEM_STATES;
 
@@ -24,8 +25,9 @@ function GameWrapper() {
   const handleClick = (id) => {
     setCaption(GAME_ITEMS[id].focusCaption);
     // setItemFocus(GAME_ITEMS[id].focus);
+    setOverlayBackground(GAME_ITEMS[id].background);
     setFocusID(id);
-    setOverlayColor(GAME_ITEMS[id].overlayColor);
+    // setOverlayColor(GAME_ITEMS[id].overlayColor);
   };
 
   const handleDrop = (dropLoc, id) => { //discard or keep based on dropLoc ( 1 == discard, 2 == keep)
@@ -48,7 +50,9 @@ function GameWrapper() {
           {GAME_ITEMS[focusID].focus}
         </div>
       }
-      <div id='overlay' onClick={() => setFocusID(undefined)} style={{ display: focusID !== undefined ? '' : 'none', backgroundColor: overlayColor }} />
+      <div id='overlay' onClick={() => setFocusID(undefined)} style={{ display: focusID !== undefined ? '' : 'none' }}>
+        {overlayBackground}
+      </div>
 
       {/* STATE_EXPLORE */}
       <div id='item-display'>

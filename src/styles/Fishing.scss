@@ -1,3 +1,18 @@
+#cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  min-width: 601px;
+  min-height: 341px;
+}
+
 #game {
   display: grid;
   grid-template-columns: 202px 231px 168px;
@@ -6,9 +21,24 @@
       ". . . "
       ". boat boat"
       "water water water";
-  background-color: #fafaaa
+  background-color: #fafaaa;
+  background-image: url('../assets/fishback.png');
 }
 
 #page > water {
-  grid-area: water;  
+    grid-area: water;
+    transforms: translateX(100%);
+    animation: wave 30s linear infinite
+}
+
+#water {
+    grid-area: water;
+}
+
+#boat {
+  grid-area: boat;
+}
+
+@keyframes wave {
+    to { transform: translateX(-100%); }
 }

@@ -6,11 +6,10 @@ import FrogSVG from './assets/frog.svg';
 import IndexCardSVG from './assets/index-card.svg';
 import NintendoSVG from './assets/nintendo.svg';
 import DraggableWrapper from './components/DraggableWrapper';
-
 import SeashellPreview from './assets/seashell-preview.svg';
-
 import CookiePreview from './assets/cookie-preview.svg';
-
+import FieldbookPreview from './assets/fieldbook_icon.png';
+import Fieldbook from './components/Fieldbook';
 
 function FocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);
@@ -86,5 +85,14 @@ export const GAME_ITEMS = [
     keepCaption: 'i could never give this away!',
     focusCaption: 'owo whats this a cardboard box',
     background: <div className='background-notebook-image full-size'><div className='fortune-pink-overlay full-size' /></div>,
+  },
+  /*fieldbook*/
+  {
+    explore: <img src={FieldbookPreview} draggable='false' alt='SOMETHING' />,
+    focus: <Fieldbook/>,
+    trashCaption: 'how the years have gone by...',
+    keepCaption: 'i could never give this away!',
+    focusCaption: 'owo whats this a cardboard box',
+    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue0-overlay full-size' /></div>,
   },
 ];

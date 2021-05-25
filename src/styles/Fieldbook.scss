@@ -1,0 +1,26 @@
+.fieldbook-page {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    width: 100%;
+    height: 80vh;
+  }
+  
+  .fieldbook {
+    grid-column: 2;
+    width: fit-content;
+    margin: auto;
+  }
+  
+  .page {
+    outline: none;
+    //opacity: 1;
+    background: white;
+  }
+  
+  .flip-page-btn {
+    width: fit-content;
+    height: fit-content;
+    grid-row-start: 1;
+    margin: auto;
+    // margin-top: 50%;
+  }

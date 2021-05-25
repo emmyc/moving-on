@@ -1,6 +1,6 @@
 import React from 'react';
 import FadeIn from 'react-fade-in';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import '../styles/Narrative.scss';
 import leftArrow from '../assets/leftArrow.svg';
 import rightArrow from '../assets/rightArrow.svg';
@@ -31,6 +31,7 @@ class Narrative extends React.Component {
         this.numPages = 3;
         this.state = {
             pageNum: 1,
+            submitted: false,
         };
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
@@ -51,6 +52,8 @@ class Narrative extends React.Component {
     handleNextClick() {
         if (this.state.pageNum < this.numPages)
             this.setState({ pageNum: this.state.pageNum + 1 });
+        else
+            this.setState({submitted: true});
     }
 
     handleKeyDown(event) {
@@ -61,6 +64,8 @@ class Narrative extends React.Component {
         else if(event.keyCode === 39) {
             if (this.state.pageNum < this.numPages)
                 this.setState({ pageNum: this.state.pageNum + 1 });
+            else
+                this.setState({submitted: true});
         }
     }
 
@@ -118,25 +123,30 @@ class Narrative extends React.Component {
                      You smile a little as you open up the chat—they always texted like that.</p></FadeIn>
                     </div>
                 </NarrativeContent>;
-            next = <div><Link to="/explore">
-                <img src={rightArrow} style={{ height: '50px', position: 'absolute', top: '100px', right: '7px' }} /></Link>
-            </div>;
+            next = <div><img src={rightArrow} onClick={() => this.handleNextClick()} style={{ height: '50px', position: 'absolute', top: '100px', right: '7px' }} /></div>;
         }
-        return (
-            <div className="page-container">
-                <Link to="/explore">
-                    <button>skip</button>
-                </Link>
-                <ProgressBar style={{ position: 'absolute', width: '1138px', height: '12px', left: '170px', top: '887px' }} value={(this.state.pageNum / this.numPages) * 100}></ProgressBar>
-                <div className="narrative-container">
-                    {content}
+        if (this.state.submitted) {
+            return (
+                <Redirect to="/explore" />
+            );
+        }
+        else {
+            return (
+                <div className="page-container">
+                    <Link to="/explore">
+                        <button>skip</button>
+                    </Link>
+                    <ProgressBar style={{ position: 'absolute', width: '1138px', height: '12px', left: '170px', top: '887px' }} value={(this.state.pageNum / this.numPages) * 100}></ProgressBar>
+                    <div className="narrative-container">
+                        {content}
+                    </div>
+                    <div className="button-container">
+                        {prev}
+                        {next}
+                    </div>
                 </div>
-                <div className="button-container">
-                    {prev}
-                    {next}
-                </div>
-            </div>
-        );
+            );
+        }
     }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {  Link } from 'react-router-dom';
-import '../styles/IntroPage.css';
+import '../styles/IntroPage.scss';
 import boxIcon from '../assets/boxIcon.png';
 
 function IntroPage() {

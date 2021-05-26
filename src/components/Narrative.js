@@ -77,7 +77,7 @@ class Narrative extends React.Component {
             content =
                 <NarrativeContent>
                     <div className='fadeInText'>
-                        <FadeIn><p>You sit down at your desk and close down all 40 of your tabs on your laptop.
+                        <FadeIn transitionDuration="1000"><p>You sit down at your desk and close down all 40 of your tabs on your laptop.
                         Ahhh yes, freedom. Your friends always make fun of how many things were always
                         running on your computer. No wonder it whirred so much.</p></FadeIn>
                     </div>
@@ -91,7 +91,7 @@ class Narrative extends React.Component {
             content =
                 <NarrativeContent>
                     <div className='fadeInText'>
-                        <FadeIn> <p>
+                        <FadeIn transitionDuration="1000"> <p>
                             You see your screensaver for the first time in what feels like months.
                             It&apos;s a photo of your hometown—one of those small towns with the quiet
                             beaches that tourists always overlook.
@@ -110,8 +110,8 @@ class Narrative extends React.Component {
             content =
                 <NarrativeContent>
                     <div className='fadeInText'>
-                        <FadeIn> <p></p></FadeIn>
-                        <FadeIn> <p>Exhausted by your last final this morning, you collapse into bed for a
+                        <FadeIn transitionDuration="1000"> <p></p></FadeIn>
+                        <FadeIn transitionDuration="1000"> <p>Exhausted by your last final this morning, you collapse into bed for a
                         quick nap to recover from the excruciating exam.
                         <br />
                             <br />

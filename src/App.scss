@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.bound {
+  border: 2px solid black;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url('./assets/dropbox.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+  z-index: -1;
+}
+
+.bound0 {
+  top: 400px;
+  left: 0px;
+}
+
+.bound1 {
+  top: 400px;
+  right: 0px;
+}
+
+#discard {
+  position: fixed;
+  top: 430px;
+  left: 110px;
+}
+
+#keep {
+  position: fixed;
+  top: 430px;
+  right: 110px;
+}
+
+.audioIcon {
+  height: 40px;
+  width: auto;
+  position: absolute;
+  left: 40px;
+  top: 20px;
+}

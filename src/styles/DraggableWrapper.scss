@@ -1,8 +1,11 @@
 .draggable-wrapper {
   height: fit-content;
   width: fit-content;
+  box-sizing: border-box;
   border-radius: 20px;
   margin: 1%;
+  padding: 1%;
   display: inline-block;
   cursor: pointer;
+  overflow: hidden;
 }

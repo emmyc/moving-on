@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Fieldbook.scss';
+import '../styles/Yearbook.scss';
 import back from '../assets/fieldbook/back.jpeg';
 import cover from '../assets/fieldbook/cover.jpeg';
 import fish1 from '../assets/fieldbook/fish1.jpeg';
@@ -86,9 +87,12 @@ function Fieldbook() {
           );
         })}
       </HTMLFlipBook>
-
-      <button className='fflip-page-btn' onClick={goPrevPage} style={{ gridColumnStart: 1 }}>Prev Page</button>
-      <button className='fflip-page-btn' onClick={goNextPage} style={{ gridColumnStart: 3 }}>Next Page</button>
+      <div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
+          chevron_left
+      </div>
+      <div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
+          chevron_right
+      </div>
     </div>
   );
 }

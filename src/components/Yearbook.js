@@ -178,9 +178,12 @@ function Yearbook() {
         </Page>
         <Page />
       </HTMLFlipBook>
-
-      <button className='flip-page-btn' onClick={goPrevPage} style={{ gridColumnStart: 1 }}>Prev Page</button>
-      <button className='flip-page-btn' onClick={goNextPage} style={{ gridColumnStart: 3 }}>Next Page</button>
+      <div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
+          chevron_left
+      </div>
+      <div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
+          chevron_right
+      </div>
     </div>
   );
 }

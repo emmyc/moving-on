@@ -2,16 +2,7 @@ import React, { useRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Fieldbook.scss';
 import '../styles/Yearbook.scss';
-import back from '../assets/fieldbook/back.jpeg';
-import cover from '../assets/fieldbook/cover.jpeg';
-import fish1 from '../assets/fieldbook/fish1.jpeg';
-import fish2 from '../assets/fieldbook/fish2.jpeg';
-import hermit1 from '../assets/fieldbook/hermit1.jpeg';
-import hermit2 from '../assets/fieldbook/hermit2.jpeg';
-import sandcrab1 from '../assets/fieldbook/sandcrab1.jpeg';
-import sandcrab2 from '../assets/fieldbook/sandcrab2.jpeg';
-import seal1 from '../assets/fieldbook/seal1.jpeg';
-import seal2 from '../assets/fieldbook/seal2.jpeg';
+import tester from '../assets/foodjournal/prototype.jpg'; /*for testing purposess*/
 
 
 const Page = React.forwardRef(function Page(props, ref) {
@@ -22,7 +13,7 @@ const Page = React.forwardRef(function Page(props, ref) {
   );
 });
 
-function Fieldbook() {
+function FoodJournal() {
   const bookRef = useRef();
 
   const goNextPage = () => {
@@ -34,46 +25,46 @@ function Fieldbook() {
   };
   const pages = [
     {
-      image: cover,
+      image: tester,
     },
     {
-      image: hermit1,
+      image: tester,
     },
     {
-      image: hermit2,
+      image: tester,
     },
     {
-      image: seal1,
+      image: tester,
     },
     {
-      image: seal2,
+      image: tester,
     },
     {
-      image: fish1,
+      image: tester,
     },
     {
-      image: fish2,
+      image: tester,
     },
     {
-      image: sandcrab1,
+      image: tester,
     },
     {
-      image: sandcrab2,
+      image: tester,
     },
     {
-      image: back,
+      image: tester,
     },
   ];
   return (
     <div className='fieldbook-page'>
       <HTMLFlipBook
-        width={480}
-        height={583}
+        width={450}
+        height={585}
         size='stretch'
-        minWidth={480}
-        maxWidth={480}
-        minHeight={583}
-        maxHeight={583}
+        minWidth={450}
+        maxWidth={450}
+        minHeight={585}
+        maxHeight={585}
         showCover={true}
         mobileScrollSupport={true}
         className='fieldbook'
@@ -96,4 +87,4 @@ function Fieldbook() {
     </div>
   );
 }
-export default Fieldbook;
+export default FoodJournal;

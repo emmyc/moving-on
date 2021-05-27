@@ -13,6 +13,8 @@ import SeashellPreview from './assets/seashell-preview.svg';
 import CookiePreview from './assets/cookie-preview.svg';
 import FieldbookPreview from './assets/fieldbook_icon.png';
 import Fieldbook from './components/Fieldbook';
+import FoodJournal from './components/FoodJournal';
+import FoodIcon from './assets/fooddiary_icon.png';
 
 function FocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);
@@ -99,5 +101,13 @@ export const GAME_ITEMS = [
     keepCaption: 'I can\'t believe she drew all these pictures for me. It was so sweet. I\'ll keep this for the memories. Maybe our paths will cross again someday.',
     focusCaption: 'Oh my goodness, I haven\'t opened this up since we broke up.',
     background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size' /></div>,
+  },
+  {
+    explore: <img src={FoodIcon} draggable='false' alt='SOMETHING' />,
+    focus: <FoodJournal/>,
+    trashCaption: 'i\'m not hungry',
+    keepCaption: 'munch munch',
+    focusCaption: 'food is so good',
+    background: <div className='background-notebook-image full-size'><div className='foodjournal-green-overlay full-size' /></div>,
   },
 ];

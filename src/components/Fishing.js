@@ -2,12 +2,20 @@ import React, {useEffect, useState, useRef} from 'react';
 import '../styles/Fishing.scss';
 import Water from '../assets/fishwater.png';
 import Boat from '../assets/fishboat.png';
+import Frog from '../assets/fishfrog1.png';
+import Frogbob from '../assets/fishfrog2.png';
+import Frogtug from '../assets/fishfrog3.png';
+import Frogcaught from '../assets/fishfrog4.png';
+import Textleft from '../assets/fishtl.png';
+import Textright from '../assets/fishtr.png';
 
 function Fishing() {
 
   var hc = 0;
   var alast = false;
   const [gameState, setGameState] = useState('Initial');
+  const [froggy, setFroggy] = useState(Frog);
+  const [textCount, setTextCount] = useState(1);
   const hookRef = useRef(hc);
   const adRef = useRef(alast);
 
@@ -60,14 +68,31 @@ function Fishing() {
     }
   };
 
+  let handleClick = () => {
+    if(gameState == 'Initial' || gameState == 'Cast' || gameState == 'Fin'){
+      updateState();
+    }
+  };
+
   useEffect(() => {
     var bobTimer = null;
     var hookTimer = null;
-    if(gameState == 'Bob') {
+    if(gameState == 'Initial') {
+      setFroggy(Frog);
+    //} else if(gameState == 'Cast') {
+
+    } else if(gameState == 'Bob') {
+      setFroggy(Frogbob);
       bobTimer = setTimeout(() => updateState(), 5000);
-    }
-    if(gameState == 'Hook') {
-      hookTimer = setTimeout(() => hookFunc(), 5000);
+    } else if(gameState == 'Hook') {
+      setFroggy(Frogtug);
+      hookTimer = setTimeout(() => hookFunc(), 1500);
+      setTextCount(2);
+    } else if(gameState == 'Fin') {
+      setFroggy(Frogcaught);
+      hc = 0;
+      hookRef.current = hc;
+      setTextCount(3);
     }
 
     return () => {
@@ -82,9 +107,13 @@ function Fishing() {
 
   return (
     <div id='cont'>
-      <div id='game' onClick={updateState} onKeyDown={handleKeyPress} tabIndex="0">
-      <img src={Boat} id='boat'/>
+      <div id='game' onClick={handleClick} onKeyDown={handleKeyPress} tabIndex="0">
+        <img src={Boat} id='boat'/>
         <img src={Water} id='water'/>
+        <img src={Water} id='water2'/>
+        <img src={froggy} id='frog'/>
+        <img src={Textleft} id={'leftext' + textCount}/>
+        <img src={Textright} id={'rightext' + textCount}/>
       </div>
     </div>
   );

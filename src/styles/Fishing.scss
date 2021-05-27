@@ -16,29 +16,104 @@
 #game {
   display: grid;
   grid-template-columns: 202px 231px 168px;
-  grid-template-rows: 217px 72px 52px;
+  grid-template-rows: 66px 151px 72px 52px;
   grid-template-areas:
-      ". . . "
+      "left . right"
+      ". frog . "
       ". boat boat"
       "water water water";
   background-color: #fafaaa;
   background-image: url('../assets/fishback.png');
+  overflow: hidden;
 }
 
 #page > water {
-    grid-area: water;
-    transforms: translateX(100%);
-    animation: wave 30s linear infinite
+  grid-area: water;
+  transforms: translateX(100%);
+  animation: wave 30s linear infinite
+}
+
+#frog {
+    grid-area: frog;
 }
 
 #water {
     grid-area: water;
+    animation: wave 30s linear infinite
+}
+
+#water2 {
+    grid-area: water;
+    transform: translateX(100%);
+    animation: wave2 30s linear infinite
 }
 
 #boat {
-  grid-area: boat;
+  grid-area: boat-start / boat-start / water-end / boat-end;
+}
+
+#leftext1 {
+  grid-area: left-start / left-start / water-end / left-end;
+  transform: translateY(100%);
+  animation: lt1 0.2s linear;
+  animation-fill-mode: forwards;
+}
+
+#rightext1 {
+  grid-area: right-start / right-start / water-end / boat-end;
+  transform: translateY(100%);
+  animation: lt1 0.2s linear;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+#leftext2 {
+  grid-area: left-start / left-start / water-end / left-end;
+  transform: translateY(70%);
+  animation: lt2 0.2s linear;
+  animation-fill-mode: forwards;
+}
+
+#rightext2 {
+  grid-area: right-start / right-start / water-end / boat-end;
+  transform: translateY(70%);
+  animation: lt2 0.2s linear;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+#leftext3 {
+  grid-area: left-start / left-start / water-end / left-end;
+  transform: translateY(40%);
+  animation: lt3 0.2s linear;
+  animation-fill-mode: forwards;
+}
+
+#rightext3 {
+  grid-area: right-start / right-start / water-end / boat-end;
+  transform: translateY(40%);
+  animation: lt3 0.2s linear;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes wave {
-    to { transform: translateX(-100%); }
+  to { transform: translateX(-100%); }
 }
+
+@keyframes wave2 {
+  to { transform: translateX(0%); }
+}
+
+@keyframes lt1 {
+  to { transform: translateY(70%); }
+}
+
+@keyframes lt2 {
+  to { transform: translateY(40%); }
+}
+
+@keyframes lt3 {
+  to { transform: translateY(0%); }
+}
+

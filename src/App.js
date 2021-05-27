@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.scss';
+import AudioIcon from './components/AudioIcon';
 import GameWrapper from './components/GameWrapper';
 import IntroPage from './components/IntroPage';
 import Narrative from './components/Narrative';
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className='App'>
       <Router>
+        <AudioIcon />
         <YearbookIcon />
         <Switch>
           <Route path='/yearbook'>
@@ -40,5 +42,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

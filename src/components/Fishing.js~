@@ -1,0 +1,11 @@
+import React, {useEffect, useState} from 'react';
+
+export default function Fishing(props) {
+
+
+  return (
+    <div>
+      <h1>fishyfish</h1>
+    </div>
+  );
+}

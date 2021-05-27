@@ -61,14 +61,14 @@ export const GAME_ITEMS = [
   {
     explore: <img src={FrogPreview} draggable='false' alt='A Frog Keychain, Nintendo, and Index Card' />,
     focus:
-      <>
+      <div className='frog-focus'>
         <FocusElement focusSVG={IndexCardSVG} focusFocusSVG={IndexCardSVG}
           cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
         <NintendoFocusElement focusSVG={NintendoSVG}
           cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
         <FocusElement focusSVG={FrogSVG} focusFocusSVG={FrogSVG}
           cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
-      </>,
+      </div>,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
     focusCaption: 'a pile of stuff relating to Fishing Friend; a keychain of Sailor, the game cartridge, and a note. click on each item to interact',

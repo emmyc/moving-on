@@ -30,15 +30,14 @@
   z-index: 20;
   position: absolute;
   width: 100vw;
-  // height: calc(100vh - 100px);
   display: grid;
-  grid-template-columns: repeat(6, 20%);
   grid-template-rows: calc(100vh - 100px) 100px;
   align-items: center;
   overflow: hidden;
-  // TODO: remove hardcoding!!
-  // left: 500px;
-  // top: 400px;
+
+  * {
+    margin: auto;
+  }
 }
 
 #item-display {
@@ -120,6 +119,15 @@
   .underline-item:hover::after{
     transform: translate3d(0, 0, 0);
   }
+}
+
+.frog-focus {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(6, 20%);
+  grid-template-rows: calc(100vh - 100px) 100px;
+  align-items: center;
+  overflow: hidden;
 }
 
 .frog-focus-focus {

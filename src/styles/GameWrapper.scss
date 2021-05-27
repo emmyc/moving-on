@@ -95,6 +95,9 @@
   position: fixed;
   padding: 0.2em 0;
   overflow: hidden;
+  background: none;
+  outline: none;
+  border: none;
   font-family: 'B612', sans-serif;
   font-size: calc(10px + 2vmin);
   cursor: pointer;
@@ -162,6 +165,9 @@
 
 .background-notebook-image {
   background: url('../assets/frog-background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .frog-green-overlay {

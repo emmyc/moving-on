@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Caption from './components/Caption';
+import NintendoFocusElement from './components/NintendoFocusElement';
+import SeashellsFocusElement from './components/SeashellsFocusElement';
+
 import Box from './assets/boxIcon.png';
 import FrogPreview from './assets/frog-preview.svg';
 import FrogSVG from './assets/frog.svg';
@@ -25,8 +28,10 @@ function FocusElement(props) {
         <>
           <div className={'background ' + props.cssImageClass}>
             <div className={'frog-focus-focus ' + props.cssColorClass}>
-              <button className='left-center-pos minimal-button' onClick={() => setShowFocusFocus(false)}>go back</button>
-              <img src={props.focusFocusSVG} alt='index card' style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }} />
+              <button className='left-center-pos underline-item' onClick={() => setShowFocusFocus(false)}>go back</button>
+              <img src={props.focusFocusSVG} alt={'A picture of '+props.focusFocusSVG} draggable='false'
+                // style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }}
+                />
             </div>
           </div>
           {props.focusCaption !== undefined &&
@@ -59,7 +64,7 @@ export const GAME_ITEMS = [
       <>
         <FocusElement focusSVG={IndexCardSVG} focusFocusSVG={IndexCardSVG}
           cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
-        <FocusElement focusSVG={NintendoSVG} focusFocusSVG={NintendoSVG}
+        <NintendoFocusElement focusSVG={NintendoSVG}
           cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
         <FocusElement focusSVG={FrogSVG} focusFocusSVG={FrogSVG}
           cssImageClass='background-notebook-image' cssColorClass='frog-green-overlay' focusCaption={FISHING_FRIEND_HR_TXT}/>
@@ -72,7 +77,7 @@ export const GAME_ITEMS = [
   },
   {
     explore: <img src={SeashellPreview} draggable='false' alt='SOMETHING' />,
-    focus: <img src={Box} />,
+    focus: <SeashellsFocusElement />,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
     focusCaption: 'owo whats this a cardboard box',

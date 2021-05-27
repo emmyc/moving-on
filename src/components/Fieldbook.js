@@ -15,7 +15,7 @@ import seal2 from '../assets/fieldbook/seal2.jpeg';
 
 const Page = React.forwardRef(function Page(props, ref) {
   return (
-    <div className='page' ref={ref}>
+    <div className='fpage' ref={ref}>
       {props.children}
     </div>
   );
@@ -75,7 +75,7 @@ function Fieldbook() {
         maxHeight={583}
         showCover={true}
         mobileScrollSupport={true}
-        className='yearbook'
+        className='fieldbook'
         ref={bookRef}
       >
         {pages.map((page, index) => {
@@ -87,8 +87,8 @@ function Fieldbook() {
         })}
       </HTMLFlipBook>
 
-      <button className='flip-page-btn' onClick={goPrevPage} style={{ gridColumnStart: 1 }}>Prev Page</button>
-      <button className='flip-page-btn' onClick={goNextPage} style={{ gridColumnStart: 3 }}>Next Page</button>
+      <button className='fflip-page-btn' onClick={goPrevPage} style={{ gridColumnStart: 1 }}>Prev Page</button>
+      <button className='fflip-page-btn' onClick={goNextPage} style={{ gridColumnStart: 3 }}>Next Page</button>
     </div>
   );
 }

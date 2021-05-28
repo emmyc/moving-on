@@ -3,6 +3,11 @@ import HTMLFlipBook from 'react-pageflip';
 import '../styles/Fieldbook.scss';
 import '../styles/Yearbook.scss';
 import tester from '../assets/foodjournal/prototype.jpg'; /*for testing purposess*/
+import cover from '../assets/foodjournal/fooddiary_cover.jpg';
+import back from '../assets/foodjournal/fooddiary_coverback.jpg';
+import august from '../assets/foodjournal/fooddiary__august.jpg';
+import september from '../assets/foodjournal/fooddiary__september.jpg';
+import december from '../assets/foodjournal/fooddiary__december.jpg';
 
 
 const Page = React.forwardRef(function Page(props, ref) {
@@ -25,34 +30,22 @@ function FoodJournal() {
   };
   const pages = [
     {
-      image: tester,
+      image: cover,
+    },
+    {
+      image: august,
+    },
+    {
+      image: september,
     },
     {
       image: tester,
     },
     {
-      image: tester,
+      image: december,
     },
     {
-      image: tester,
-    },
-    {
-      image: tester,
-    },
-    {
-      image: tester,
-    },
-    {
-      image: tester,
-    },
-    {
-      image: tester,
-    },
-    {
-      image: tester,
-    },
-    {
-      image: tester,
+      image: back,
     },
   ];
   return (

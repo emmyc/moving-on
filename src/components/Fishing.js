@@ -1,11 +1,13 @@
 import React, {useEffect, useState, useRef} from 'react';
 import '../styles/Fishing.scss';
 import Water from '../assets/fishwater.png';
+import BigWater from '../assets/fishwater2.png';
 import Boat from '../assets/fishboat.png';
-import Frog from '../assets/fishfrog1.png';
-import Frogbob from '../assets/fishfrog2.png';
-import Frogtug from '../assets/fishfrog3.png';
-import Frogcaught from '../assets/fishfrog4.png';
+import Frog from '../assets/frogidle.gif';
+import Frogbob from '../assets/frogcast.gif';
+import Frogtug from '../assets/frogreel.gif';
+import Frogcaught from '../assets/frogcatch.gif';
+import Frogfail from '../assets/frogfail.gif';
 import Textleft from '../assets/fishtl.png';
 import Textright from '../assets/fishtr.png';
 
@@ -20,10 +22,9 @@ function Fishing() {
   const adRef = useRef(alast);
 
   let updateState = () => {
-    console.log(gameState);
     switch(gameState) {
     case 'Initial':
-      setGameState('Cast');
+      setGameState('Bob');
       break;
     case 'Cast':
       setGameState('Bob');
@@ -43,16 +44,13 @@ function Fishing() {
     if(hookRef.current > 3) {
       if(gameState == 'Hook') {
 	updateState();
-	console.log('u win : >');
       }
     } else {
-      setGameState('Initial');
-      console.log('u lose : <');
-    }
+      setGameState('Lose');
+   }
   };
 
   let handleKeyPress = (e) => {
-    console.log(hookRef.current);
     if(gameState == 'Hook') {
       if(e.keyCode == 65 && !adRef.current){
         hc++;
@@ -69,7 +67,7 @@ function Fishing() {
   };
 
   let handleClick = () => {
-    if(gameState == 'Initial' || gameState == 'Cast' || gameState == 'Fin'){
+    if(gameState == 'Initial' || gameState == 'Cast' || gameState == 'Fin' || gameState == 'Lose'){
       updateState();
     }
   };
@@ -93,6 +91,11 @@ function Fishing() {
       hc = 0;
       hookRef.current = hc;
       setTextCount(3);
+    } else if(gameState == 'Lose') {
+      setFroggy(Frogfail);
+      hc = 0;
+      hookRef.current = hc;
+      setTextCount(3);
     }
 
     return () => {
@@ -108,10 +111,12 @@ function Fishing() {
   return (
     <div id='cont'>
       <div id='game' onClick={handleClick} onKeyDown={handleKeyPress} tabIndex="0">
-        <img src={Boat} id='boat'/>
+      <img src={BigWater} id='bigwater'/>
+        <img src={BigWater} id='bigwater2'/>
         <img src={Water} id='water'/>
         <img src={Water} id='water2'/>
-        <img src={froggy} id='frog'/>
+            <img src={Boat} id='boat'/>
+      <img src={froggy} id='frog'/>
         <img src={Textleft} id={'leftext' + textCount}/>
         <img src={Textright} id={'rightext' + textCount}/>
       </div>

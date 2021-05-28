@@ -1,0 +1,32 @@
+.nintendo-image {
+  position: fixed;
+  top: -121px;
+  right: -970px;
+  transform: rotate(-19.34deg);
+}
+
+.mint-background {
+  background-color: #6CD78A;
+  opacity: 0.8;
+}
+
+.seashells-focus {
+  position: absolute;
+  top: 0;
+  left: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.seashells-grid {
+  display: grid;
+  width: 60vw;
+  grid-template-columns: 30% 30% 40%;
+  grid-template-rows: 50% 50%;
+  height: fit-content;
+  * {
+    margin: auto;
+  }
+}

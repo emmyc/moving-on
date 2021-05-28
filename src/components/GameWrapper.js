@@ -1,32 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/GameWrapper.scss';
 import ITEM_STATES from '../constants.js';
+import { GAME_ITEMS } from '../GameItems';
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
-function GameWrapper(props) {
-  const items = props.children;
-  const [caption, setCaption] = useState('text text');
-  const [itemFocus, setItemFocus] = useState(null);
+function GameWrapper() {
+  const [caption, setCaption] = useState('what should i look at next?');
+  // const [itemFocus, setItemFocus] = useState(null);
+  const [focusID, setFocusID] = useState(undefined);
+  // const [overlayColor, setOverlayColor] = useState('black');
+  const [overlayBackground, setOverlayBackground] = useState();
   const [renderItems, setRenderItems] = useState([]);
   const { DISPLAYING } = ITEM_STATES;
 
   useEffect(() => {
     const newItems = [];
-    items &&
-      items.forEach(() => {
-        newItems.push(DISPLAYING);
-      });
+    GAME_ITEMS && GAME_ITEMS.forEach(() => {
+      newItems.push(DISPLAYING);
+    });
     setRenderItems(newItems);
   }, []);
 
-  const handleClick = (val) => {
-    val && val;
-    setItemFocus(true);
+  const handleClick = (id) => {
+    setCaption(GAME_ITEMS[id].focusCaption);
+    // setItemFocus(GAME_ITEMS[id].focus);
+    setOverlayBackground(GAME_ITEMS[id].background);
+    setFocusID(id);
+    // setOverlayColor(GAME_ITEMS[id].overlayColor);
   };
 
-  const handleDrop = (dropLoc, id) => {
-    setCaption(dropLoc);
+  const handleDrop = (dropLoc, id) => { //discard or keep based on dropLoc ( 1 == discard, 2 == keep)
+    const newCaption = dropLoc === 1 ? GAME_ITEMS[id].trashCaption : GAME_ITEMS[id].keepCaption;
+    setCaption(newCaption);
     const newRenders = [...renderItems];
     newRenders[id] = dropLoc;
     setRenderItems(newRenders);
@@ -35,36 +41,43 @@ function GameWrapper(props) {
 
   return (
     <div>
-      <div
-        id='overlay'
-        onClick={() => setItemFocus(null)}
-        style={{ display: itemFocus ? '' : 'none' }}
-      >
-        {itemFocus}
-      </div>
-      {/* <div id='yearbook-button'/> */}
-      <div className='bound bound0' />
-      <span id='discard'>discard</span>
-      <div className='bound bound1' />
-      <span id='keep'>keep</span>
-      <div id='item-display'>
-        <div id='discard'>discard</div>
-        <div style={{ width: 'inherit', height: 'inherit' }}>
-          {items
-            .map((item, id) => (
-              <DraggableWrapper
-                key={Math.random() * 1000}
-                name={Math.random() * 1000}
-                click={() => handleClick(item.id)}
-                dropped={(dropLoc) => handleDrop(dropLoc, id)}
-              >
-                {item}
-              </DraggableWrapper>
-            ))
-            .filter((item, id) => renderItems[id] === DISPLAYING)}
+      {/* STATE_ZOOMED_IN */}
+      {focusID !== undefined &&
+        <div id='focus-content'>
+          <span className='minimal-button top-right-pos x-btn' onClick={() => setFocusID(undefined)}>X</span>
+          <span className='left-center-pos underline-item' onClick={() => { handleDrop(1, focusID); setFocusID(undefined); }}>discard</span>
+          <span className='right-center-pos underline-item' onClick={() => { handleDrop(2, focusID); setFocusID(undefined); }}>keep</span>
+          {GAME_ITEMS[focusID].focus}
         </div>
-        <div id='keep'>keep</div>
+      }
+      <div id='overlay' onClick={() => setFocusID(undefined)} style={{ display: focusID !== undefined ? '' : 'none' }}>
+        {overlayBackground}
       </div>
+
+      {/* STATE_EXPLORE */}
+      <div id='item-display'>
+        {focusID === undefined &&
+          <>
+            <div className='bound bound0' />
+            <span id='discard'>discard</span>
+            <div className='bound bound1' />
+            <span id='keep'>keep</span>
+          </>
+        }
+        <div style={{ width: 'inherit', height: 'inherit' }}>
+          {GAME_ITEMS.map((item, id) =>
+            <DraggableWrapper
+              key={id}
+              name={Math.random() * 1000}
+              click={() => handleClick(id)}
+              dropped={(dropLoc) => handleDrop(dropLoc, id)}>
+              {item.explore}
+            </DraggableWrapper>,
+          ).filter((item, id) => renderItems[id] === DISPLAYING)}
+        </div>
+      </div>
+
+      {/* CAPTION */}
       <Caption caption={caption} />
     </div>
   );

@@ -8,6 +8,7 @@ import Narrative from './components/Narrative';
 import Yearbook from './components/Yearbook';
 import YearbookIcon from './components/YearbookIcon';
 
+
 function App() {
   return (
     <div className='App'>

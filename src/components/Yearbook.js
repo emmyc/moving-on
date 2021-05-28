@@ -183,7 +183,6 @@ function Yearbook() {
         </Page>
         <Page />
       </HTMLFlipBook>
-
       <button
         className='flip-page-btn'
         onClick={goPrevPage}

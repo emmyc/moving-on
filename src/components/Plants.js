@@ -3,7 +3,7 @@ import Caption from './Caption';
 
 import '../styles/Plants.scss';
 
-import AllPlantsBackgroundSVG from '../assets/plants/all-plants-background.svg';
+import AllPlantsBackgroundSVG from '../assets/plants/all-plants-background.png';
 
 function Plants() {
   const [showingPreview, setShowingPreview] = useState(true);

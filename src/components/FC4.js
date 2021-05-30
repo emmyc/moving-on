@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import cookie4 from '../assets/cookie4.svg';
-//import './src/App.css';
-//import cookie1small from './src/assets/cookie1small.svg';
-//import Caption from './src/components/Caption.js';
-//import fortuneCookiesBackground from '../assets/fortuneCookiesBackground.svg';
 function FortuneCookies() {
 const [isShown, setIsShown] = useState(false);
 return (
@@ -22,7 +18,6 @@ height: '255.04px',left: '454.9px',top: '292px'}}/>
 </span>
 )}
 </a>
-{/*<Caption/>*/}
 </div>
 );
 }

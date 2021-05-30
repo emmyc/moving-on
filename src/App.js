@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.scss';
+import maincookie from './assets/maincookie.svg';
 import AudioIcon from './components/AudioIcon';
+import FortuneCookies from './components/FortuneCookies';
 import GameWrapper from './components/GameWrapper';
 import IntroPage from './components/IntroPage';
 import Narrative from './components/Narrative';
@@ -18,9 +20,12 @@ function App() {
           <Route path='/yearbook'>
             <Yearbook />
           </Route>
-
+          <Route path='/fortuneCookies'>
+            <FortuneCookies />
+          </Route>
           <Route path='/explore'>
             <GameWrapper>
+            <Link to='/fortuneCookies'><img src={maincookie} style={{height: 200}}/></Link>
               <div>test</div>
               <div>test2</div>
               <p>

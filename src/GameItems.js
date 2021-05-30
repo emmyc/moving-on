@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Caption from './components/Caption';
 import NintendoFocusElement from './components/NintendoFocusElement';
 import SeashellsFocusElement from './components/SeashellsFocusElement';
+import Plants from './components/Plants';
 
 import Box from './assets/boxIcon.png';
 import FrogPreview from './assets/frog-preview.svg';
@@ -15,6 +16,8 @@ import FieldbookPreview from './assets/fieldbook_icon.png';
 import Fieldbook from './components/Fieldbook';
 import FoodJournal from './components/FoodJournal';
 import FoodIcon from './assets/fooddiary_icon.png';
+
+import './styles/Plants.scss';
 
 function FocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);
@@ -109,5 +112,13 @@ export const GAME_ITEMS = [
     keepCaption: 'munch munch',
     focusCaption: 'food is so good',
     background: <div className='background-notebook-image full-size'><div className='foodjournal-green-overlay full-size' /></div>,
+  },
+  //Plants
+  {
+    explore: <span>plants</span>,
+    focus: <Plants />,
+    trashCaption: 'plants were discarded',
+    keepCaption: 'i love plants',
+    background: <div className='plants-color-background full-size'/>,
   },
 ];

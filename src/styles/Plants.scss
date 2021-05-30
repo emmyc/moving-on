@@ -1,0 +1,38 @@
+.plants-color-background {
+  background: linear-gradient(#a0b7da 0%, #a0b7da 87.457%, #7b92b7 87.457%, #7b92b7 12.543%);
+}
+
+.plant-preview {
+  height: calc(100vh - 100px);
+  width: 100vw;
+  background-color: #363333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 36px;
+  z-index: 50;
+}
+
+.plants-container {
+  width: 100vw;
+  height: calc(100vh - 100px);
+}
+
+.max-image {
+  max-height: 100%;
+  max-width: 100%; 
+}
+
+@media screen and (max-aspect-ratio: 13/10) {
+  .plants-color-background {
+    background: #7b92b7;
+  }
+}
+
+@media (min-height: 1738px) and (min-width: 2876px) {
+  .plants-color-background {
+    background: linear-gradient(#a0b7da 0%, #a0b7da 1518px, #7b92b7 1518px, #7b92b7);
+  }
+}

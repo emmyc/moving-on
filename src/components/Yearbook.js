@@ -126,14 +126,6 @@ function Yearbook() {
   //   setPageNum(e.data);
   // };
 
-  const goNextPage = () => {
-    bookRef.current.pageFlip().flipNext();
-  };
-
-  const goPrevPage = () => {
-    bookRef.current.pageFlip().flipPrev();
-  };
-
   return (
     <div className='yearbook-page'>
       <HTMLFlipBook
@@ -183,21 +175,6 @@ function Yearbook() {
         </Page>
         <Page />
       </HTMLFlipBook>
-
-      <button
-        className='flip-page-btn'
-        onClick={goPrevPage}
-        style={{ gridColumnStart: 1 }}
-      >
-        Prev Page
-      </button>
-      <button
-        className='flip-page-btn'
-        onClick={goNextPage}
-        style={{ gridColumnStart: 3 }}
-      >
-        Next Page
-      </button>
     </div>
   );
 }

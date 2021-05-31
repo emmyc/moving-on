@@ -8,6 +8,7 @@ import Narrative from './components/Narrative';
 import Yearbook from './components/Yearbook';
 import YearbookIcon from './components/YearbookIcon';
 
+
 function App() {
   return (
     <div className='App'>
@@ -20,14 +21,7 @@ function App() {
           </Route>
 
           <Route path='/explore'>
-            <GameWrapper>
-              <div>test</div>
-              <div>test2</div>
-              <p>
-                Hello World!
-                <br />I am draggable!
-              </p>
-            </GameWrapper>
+            <GameWrapper />
           </Route>
 
           <Route path='/narrative'>

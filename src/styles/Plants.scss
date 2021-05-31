@@ -1,0 +1,71 @@
+.plants-color-background {
+  background: linear-gradient(#a0b7da 0%, #a0b7da 75.64%, #7b92b7 75.64%, #7b92b7);
+}
+
+.plant-preview {
+  height: calc(100vh - 100px);
+  width: 100vw;
+  background-color: #363333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 36px;
+  z-index: 50;
+}
+
+.plants-container {
+  width: 100vw;
+  height: calc(100vh - 100px);
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  * {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  #background {
+    margin: auto;
+    margin-top: 0;
+  }
+}
+
+.max-image {
+  max-height: 100%;
+  max-width: 100%; 
+}
+
+.plant-popup {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1.2px);
+  height: calc(100vh - 100px);
+  width: 100vw;
+  z-index: 20;
+
+  .underline-item {
+    color: white;
+  }
+
+  .underline-item::after {
+    background-color: white;
+  }
+}
+
+.pointer-hover {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-aspect-ratio: 13/10) {
+  .plants-color-background {
+    background: linear-gradient(#a0b7da 0%, #a0b7da 56.764vw, #7b92b7 56.674vw, #7b92b7);
+  }
+}
+
+@media (min-height: 3001px) and (min-width: 3999px) {
+  .plants-color-background {
+    background: linear-gradient(#a0b7da 0%, #a0b7da 2270px, #7b92b7 2270px, #7b92b7);
+  }
+}

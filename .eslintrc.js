@@ -25,7 +25,7 @@ module.exports = {
     'react/prop-types': 'off',
 
     // Style
-    quotes: [
+    'quotes': [
       'error',
       'single',
       {
@@ -48,18 +48,6 @@ module.exports = {
     // Require all imported libraries actually resolve (!!required for import/no-extraneous-dependencies to work!!)
     'import/no-unresolved': ['error'],
 
-    // Require an ordering on all imports
-    'import/order': [
-      'warn',
-      {
-        groups: ['builtin', 'external'],
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
-      },
-    ],
-
     // Cannot import from the same module twice
     'no-duplicate-imports': ['error'],
 
@@ -67,7 +55,7 @@ module.exports = {
     'key-spacing': ['error'],
 
     // Require semicolons
-    semi: ['error', 'always'],
+    'semi': ['error', 'always'],
 
     // Don't unnecessarily quote properties
     'quote-props': ['error', 'consistent-as-needed'],
@@ -87,9 +75,6 @@ module.exports = {
         ignoreRegExpLiterals: true,
       },
     ],
-
-    // Don't leave log statements littering the premises!
-    'no-console': ['warn'],
 
     // Useless diff results
     'no-trailing-spaces': ['error'],

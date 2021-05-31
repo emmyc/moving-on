@@ -1,6 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Yearbook.scss';
+import Sound from 'react-sound';
+import pageSound from '../assets/pageFlipSound.mp3';
 
 
 const Page = React.forwardRef(function Page(props, ref) {
@@ -13,6 +15,7 @@ const Page = React.forwardRef(function Page(props, ref) {
 
 function Yearbook() {
   const bookRef = useRef();
+  const [isPlaying, setIsPlaying] = React.useState(false);
   const teams = [
     {
       title: 'DEV TEAM',
@@ -125,6 +128,11 @@ function Yearbook() {
   // const handlePageChange = (e) => {
   //   setPageNum(e.data);
   // };
+  const onFlip = useCallback((e) => {
+    setIsPlaying(false);
+    console.log('Current page: ' + e.data);
+    setIsPlaying(true);
+  }, []);
 
   const goNextPage = () => {
     bookRef.current.pageFlip().flipNext();
@@ -148,6 +156,7 @@ function Yearbook() {
         showCover={true}
         mobileScrollSupport={true}
         // onFlip={handlePageChange}
+        onFlip={onFlip}
         className='yearbook'
         ref={bookRef}
       >
@@ -178,6 +187,13 @@ function Yearbook() {
         </Page>
         <Page />
       </HTMLFlipBook>
+      <Sound
+        url = {pageSound}
+        playStatus = {
+          isPlaying ? Sound.status.PLAYING: Sound.status.STOPPED
+        }
+        >
+      </Sound>
       <div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
           chevron_left
       </div>

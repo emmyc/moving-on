@@ -16,6 +16,7 @@ import FieldbookPreview from './assets/fieldbook_icon.png';
 import Fieldbook from './components/Fieldbook';
 import FoodJournal from './components/FoodJournal';
 import FoodIcon from './assets/fooddiary_icon.png';
+import PlantPreview from './assets/plants/plant-journal-preview.svg';
 
 import './styles/Plants.scss';
 
@@ -115,7 +116,7 @@ export const GAME_ITEMS = [
   },
   //Plants
   {
-    explore: <span>plants</span>,
+    explore: <img src={PlantPreview} draggable='false' alt='Plant diary' width='300px' />,
     focus: <Plants />,
     trashCaption: 'plants were discarded',
     keepCaption: 'i love plants',

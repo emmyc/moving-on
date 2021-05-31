@@ -27,13 +27,8 @@ function FoodJournal() {
     console.log('Current page: ' + e.data);
     setIsPlaying(true);
   }, []);
-  const goNextPage = () => {
-    bookRef.current.pageFlip().flipNext();
-  };
 
-  const goPrevPage = () => {
-    bookRef.current.pageFlip().flipPrev();
-  };
+
   const pages = [
     {
       image: cover,
@@ -85,12 +80,6 @@ function FoodJournal() {
         }
         >
       </Sound>
-      <div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
-          chevron_left
-      </div>
-      <div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
-          chevron_right
-      </div>
     </div>
   );
 }

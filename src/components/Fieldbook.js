@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Fieldbook.scss';
 import '../styles/Yearbook.scss';
@@ -16,7 +16,9 @@ import BlueXmas from '../assets/fieldbook/songs/Blue Christmas.mp3';
 import Sun from '../assets/fieldbook/songs/Here Comes The Sun.mp3';
 import Love from '../assets/fieldbook/songs/How Deep is Your Love.mp3';
 import Space from '../assets/fieldbook/songs/Space Oddity.mp3';
-import Casette from '../assets/fieldbook/cassette.png';
+import Casette from '../assets/fieldbook/smallCassette.png';
+import Sound from 'react-sound';
+
 const Page = React.forwardRef(function Page(props, ref) {
   return (
     <div className='fpage' ref={ref}>
@@ -26,10 +28,14 @@ const Page = React.forwardRef(function Page(props, ref) {
 });
 
 function Fieldbook() {
-  function handleClick() {
-    var pageNum = bookRef.current.getCurrentPageIndex();
+  const [currSong, setSong] = React.useState(0);
+  const [currPage, setPage] = React.useState(0);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const onFlip = useCallback((e) => {
+    console.log('Current page: ' + e.data);
+    setPage(e.data);
     var songNum = 0;
-    switch(pageNum){
+    switch(e.data) {
       case 1:
       case 2:
         songNum = 0;
@@ -49,25 +55,16 @@ function Fieldbook() {
       default:
         songNum = 0;
     }
-    if (pageNum != 0 && pageNum != 9) {
-      console.log(songs[songNum]);
-      return (
-      <div style={{ gridColumnStart: 1 }}>
-        <audio src = {songs[songNum]} id = "audio"/>
-        <button type="button"><img src ={Casette} alt='SOMETHING'/></button>
-      </div>
-      );
-    } //className = "songButton"
-  }
+    setSong(songNum);
+    setIsPlaying(false);
+  }, []);
   const bookRef = useRef();
   const goNextPage = () => {
     bookRef.current.pageFlip().flipNext();
-    handleClick();
   };
 
   const goPrevPage = () => {
     bookRef.current.pageFlip().flipPrev();
-    handleClick();
   };
 
   const songs = [
@@ -76,6 +73,12 @@ function Fieldbook() {
     Space,
     BlueXmas,
   ];
+  const songTitles = [
+    'here comes the sun',
+    'how deep is your love',
+    'space oddity',
+    'blue christmas',
+  ];
   /*const colors = [
     "fieldbook-blue0-overlay",
     "fieldbook-blue1-overlay",
@@ -83,7 +86,6 @@ function Fieldbook() {
     "fieldbook-blue3-overlay",
     "fieldbook-blue4-overlay",
   ];*/
-
   const pages = [
     {
       image: cover,
@@ -116,6 +118,25 @@ function Fieldbook() {
       image: back,
     },
   ];
+  let songButton;
+  if (currPage != 0 && currPage != 9) {
+    console.log(songs[currSong]);
+    songButton = <div style={{ gridColumnStart: 1 }} className = "topLeft">
+    <Sound
+     url = {songs[currSong]}
+     playStatus = {
+       isPlaying ? Sound.status.PLAYING: Sound.status.STOPPED
+     }
+    >
+    </Sound>
+    <button type="button" className = "cassette" onClick={() => setIsPlaying(!isPlaying)}><img src ={Casette} alt='SOMETHING'/></button>
+    <span><br></br></span>
+    <label className = "songTitle">{songTitles[currSong]}</label>
+    </div>;
+  }
+  else {
+    songButton = <div></div>;
+  }
   return (
     <div className='fieldbook-page'>
       <HTMLFlipBook
@@ -130,6 +151,7 @@ function Fieldbook() {
         mobileScrollSupport={true}
         className='fieldbook'
         ref={bookRef}
+        onFlip={onFlip}
       >
         {pages.map((page, index) => {
           return (
@@ -140,8 +162,9 @@ function Fieldbook() {
         })}
       </HTMLFlipBook>
       <div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
-          chevron_left
+          chevron_left {currPage}
       </div>
+      {songButton}
       <div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
           chevron_right
       </div>

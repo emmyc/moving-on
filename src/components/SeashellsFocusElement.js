@@ -12,7 +12,7 @@ import Seashell7SVG from '../assets/seashells/seashell7.svg';
 import SeashellCard from '../assets/seashell-preview.svg';
 
 function SeashellsFocusElement() {
-  const [caption, setCaption] = useState('Shells you\'ve collected, both at home and here at school. (Click for more information)');
+  const [caption, setCaption] = useState('Some of your favorite seashells from home, and some ones from the beach near school. (Click for more information)');
   // const seashells = [Seashell1SVG, Seashell2SVG, Seashell3SVG, Seashell4SVG, Seashell5SVG, Seashell6SVG, Seashell7SVG];
   const captionMSG =
     ['I\'m not sure what this one is, but I love the ridges on it. I found this one the same day I found the sea urchin skeleton—what a day for shell collecting!',

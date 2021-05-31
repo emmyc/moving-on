@@ -81,20 +81,22 @@ export const GAME_ITEMS = [
     // overlayColor: 'rgba(31, 202, 48, 0.45)',
     background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },
+  //seashells
   {
     explore: <img src={SeashellPreview} draggable='false' alt='SOMETHING' />,
     focus: <SeashellsFocusElement />,
-    trashCaption: 'how the years have gone by...',
-    keepCaption: 'i could never give this away!',
-    focusCaption: 'owo whats this a cardboard box',
+    trashCaption: 'I can keep the memories without keeping the shells. They are pretty though, maybe someone else would like these?',
+    keepCaption: 'I\'ve spent a long time collecting these. It\'s ok if these two school ones are broken or small—they\'re still beautiful in their own way.',
+    focusCaption: 'Some of your favorite seashells from home, and some ones from the beach near school. ',
     background: <div className='background-notebook-image full-size'><div className='seashell-blue-overlay full-size' /></div>,
   },
+  //fortune cookie
   {
     explore: <img src={CookiePreview} draggable='false' alt='SOMETHING' />,
     focus: <img src={Box} />,
-    trashCaption: 'how the years have gone by...',
-    keepCaption: 'i could never give this away!',
-    focusCaption: 'owo whats this a cardboard box',
+    trashCaption: 'They\'re just pieces of paper—I can motivate myself intrinsically without these. ',
+    keepCaption: 'This won\'t take up much room, right? They\'re bite-sized motivational quotes!',
+    focusCaption: 'A collection of fortune cookies that have resonated with me. Hover over each one to take a closer look.',
     background: <div className='background-notebook-image full-size'><div className='fortune-pink-overlay full-size' /></div>,
   },
   /*fieldbook*/
@@ -106,6 +108,7 @@ export const GAME_ITEMS = [
     focusCaption: 'Oh my goodness, I haven\'t opened this up since we broke up.',
     background: <div className='background-notebook-image full-size'><div className='fieldbook-blue3-overlay full-size' /></div>,
   },
+  //food journal
   {
     explore: <img src={FoodIcon} draggable='false' alt='SOMETHING' />,
     focus: <FoodJournal/>,

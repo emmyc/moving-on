@@ -2,6 +2,7 @@ import React, { useRef, useCallback } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Fieldbook.scss';
 import '../styles/Yearbook.scss';
+import '../styles/GameWrapper.scss';
 import back from '../assets/fieldbook/back.jpeg';
 import cover from '../assets/fieldbook/cover.jpeg';
 import fish1 from '../assets/fieldbook/fish1.jpeg';
@@ -80,11 +81,11 @@ function Fieldbook() {
     'blue christmas',
   ];
   /*const colors = [
-    "fieldbook-blue0-overlay",
-    "fieldbook-blue1-overlay",
-    "fieldbook-blue2-overlay",
-    "fieldbook-blue3-overlay",
-    "fieldbook-blue4-overlay",
+    'fieldbook-blue0-overlay',
+    'fieldbook-blue1-overlay',
+    'fieldbook-blue2-overlay',
+    'fieldbook-blue3-overlay',
+    'fieldbook-blue4-overlay',
   ];*/
   const pages = [
     {
@@ -138,7 +139,7 @@ function Fieldbook() {
     songButton = <div></div>;
   }
   return (
-    <div className='fieldbook-page'>
+    <div className = 'fieldbook-page'>
       <HTMLFlipBook
         width={480}
         height={583}

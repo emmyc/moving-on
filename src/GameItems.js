@@ -103,7 +103,7 @@ export const GAME_ITEMS = [
     trashCaption: 'It might be time to let this go. Tossing this might give me some more closure.',
     keepCaption: 'I can\'t believe she drew all these pictures for me. It was so sweet. I\'ll keep this for the memories. Maybe our paths will cross again someday.',
     focusCaption: 'Oh my goodness, I haven\'t opened this up since we broke up.',
-    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size' /></div>,
+    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue3-overlay full-size' /></div>,
   },
   {
     explore: <img src={FoodIcon} draggable='false' alt='SOMETHING' />,

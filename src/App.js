@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.scss';
+import AudioIcon from './components/AudioIcon';
 import GameWrapper from './components/GameWrapper';
 import IntroPage from './components/IntroPage';
 import Narrative from './components/Narrative';
@@ -9,15 +10,12 @@ import YearbookIcon from './components/YearbookIcon';
 
 
 function App() {
-
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
-        {/* TODO: remove placeholder audio button */}
-        <div id='audio-button'/>
+        <AudioIcon />
         <YearbookIcon />
         <Switch>
-
           <Route path='/yearbook'>
             <Yearbook />
           </Route>
@@ -33,11 +31,9 @@ function App() {
           <Route path='/'>
             <IntroPage />
           </Route>
-
         </Switch>
       </Router>
     </div>
   );
 }
-
 export default App;

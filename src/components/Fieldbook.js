@@ -33,7 +33,6 @@ function Fieldbook() {
   const [currPage, setPage] = React.useState(0);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const onFlip = useCallback((e) => {
-    console.log('Current page: ' + e.data);
     setPage(e.data);
     var songNum = 0;
     switch(e.data) {
@@ -121,7 +120,6 @@ function Fieldbook() {
   ];
   let songButton;
   if (currPage != 0 && currPage != 9) {
-    console.log(songs[currSong]);
     songButton = <div style={{ gridColumnStart: 1 }} className = "topLeft">
     <Sound
      url = {songs[currSong]}

@@ -3,12 +3,13 @@ import Caption from './Caption';
 
 import '../styles/Plants.scss';
 
-// import AllPlantsBackgroundSVG from '../assets/plants/all-plants-background.png';
 import RoomBackgroundPNG from '../assets/plants/room [no animated plants].png';
 import CalatheaGIF from '../assets/plants/calathea.gif';
 import MonsteraGIF from '../assets/plants/monstera.gif';
 import PothosGIF from '../assets/plants/pothos.gif';
 import PropogationGIF from '../assets/plants/propogation.gif';
+
+const DEFAULT_PLANT_CAPTION = 'Click on each plant to interact';
 
 function Plants() {
   const roomBaseWidth = 3999;
@@ -35,7 +36,7 @@ function Plants() {
       percTopMargin: 0.47,
     },
     {
-      name: 'Progation',
+      name: 'Propogation',
       src: PropogationGIF,
       baseWidth: 800,
       percLeftMargin: 0.17,
@@ -44,11 +45,17 @@ function Plants() {
   ];
 
   const [showingPreview, setShowingPreview] = useState(true);
+
   const backgroundRef = useRef();
+
   const [windowWidth, setWindowWidth] = useState();
   const [roomWidth, setRoomWidth] = useState();
   const [roomHeight, setRoomHeight] = useState();
+
   const [loaded, setLoaded] = useState(false);
+
+  const [displayArr, setDisplayArr] = useState([1, 1, 1, 1]);
+  const [caption, setCaption] = useState(DEFAULT_PLANT_CAPTION);
 
   useEffect(() => {
     const timeout = setTimeout(() => setShowingPreview(false), 500);
@@ -77,37 +84,58 @@ function Plants() {
         <>
           <div className='plants-container'>
             <img ref={backgroundRef} id='background' onLoad={updateImageSizes} className='max-image' src={RoomBackgroundPNG} alt='Background Image of A window with Plants next to it' />
-            {loaded && plants.map((plantObj) => {
+            {loaded && plants.map((plantObj, i) => {
               return (
-                <img className='max-image' src={plantObj.src} alt={plantObj.name + ' gif'} key={plantObj.name}
-                  style={{
-                    width: plantObj.baseWidth * roomWidth / roomBaseWidth + 'px',
-                    marginLeft: (windowWidth - roomWidth) / 2 + plantObj.percLeftMargin * roomWidth+'px',
-                    marginTop: plantObj.percTopMargin * roomHeight+'px',
-                  }} />
+                <PlantObj src={plantObj.src} alt={plantObj.name + ' gif'} key={plantObj.name} caption={plantObj.name}
+                  width={plantObj.baseWidth * roomWidth / roomBaseWidth}
+                  leftMargin={(windowWidth - roomWidth) / 2 + plantObj.percLeftMargin * roomWidth}
+                  topMargin={plantObj.percTopMargin * roomHeight}
+                  setCaption={setCaption} stopDisplay={() => {
+                    const newDisplayArr = [...displayArr];
+                    newDisplayArr[i] = 0;
+                    setDisplayArr(newDisplayArr);
+                  }}
+                />
               );
-            })}
+            }).filter((plant, index) => displayArr[index])}
           </div>
-          <Caption caption={''} />
+          <Caption caption={caption} />
         </>
       }
     </>
   );
 }
 
-// function PlantObj(props) {
-//   const [showPopup, setShowPopup] =useState(false);
-//   return (
-//     <>
-//     <img className='max-image' src={plantObj.src} alt={plantObj.name + ' gif'} key={plantObj.name}
-//       onClick={() => setShowPopup(true)}
-//       style={{
-//         width: props.width+ 'px',
-//         marginLeft: props.leftMargin+'px',
-//         marginTop: props.topMargin+'px',
-//       }} />
+function PlantObj(props) {
+  const [showPopup, setShowPopup] = useState(false);
 
-//     </>
-//   );
-// };
+  const handleClick = () => {
+    setShowPopup(false);
+    props.setCaption(DEFAULT_PLANT_CAPTION);
+    props.stopDisplay();
+  };
+
+  return (
+    <>
+      <img className='max-image pointer-hover' src={props.src} alt={props.alt}
+        onClick={() => {setShowPopup(true); props.setCaption(props.caption); }}
+        style={{
+          width: props.width + 'px',
+          marginLeft: props.leftMargin + 'px',
+          marginTop: props.topMargin + 'px',
+        }} />
+      {showPopup &&
+        <>
+          <div className='plant-popup'>
+            <span className='left-center-pos underline-item' onClick={() => { console.log('discarded'); handleClick(); }}>give away</span>
+            <span className='right-center-pos underline-item' onClick={() => { console.log('kept'); handleClick(); }}>keep</span>
+            <img className='max-image' src={props.src} alt='Plant popup' />
+          </div>
+        </>
+      }
+
+    </>
+  );
+}
+
 export default Plants;

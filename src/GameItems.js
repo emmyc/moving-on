@@ -121,5 +121,6 @@ export const GAME_ITEMS = [
     trashCaption: 'plants were discarded',
     keepCaption: 'i love plants',
     background: <div className='plants-color-background full-size'/>,
+    showDiscardKeep: false,
   },
 ];

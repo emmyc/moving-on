@@ -22,7 +22,7 @@
 
 .seashells-grid {
   position: absolute;
-  top: 100px;
+  top: 50px;
   left: 10vw;
   display: grid;
   width: 80vw;
@@ -32,6 +32,10 @@
   align-items: center;
   justify-content: center;
   height: fit-content;
+
+  img:hover{
+    cursor: pointer;
+  }
 
   .right-col {
     grid-column: 3/4;

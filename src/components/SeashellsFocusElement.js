@@ -12,7 +12,7 @@ import Seashell7SVG from '../assets/seashells/seashell7.svg';
 import SeashellCard from '../assets/seashell-preview.svg';
 
 function SeashellsFocusElement() {
-  const [caption, setCaption] = useState('Shells you\'ve collected, both at home and here at school. (Hover for more information)');
+  const [caption, setCaption] = useState('Shells you\'ve collected, both at home and here at school. (Click for more information)');
   // const seashells = [Seashell1SVG, Seashell2SVG, Seashell3SVG, Seashell4SVG, Seashell5SVG, Seashell6SVG, Seashell7SVG];
   const captionMSG =
     ['I\'m not sure what this one is, but I love the ridges on it. I found this one the same day I found the sea urchin skeleton—what a day for shell collecting!',
@@ -27,29 +27,29 @@ function SeashellsFocusElement() {
     <>
       {/* <div className='seashells-focus'> */}
       <div className='seashells-grid'>
-        <img src={SeashellCard} alt='Seashells' draggable='false' />
-        <img src={Seashell5SVG} alt={'A picture of a Seashell'} draggable='false'
-          className='tilt-1' onMouseEnter={() => setCaption(captionMSG[4])} />
+        <img src={SeashellCard} alt='Seashells' draggable='true' />
+        <img src={Seashell5SVG} alt={'A picture of a Seashell'} draggable='true'
+          className='tilt-1' onClick={() => setCaption(captionMSG[4])} />
 
         <div className='right-col'>
           <img src={Seashell3SVG} alt={'A picture of a Seashell'} draggable='false'
-            onMouseEnter={() => setCaption(captionMSG[2])} />
+            onClick={() => setCaption(captionMSG[2])} />
           <img src={Seashell4SVG} alt={'A picture of a Seashell'} draggable='false'
-            className='tilt-2' onMouseEnter={() => setCaption(captionMSG[3])} />
+            className='tilt-2' onClick={() => setCaption(captionMSG[3])} />
         </div>
 
         <div className='lower-left-box'>
           <div id='top-row' className='flex-row'>
             <img src={Seashell1SVG} alt={'A picture of a Seashell'} draggable='false'
-              className='tilt-3' onMouseEnter={() => setCaption(captionMSG[0])} />
+              className='tilt-3' onClick={() => setCaption(captionMSG[0])} />
             <img src={Seashell6SVG} alt={'A picture of a Seashell'} draggable='false'
-              onMouseEnter={() => setCaption(captionMSG[5])} />
+              onClick={() => setCaption(captionMSG[5])} />
           </div>
           <div id='bottom-row' className='flex-row'>
             <img src={Seashell2SVG} alt={'A picture of a Seashell'} draggable='false'
-              onMouseEnter={() => setCaption(captionMSG[1])} />
+              onClick={() => setCaption(captionMSG[1])} />
             <img src={Seashell7SVG} alt={'A picture of a Seashell'} draggable='false'
-              onMouseEnter={() => setCaption(captionMSG[6])} />
+              onClick={() => setCaption(captionMSG[6])} />
           </div>
         </div>
         {/* {seashells.map((src, i) => <img src={src} alt={'A picture of ' + src} draggable='false' key={i}

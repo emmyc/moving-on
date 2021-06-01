@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import cookie4 from '../assets/cookie4.svg';
+import cookie1 from  '../../../src/assets/cookie1.svg';
 function FortuneCookies() {
 const [isShown, setIsShown] = useState(false);
 return (
@@ -8,13 +8,13 @@ return (
 onMouseLeave={() => setIsShown(false)}>
 {isShown ? (
 <span>
-<img src={cookie4} style={{position: 'absolute',width: '671.33px',
-height: '311.33px',left: '436.92px',top: '292px'}} />
+<img src={cookie1} style={{position: 'absolute', width: '559.7px',
+height: '183.06px', left: '335.35px', top: '159px'  }} />
 </span>
 ) : (
 <span>
-<img src={cookie4} style={{position: 'absolute',width: '617.88px',
-height: '255.04px',left: '454.9px',top: '292px'}}/>
+<img src={cookie1} style={{position: 'absolute', width: '407.61px',
+height: '150.24px', left: '422px', top: '192px' }}/>
 </span>
 )}
 </a>

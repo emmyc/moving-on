@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './App.scss';
 import maincookie from './assets/maincookie.svg';
 import AudioIcon from './components/AudioIcon';
-import FortuneCookies from './components/FortuneCookies';
+import FortuneCookies from './components/Fortune Cookies/FortuneCookies';
 import GameWrapper from './components/GameWrapper';
 import IntroPage from './components/IntroPage';
 import Narrative from './components/Narrative';

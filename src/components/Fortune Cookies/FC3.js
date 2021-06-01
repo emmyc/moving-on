@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import cookie3 from '../assets/cookie3.svg';
+import cookie3 from '../../assets/cookie3.svg';
 function FortuneCookies() {
 const [isShown, setIsShown] = useState(false);
 return (

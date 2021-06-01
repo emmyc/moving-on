@@ -1,4 +1,4 @@
-.yearbook-icon {
+#yearbook-icon {
   position: absolute;
   top: 20px;
   right: 50px;
@@ -10,10 +10,11 @@
   transition: 0.2s ease;
 }
 
-.yearbook-icon img {
+#yearbook-icon img {
   width: 100%;
   height: auto;
 }
-.yearbook-icon:hover {
+#yearbook-icon:hover {
+  cursor: pointer;
   transform: scale(1.03);
 }

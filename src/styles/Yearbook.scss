@@ -1,14 +1,16 @@
 .yearbook-page {
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 20% 60% 20%;
   width: 100%;
   height: 80vh;
+  border: 0px;
 }
 
 .yearbook {
   grid-column: 2;
-  width: fit-content;
+  /*width: fit-content;*/
   margin: auto;
+  border: 0px;
 }
 
 .team-grid {

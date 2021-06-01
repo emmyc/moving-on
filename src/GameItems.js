@@ -17,6 +17,8 @@ import Fieldbook from './components/Fieldbook';
 import FoodJournal from './components/FoodJournal';
 import FoodIcon from './assets/fooddiary_icon.png';
 import PlantPreview from './assets/plants/plant-journal-preview.svg';
+import Yearbook from './components/Yearbook.js';
+import YearbookIcon from './assets/yearbook-icon.png';
 
 import './styles/Plants.scss';
 
@@ -125,5 +127,13 @@ export const GAME_ITEMS = [
     keepCaption: 'i love plants',
     background: <div className='plants-color-background full-size'/>,
     showDiscardKeep: false,
+  },
+  {
+    explore: <img src={YearbookIcon} draggable='false' alt='SOMETHING' />,
+    focus: <Yearbook />,
+    trashCaption: 'boo i have no friends',
+    keepCaption: 'love the memories',
+    focusCaption: 'look at all these cuties',
+    background: <div className='background-notebook-image full-size'><div className='yearbook-gray-overlay full-size' /></div>,
   },
 ];

@@ -144,14 +144,14 @@ function Yearbook() {
   return (
     <div className='yearbook-page'>
       <HTMLFlipBook
-        width={512}
-        height={640}
+        width={424}
+        height={530}
         size='stretch'
-        minWidth={300}
-        maxWidth={800}
-        minHeight={450}
-        maxHeight={900}
-        maxShadowOpacity={0.5}
+        minWidth={424}
+        maxWidth={530}
+        minHeight={424}
+        maxHeight={530}
+        //maxShadowOpacity={0.5}
         showCover={true}
         mobileScrollSupport={true}
         // onFlip={handlePageChange}

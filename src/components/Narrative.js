@@ -53,19 +53,19 @@ class Narrative extends React.Component {
         if (this.state.pageNum < this.numPages)
             this.setState({ pageNum: this.state.pageNum + 1 });
         else
-            this.setState({submitted: true});
+            this.setState({ submitted: true });
     }
 
     handleKeyDown(event) {
-        if(event.keyCode === 37) {
+        if (event.keyCode === 37) {
             if (this.state.pageNum > 1)
                 this.setState({ pageNum: this.state.pageNum - 1 });
         }
-        else if(event.keyCode === 39) {
+        else if (event.keyCode === 39) {
             if (this.state.pageNum < this.numPages)
                 this.setState({ pageNum: this.state.pageNum + 1 });
             else
-                this.setState({submitted: true});
+                this.setState({ submitted: true });
         }
     }
 

@@ -59,13 +59,13 @@ function Fieldbook() {
     setIsPlaying(false);
   }, []);
   const bookRef = useRef();
-  const goNextPage = () => {
+  /*const goNextPage = () => {
     bookRef.current.pageFlip().flipNext();
   };
 
   const goPrevPage = () => {
     bookRef.current.pageFlip().flipPrev();
-  };
+  };*/
 
   const songs = [
     Sun,
@@ -160,14 +160,15 @@ function Fieldbook() {
           );
         })}
       </HTMLFlipBook>
-      <div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
-          chevron_left {currPage}
-      </div>
       {songButton}
-      <div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
-          chevron_right
-      </div>
     </div>
   );
 }
 export default Fieldbook;
+
+/*<div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
+          chevron_left {currPage}
+      </div>
+<div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
+          chevron_right
+      </div>*/

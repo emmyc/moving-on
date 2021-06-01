@@ -178,6 +178,13 @@
   background-position: center;
 }
 
+.background-camera-image {
+  background: url('../assets/photos/photo-background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .frog-green-overlay {
   background-color: rgba(31, 202, 48, 0.45);
 }
@@ -220,6 +227,41 @@
 .foodjournal-green-overlay {
   background: radial-gradient(#B9CF80, #369E8C);
   opacity: 0.8;
+}
+
+.photos-focus {
+  width: 100vw;
+  //display: grid;
+  //grid-template-columns: repeat(6, 20%);
+  //grid-template-rows: calc(100vh - 100px) 100px;
+  align-items: center;
+  //overflow: hidden;
+}
+
+.photos-orange-overlay {
+  background-color: rgba(226, 182, 100, 0.5);
+}
+
+.polaroid1 {
+  //position: absolute;
+  width: 211.5px;
+  height: 258.16px;
+  left: 223px;
+  top: 490.7px;
+  //transform: rotate(-5deg);
+}
+
+.polaroid2 {
+  width: 211.5px;
+  height: 258.16px;
+  left: 223px;
+  top: 490.7px;
+  //transform: rotate(10deg);
+}
+
+.polaroid3 {
+  height: 200px;
+  //transform: rotate(-10deg);
 }
 
 .x-btn {

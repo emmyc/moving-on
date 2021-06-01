@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Caption from './components/Caption';
 import NintendoFocusElement from './components/NintendoFocusElement';
 import SeashellsFocusElement from './components/SeashellsFocusElement';
+import PhotosFocusElement from './components/PhotosFocusElement';
 
 import Box from './assets/boxIcon.png';
 import FrogPreview from './assets/frog-preview.svg';
@@ -13,8 +14,18 @@ import SeashellPreview from './assets/seashell-preview.svg';
 import CookiePreview from './assets/cookie-preview.svg';
 import FieldbookPreview from './assets/fieldbook_icon.png';
 import Fieldbook from './components/Fieldbook';
-import FoodJournal from './components/FoodJournal';
-import FoodIcon from './assets/fooddiary_icon.png';
+//import FoodJournal from './components/FoodJournal';
+//import FoodIcon from './assets/fooddiary_icon.png';
+import PhotosPreview from './assets/photos/photospreview.svg';
+import Polaroid1SVG from './assets/photos/done1.svg';
+import Polaroid1FocusSVG from './assets/photos/done1.jpg';
+import Polaroid2SVG from './assets/photos/done2.svg';
+import Polaroid2FocusSVG from './assets/photos/polaroid2.jpg';
+//import Polaroid3SVG from './assets/photos/polaroid3.svg';
+//import Polaroid3FocusSVG from './assets/photos/polaroid3.jpg';
+import Polaroid1Video from './assets/photos/placeholdervideo.mp4';
+import PostcardSVG from './assets/photos/postcard_back.svg';
+import PostcardFocusElement from './components/PostcardFocusElement';
 
 function FocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);
@@ -46,6 +57,7 @@ function FocusElement(props) {
 }
 
 const FISHING_FRIEND_HR_TXT = 'Fishing Friend.. you\'re pretty sure you have 1000+ hours on this baby';
+
 export const GAME_ITEMS = [
   /*
     TEMPLATE:
@@ -102,12 +114,33 @@ export const GAME_ITEMS = [
     focusCaption: 'Oh my goodness, I haven\'t opened this up since we broke up.',
     background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size' /></div>,
   },
-  {
+  /*{
     explore: <img src={FoodIcon} draggable='false' alt='SOMETHING' />,
     focus: <FoodJournal/>,
     trashCaption: 'i\'m not hungry',
     keepCaption: 'munch munch',
     focusCaption: 'food is so good',
     background: <div className='background-notebook-image full-size'><div className='foodjournal-green-overlay full-size' /></div>,
+  },*/
+  {
+    explore: <img src={PhotosPreview} draggable='false' alt='Stack of polaroids'></img>,
+    focus: <div className='photos-focus'>
+      <PhotosFocusElement imgStyle='polaroid1' videoSource={Polaroid1Video} focusSVG={Polaroid1SVG} focusFocusSVG={Polaroid1FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='Senior sunrise &apos;20...you can hear the beach around you. Click to remember.' />
+      <PhotosFocusElement imgStyle='polaroid2' focusSVG={Polaroid2SVG} focusFocusSVG={Polaroid2FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='c/o 2020 May 21 grad!' />
+      {/*<PhotosFocusElement imgStyle='polaroid3' focusSVG={Polaroid3SVG} focusFocusSVG={Polaroid3FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='♪ sidewalks we crossed ♪' />*/}
+      <PostcardFocusElement focusSVG={PostcardSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='need to make a caption blah blah. Click to flip the postcard.' />
+    </div>,
+    trashCaption: 'how the years have gone by...',
+    keepCaption: 'i could never give this away!',
+    focusCaption: 'a stack of polaroids from over the years...[double click to inspect]',
+    background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },
 ];

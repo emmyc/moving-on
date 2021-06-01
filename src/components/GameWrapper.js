@@ -68,7 +68,7 @@ function GameWrapper() {
             <span id='keep'>keep</span>
           </>
         }
-        <div style={{ width: 'inherit', height: 'inherit' }}>
+        <div className='draggables-container'>
           {GAME_ITEMS.map((item, id) =>
             <DraggableWrapper
               key={id}

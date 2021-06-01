@@ -5,6 +5,7 @@ import DraggableWrapper from './DraggableWrapper';
 
 import NintendoSVG from '../assets/nintendo.svg';
 import FullSwitchSVG from '../assets/full-switch.svg';
+import Fishing from './Fishing';
 
 import '../styles/FocusElement.scss';
 
@@ -54,17 +55,58 @@ function NintendoGameIntro(props) {
     right: '-970px',
   };
 
+  /*
   const centerStyle = {
     position: 'relative',
     transform: 'rotate(0)',
     top: 'initial',
     right: 'initial',
   };
+*/
+
+  /*
+  const gridStyle = {
+    position: 'absolute',
+    top: '0px',
+    right: '0px',
+    display: 'grid',
+    gridTemplateColumns: '1385px',
+    gridTemplateRows: '634px',
+    gridTemplateAreas: 'mid',
+  };
+
+  const gridCenterStyle = {
+    gridArea: 'mid',
+    alignSelf: 'center',
+    justifySelf: 'center',
+  };
+*/
+  const absCenterStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  };
+
+  const switchCenterStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    marginLeft: '-5px',
+  };
+
+  const d1 = (<div></div>);
+  const d2 = (<Fishing />);
+
   return (
     <>
       <img src={NintendoSVG} alt='Nintendo Game Card Image' style={{ display: onFirst ? 'inline-flex' : 'none' }} draggable='false' />
-      <img className='nintendo-image' src={FullSwitchSVG} alt='Nintendo Switch Image' onClick={moveSwitchToCenter} draggable='false'
-        style={onFirst ? cornerStyle : centerStyle} />
+        <img className='nintendo-image' src={FullSwitchSVG} alt='Nintendo Switch Image' onClick={moveSwitchToCenter} draggable='false'
+          style={onFirst ? cornerStyle : switchCenterStyle} />
+        <div style={absCenterStyle}>
+        {onFirst ? d1 : d2}
+      </div>
     </>
   );
 }

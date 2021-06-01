@@ -15,14 +15,14 @@
 
 #game {
   display: grid;
-  grid-template-columns: 80px 150px 70px;
-  grid-template-rows: 48px 60px 60px;
+  grid-template-columns: 178px 433px 57px 93px 70px;
+  grid-template-rows: 350px 60px 60px;
   grid-template-areas:
-      "left . right"
-      "bob frog boat "
-      "water water water";
-  background-color: #fafaaa;
-  background-image: url('../assets/fishback.png');
+      "left . . right right"
+      "bob bob frog frog boat "
+      "water water  water water water";
+  background-color: #9ed1d9;
+  //background-image: url('../assets/fishback.png');
   overflow: hidden;
 }
 
@@ -36,7 +36,7 @@
     grid-area: frog;
     align-self: end;
     justify-self: end;
-    z-index: 25;
+    z-index: 50;
 }
 
 #water {
@@ -67,7 +67,7 @@
 
 #boat {
     grid-area: frog-start / frog-start / water-end / boat-end;
-    z-index: 10;
+    z-index: 15;
     align-self: end;
     justify-self: end;
 }
@@ -75,21 +75,119 @@
 #leftext1 {
   grid-area: left-start / left-start / water-end / left-end;
   transform: translateY(100%);
-  animation: lt1 0.2s linear;
+  animation: lt1 1.5s linear;
   animation-fill-mode: forwards;
   z-index: 30;
+  justify-self: start;
+  align-self: start;
 }
 
 #rightext1 {
   grid-area: right-start / right-start / water-end / boat-end;
   transform: translateY(100%);
-  animation: lt1 0.2s linear;
-  animation-delay: 0.5s;
+  animation: rt1 0.5s linear;
+  //animation-delay: 0.5s;
   animation-fill-mode: forwards;
+  //justify-self: end;
+  align-self: end;
   z-index: 30;
 }
 
 #leftext2 {
+    grid-area: left-start / left-start / water-end / left-end;
+    transform: translateY(31.5%);
+    animation: lt2 0.5s linear;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+    justify-self: start;
+    align-self: start;
+}
+
+#rightext2 {
+    grid-area: right-start / right-start / water-end / boat-end;
+    transform: translateY(50.5%);
+    animation: rt2 0.2s linear;
+    animation-delay: 1.0s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+#leftext3 {
+    grid-area: left-start / left-start / water-end / left-end;
+    transform: translateY(15%);
+    animation: lt3 0.2s linear;
+    animation-delay: 1.0s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+    //justify-self: start;
+    //align-self: start;
+}
+
+#rightext3 {
+    grid-area: right-start / right-start / water-end / boat-end;
+    transform: translateY(42.6%);
+    animation: rt3 0.2s linear;
+    animation-delay: 1.0s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+#leftext4 {
+    grid-area: left-start / left-start / water-end / left-end;
+    transform: translateY(9.5%);
+    animation: lt4 0.2s linear;
+    animation-delay: 1.0s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+#rightext4 {
+    grid-area: right-start / right-start / water-end / boat-end;
+    transform: translateY(30.6%);
+    animation: rt4 0.2s linear;
+    animation-delay: 1.0s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+#leftext5 {
+    grid-area: left-start / left-start / water-end / left-end;
+    transform: translateY(-3.7%);
+    animation: lt5 0.2s linear;
+    animation-delay: 0.0s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+#rightext5 {
+    grid-area: right-start / right-start / water-end / boat-end;
+    transform: translateY(16.4%);
+    animation: rt5 0.2s linear;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+#leftext6 {
+    grid-area: left-start / left-start / water-end / left-end;
+    transform: translateY(-29%);
+    animation: lt6 0.2s linear;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+#leftext7 {
+    grid-area: left-start / left-start / water-end / left-end;
+    transform: translateY(-29%);
+    animation: lt7 0.2s linear;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+#oleftext2 {
   grid-area: left-start / left-start / water-end / left-end;
   transform: translateY(70%);
   animation: lt2 0.2s linear;
@@ -97,7 +195,7 @@
   z-index: 30;
 }
 
-#rightext2 {
+#orightext2 {
   grid-area: right-start / right-start / water-end / boat-end;
   transform: translateY(70%);
   animation: lt2 0.2s linear;
@@ -106,7 +204,7 @@
   z-index: 30;
 }
 
-#leftext3 {
+#oleftext3 {
   grid-area: left-start / left-start / water-end / left-end;
   transform: translateY(40%);
   animation: lt3 0.2s linear;
@@ -114,7 +212,7 @@
   z-index: 30;
 }
 
-#rightext3 {
+#orightext3 {
   grid-area: right-start / right-start / water-end / boat-end;
   transform: translateY(40%);
   animation: lt3 0.2s linear;
@@ -140,6 +238,55 @@
 }
 
 @keyframes lt1 {
+    to { transform: translateY(31.5%); }
+}
+
+@keyframes lt2 {
+    to { transform: translateY(15%); }
+}
+
+@keyframes rt1 {
+    to { transform: translateY(50.5%); }
+}
+
+@keyframes rt2 {
+    to { transform: translateY(42.6%); }
+}
+
+@keyframes rt3 {
+    to { transform: translateY(30.6%); }
+}
+
+@keyframes lt3 {
+    to { transform: translateY(9.5%); }
+}
+
+@keyframes rt4 {
+    to { transform: translateY(16.4%); }
+}
+
+@keyframes lt4 {
+    to { transform: translateY(-3.7%); }
+}
+
+@keyframes lt5 {
+    to { transform: translateY(-29%); }
+}
+
+@keyframes rt5 {
+    to { transform: translateY(1.4%); }
+}
+
+@keyframes lt6 {
+    to { transform: translateY(-37.5%); }
+}
+
+@keyframes lt7 {
+    to { transform: translateY(-48.5%); }
+}
+
+/*
+@keyframes lt1 {
   to { transform: translateY(70%); }
 }
 
@@ -150,4 +297,5 @@
 @keyframes lt3 {
   to { transform: translateY(0%); }
 }
+*/
 

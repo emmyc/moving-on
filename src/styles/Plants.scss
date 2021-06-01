@@ -43,6 +43,36 @@
   width: 100vw;
   z-index: 20;
 
+  .grid {
+    display: grid;
+    width: 90%;
+    height: 80%;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin: 5%;
+  }
+
+  .plant-card {
+    background-color: #e6d8ce;
+    color: white;
+    margin: 2%;
+    margin-left: 20%;
+    width: 80%;
+    height: calc(80vh - 100px);
+    box-sizing: border-box;
+    padding: 0.8em;
+
+    p {
+      margin-bottom: 0.5em;
+      text-align: left;
+      font-size: 1.6em;
+    }
+  }
+
+  .plant-popup-img {
+    grid-column: 2/3;
+  }
+
   .underline-item {
     color: white;
   }

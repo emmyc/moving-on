@@ -59,14 +59,6 @@ function Fieldbook() {
     setIsPlaying(false);
   }, []);
   const bookRef = useRef();
-  /*const goNextPage = () => {
-    bookRef.current.pageFlip().flipNext();
-  };
-
-  const goPrevPage = () => {
-    bookRef.current.pageFlip().flipPrev();
-  };*/
-
   const songs = [
     Sun,
     Love,
@@ -79,13 +71,6 @@ function Fieldbook() {
     'space oddity',
     'blue christmas',
   ];
-  /*const colors = [
-    'fieldbook-blue0-overlay',
-    'fieldbook-blue1-overlay',
-    'fieldbook-blue2-overlay',
-    'fieldbook-blue3-overlay',
-    'fieldbook-blue4-overlay',
-  ];*/
   const pages = [
     {
       image: cover,
@@ -165,10 +150,3 @@ function Fieldbook() {
   );
 }
 export default Fieldbook;
-
-/*<div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
-          chevron_left {currPage}
-      </div>
-<div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
-          chevron_right
-      </div>*/

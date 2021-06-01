@@ -56,9 +56,9 @@ function FoodJournal() {
         height={585}
         size='stretch'
         minWidth={450}
-        maxWidth={450}
+        maxWidth={800}
         minHeight={585}
-        maxHeight={585}
+        maxHeight={900}
         showCover={true}
         mobileScrollSupport={true}
         className='fieldbook'
@@ -68,7 +68,7 @@ function FoodJournal() {
         {pages.map((page, index) => {
           return (
             <Page key={'page'+index} >
-                <img src={page.image}></img>
+                <img src={page.image} className='cover-img'></img>
             </Page>
           );
         })}

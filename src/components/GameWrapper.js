@@ -6,7 +6,8 @@ import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
 function GameWrapper() {
-  const [caption, setCaption] = useState('what should i look at next?');
+  const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
+  const [caption, setCaption] = useState(DEFAULT_CAPTION);
   // const [itemFocus, setItemFocus] = useState(null);
   const [focusID, setFocusID] = useState(undefined);
   // const [overlayColor, setOverlayColor] = useState('black');
@@ -40,11 +41,11 @@ function GameWrapper() {
   };
 
   return (
-    <div>
+    <div id='explore-container'>
       {/* STATE_ZOOMED_IN */}
       {focusID !== undefined &&
         <div id='focus-content'>
-          <span className='minimal-button top-right-pos x-btn' onClick={() => setFocusID(undefined)}>X</span>
+          <span className='minimal-button top-right-pos x-btn' onClick={() => { setFocusID(undefined); setCaption(DEFAULT_CAPTION);}}>X</span>
           {(GAME_ITEMS[focusID].showDiscardKeep === undefined || GAME_ITEMS[focusID].showDiscardKeep) &&
             <>
               <span className='left-center-pos underline-item' onClick={() => { handleDrop(1, focusID); setFocusID(undefined); }}>discard</span>

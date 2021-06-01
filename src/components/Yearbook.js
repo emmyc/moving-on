@@ -13,6 +13,13 @@ const Page = React.forwardRef(function Page(props, ref) {
   );
 });
 
+// function calculateAspectRatioFit(maxWidth, maxHeight) {
+//   srcWidth = window.innerwidth;
+//   srcHeight = window.innerHeight;
+//   var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+//   return { width: srcWidth * ratio, height: srcHeight * ratio };
+// }
+
 function Yearbook() {
   const bookRef = useRef();
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -140,10 +147,10 @@ function Yearbook() {
         width={512}
         height={640}
         size='stretch'
-        minWidth={315}
-        maxWidth={400}
-        minHeight={400}
-        maxHeight={600}
+        minWidth={300}
+        maxWidth={800}
+        minHeight={450}
+        maxHeight={900}
         maxShadowOpacity={0.5}
         showCover={true}
         mobileScrollSupport={true}
@@ -185,11 +192,11 @@ function Yearbook() {
         <Page />
       </HTMLFlipBook>
       <Sound
-        url = {pageSound}
-        playStatus = {
-          isPlaying ? Sound.status.PLAYING: Sound.status.STOPPED
+        url={pageSound}
+        playStatus={
+          isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
         }
-        >
+      >
       </Sound>
     </div>
   );

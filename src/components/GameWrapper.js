@@ -45,7 +45,6 @@ function GameWrapper() {
 
   return (
     <div id='explore-container'>
-      {/* STATE_ZOOMED_IN */}
       {focusID !== undefined &&
         <div id='focus-content'>
           <span className='minimal-button top-right-pos x-btn' onClick={() => { setFocusID(undefined); setCaption(DEFAULT_CAPTION);}}>X</span>
@@ -62,7 +61,6 @@ function GameWrapper() {
         {overlayBackground}
       </div>
 
-      {/* STATE_EXPLORE */}
       <div id='item-display'>
         {focusID === undefined &&
           <>
@@ -87,7 +85,6 @@ function GameWrapper() {
         </div>
       </div>
 
-      {/* CAPTION */}
       <Caption caption={caption} />
     </div>
   );

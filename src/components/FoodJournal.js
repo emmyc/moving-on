@@ -67,18 +67,18 @@ function FoodJournal() {
       >
         {pages.map((page, index) => {
           return (
-            <Page key={'page'+index} >
-                <img src={page.image} className='cover-img'></img>
+            <Page key={'page' + index} >
+              <img src={page.image} className='cover-img'></img>
             </Page>
           );
         })}
       </HTMLFlipBook>
       <Sound
-        url = {pageSound}
-        playStatus = {
-          isPlaying ? Sound.status.PLAYING: Sound.status.STOPPED
+        url={pageSound}
+        playStatus={
+          isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
         }
-        >
+      >
       </Sound>
     </div>
   );

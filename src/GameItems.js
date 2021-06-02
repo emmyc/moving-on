@@ -23,7 +23,7 @@ import Polaroid2SVG from './assets/photos/done2.svg';
 import Polaroid2FocusSVG from './assets/photos/polaroid2.jpg';
 //import Polaroid3SVG from './assets/photos/polaroid3.svg';
 //import Polaroid3FocusSVG from './assets/photos/polaroid3.jpg';
-import Polaroid1Video from './assets/photos/placeholdervideo.mp4';
+import Polaroid1Video from './assets/photos/polaroid1video.mp4';
 import PostcardSVG from './assets/photos/postcard_back.svg';
 import PostcardFocusElement from './components/PostcardFocusElement';
 
@@ -140,7 +140,7 @@ export const GAME_ITEMS = [
     </div>,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
-    focusCaption: 'a stack of polaroids from over the years...[double click to inspect]',
+    focusCaption: 'a stack of polaroids from over the years...[click to inspect]',
     background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },
 ];

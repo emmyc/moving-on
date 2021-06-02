@@ -242,6 +242,7 @@
   background-color: rgba(226, 182, 100, 0.5);
 }
 
+/* these need to be laid out */
 .polaroid1 {
   //position: absolute;
   width: 211.5px;
@@ -262,6 +263,13 @@
 .polaroid3 {
   height: 200px;
   //transform: rotate(-10deg);
+}
+
+.postcard {
+  width: 478.79px;
+  height: 324.63px;
+  left: 296.45px;
+  top: 125px;
 }
 
 .x-btn {

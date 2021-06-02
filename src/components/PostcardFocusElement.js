@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactCardFlip from 'react-card-flip';
 
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
@@ -15,38 +16,38 @@ function PostcardFocusElement(props) {
           props.video.play();
   };*/
 
+  const postcardStyle = {
+    width: '866px',
+    height: '577px',
+    boxShadow: '30px 30px 30px 3px rgba(0, 0, 0, 0.25)',
+  };
+
   return (
     <>
       <div className='over-focus'>
         <DraggableWrapper click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
-          <img className={props.imgStyle} src={props.focusSVG} draggable='false' alt='index card' />
+          <img className='postcard' src={props.focusSVG} draggable='false' alt='index card' />
         </DraggableWrapper>
       </div>
-      {showFocusFocus && showBack &&
-        <>
-          <div className={'background ' + props.cssImageClass}>
-            <div className={'frog-focus-focus ' + props.cssColorClass}>
-              <button className='left-center-pos underline-item' onClick={() => setShowFocusFocus(false)}>go back</button>
-              <img src={PostcardBack} alt={'A picture of postcard back'} draggable='false'
-                // style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }}
-                onClick={() => setShowBack(false)}
-                />
-            </div>
-          </div>
-          {props.focusCaption !== undefined &&
-            <Caption caption={props.focusCaption} />
-          }
-        </>
-      }
-      {showFocusFocus && !showBack &&
+      {showFocusFocus &&
       <>
         <div className={'background ' + props.cssImageClass}>
             <div className={'frog-focus-focus ' + props.cssColorClass}>
               <button className='left-center-pos underline-item' onClick={() => setShowFocusFocus(false)}>go back</button>
-              <img src={PostcardFront} alt={'A picture of postcard front'} draggable='false'
-                // style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }}
-                onClick={() => setShowBack(true)}
-                />
+              <ReactCardFlip isFlipped={!showBack} flipDirection='horizontal'>
+                <div className='back'>
+                  <img src={PostcardBack} alt={'A picture of postcard back'} draggable='false' style={postcardStyle}
+                    // style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }}
+                    onClick={() => setShowBack(false)}
+                    />
+                </div>
+                <div className='front'>
+                  <img src={PostcardFront} alt={'A picture of postcard front'} draggable='false' style={postcardStyle}
+                    // style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }}
+                    onClick={() => setShowBack(true)}
+                    />
+                </div>
+              </ReactCardFlip>
             </div>
           </div>
           {props.focusCaption !== undefined &&

@@ -30,3 +30,20 @@
     margin: auto;
   }
 }
+
+.polaroid-video-background {
+  background-color: rgba(73, 71, 67, 0.76);
+}
+
+@keyframes polaroid-video-change {
+  from { background: rgba(226, 182, 100, 0.5) }
+    to { background-color: rgba(73, 71, 67, 0.76)}
+}
+
+.polaroid-video-background {
+ animation: polaroid-video-change 2s linear;
+}
+
+.white-text {
+  color: white;
+}

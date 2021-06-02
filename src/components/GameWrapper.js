@@ -67,19 +67,11 @@ function GameWrapper() {
         {focusID === undefined &&
           <>
             <div className='bound bound0'>
-            <img
-              id = 'box'
-              src = {box_closed}
-            />
+              <img id = 'box' src = {box_closed} alt='discard to box'/>
             </div>
-            <span id='discard'>discard</span>
             <div className='bound bound1'>
-            <img
-              id = 'suitcase'
-              src = {suitcase_closed}
-            />
+              <img id = 'suitcase' src = {suitcase_closed} alt='keep in suitcase'/>
             </div>
-            <span id='keep'>keep</span>
           </>
         }
         <div style={{ width: 'inherit', height: 'inherit' }}>

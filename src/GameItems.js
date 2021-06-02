@@ -4,7 +4,6 @@ import NintendoFocusElement from './components/NintendoFocusElement';
 import SeashellsFocusElement from './components/SeashellsFocusElement';
 import Plants from './components/Plants';
 
-import Box from './assets/boxIcon.png';
 import FrogPreview from './assets/frog-preview.svg';
 import FrogSVG from './assets/frog.svg';
 import IndexCardSVG from './assets/index-card.svg';

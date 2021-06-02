@@ -25,8 +25,8 @@ function PostcardFocusElement(props) {
   return (
     <>
       <div className='over-focus'>
-        <DraggableWrapper click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
-          <img className='postcard' src={props.focusSVG} draggable='false' alt='index card' />
+        <DraggableWrapper className='postcard' click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
+          <img src={props.focusSVG} draggable='false' alt='index card' />
         </DraggableWrapper>
       </div>
       {showFocusFocus &&

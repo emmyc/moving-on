@@ -217,12 +217,15 @@
 .x-btn {
   color: white;
   font-weight: 1000;
-  font-size: 50px;
+  font-size: 40px;
   border-radius: 15px;
-  height: 60px;
-  width: 60px;
-  background: black;
-  border-radius: 30px;
+  height: fit-content;
+  width: fit-content;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: maroon;
   text-align: center;
 }
 

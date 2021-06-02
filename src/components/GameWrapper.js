@@ -7,13 +7,12 @@ import DraggableWrapper from './DraggableWrapper';
 
 import suitcase_closed from '../assets/suitcase_closed.png';
 import box_closed from '../assets/discardbox_closed.png';
+import useKeyboardEvent from './useKeyboardEvent';
 
 function GameWrapper() {
   const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
   const [caption, setCaption] = useState(DEFAULT_CAPTION);
-  // const [itemFocus, setItemFocus] = useState(null);
   const [focusID, setFocusID] = useState(undefined);
-  // const [overlayColor, setOverlayColor] = useState('black');
   const [overlayBackground, setOverlayBackground] = useState();
   const [renderItems, setRenderItems] = useState([]);
   const { DISPLAYING } = ITEM_STATES;
@@ -28,10 +27,8 @@ function GameWrapper() {
 
   const handleClick = (id) => {
     setCaption(GAME_ITEMS[id].focusCaption);
-    // setItemFocus(GAME_ITEMS[id].focus);
     setOverlayBackground(GAME_ITEMS[id].background);
     setFocusID(id);
-    // setOverlayColor(GAME_ITEMS[id].overlayColor);
   };
 
   const handleDrop = (dropLoc, id) => { //discard or keep based on dropLoc ( 1 == discard, 2 == keep)
@@ -43,11 +40,18 @@ function GameWrapper() {
     return true;
   };
 
+  const escape = () => {
+    setCaption(DEFAULT_CAPTION);
+    setFocusID(undefined);
+  };
+
+  useKeyboardEvent('Escape', () => escape());
+
   return (
     <div id='explore-container'>
       {focusID !== undefined &&
         <div id='focus-content'>
-          <span className='minimal-button top-right-pos x-btn' onClick={() => { setFocusID(undefined); setCaption(DEFAULT_CAPTION);}}>X</span>
+          <span className='minimal-button top-right-pos x-btn' onClick={() => escape()}>Close (ESC)</span>
           {(GAME_ITEMS[focusID].showDiscardKeep === undefined || GAME_ITEMS[focusID].showDiscardKeep) &&
             <>
               <span className='left-center-pos underline-item' onClick={() => { handleDrop(1, focusID); setFocusID(undefined); }}>discard</span>

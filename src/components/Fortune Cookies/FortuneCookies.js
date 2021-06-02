@@ -1,7 +1,5 @@
 import React from 'react';
-//import FCbg from '../assets/FCbg.png';
 import maincookie from '../../../src/assets/maincookie.svg';
-import Caption from '../../../src/components/Caption.js';
 import FC1 from './FC1.js';
 import FC2 from './FC2.js';
 import FC3 from './FC3.js';
@@ -19,7 +17,6 @@ height: '277px',left: '185px',top: '43px'}}/>
 <FC4/>
 <FC5/>
 <FC6/>
-<Caption className='fortuneCookiesCaption' caption='Various fortune cookie fortunes that have resonated with you in some way.'/>
 </div>
 );
 }

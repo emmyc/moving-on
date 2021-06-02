@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 import '../styles/Narrative.scss';
 import leftArrow from '../assets/leftArrow.svg';
 import rightArrow from '../assets/rightArrow.svg';
-
+import skipButton from '../assets/skipButton.png';
 
 function ProgressBar(props) {
     return (
@@ -134,7 +134,7 @@ class Narrative extends React.Component {
             return (
                 <div className="page-container">
                     <Link to="/explore">
-                        <button>skip</button>
+                    <img src={skipButton}/>
                     </Link>
                     <ProgressBar style={{ position: 'absolute', width: '1138px', height: '12px', left: '170px', top: '887px' }} value={(this.state.pageNum / this.numPages) * 100}></ProgressBar>
                     <div className="narrative-container">

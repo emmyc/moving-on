@@ -35,7 +35,7 @@ function Fieldbook() {
   const onFlip = useCallback((e) => {
     setPage(e.data);
     var songNum = 0;
-    switch(e.data) {
+    switch (e.data) {
       case 1:
       case 2:
         songNum = 0;
@@ -105,24 +105,24 @@ function Fieldbook() {
   ];
   let songButton;
   if (currPage != 0 && currPage != 9) {
-    songButton = <div style={{ gridColumnStart: 1 }} className = "topLeft">
-    <Sound
-     url = {songs[currSong]}
-     playStatus = {
-       isPlaying ? Sound.status.PLAYING: Sound.status.STOPPED
-     }
-    >
-    </Sound>
-    <button type="button" className = "cassette" onClick={() => setIsPlaying(!isPlaying)}><img src ={Casette} alt='SOMETHING'/></button>
-    <span><br></br></span>
-    <label className = "songTitle">{songTitles[currSong]}</label>
+    songButton = <div style={{ gridColumnStart: 1 }} className="topLeft">
+      <Sound
+        url={songs[currSong]}
+        playStatus={
+          isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
+        }
+      >
+      </Sound>
+      <button type="button" className="cassette" onClick={() => setIsPlaying(!isPlaying)}><img src={Casette} alt='SOMETHING' /></button>
+      <span><br></br></span>
+      <label className="songTitle">{songTitles[currSong]}</label>
     </div>;
   }
   else {
     songButton = <div></div>;
   }
   return (
-    <div className = 'fieldbook-page'>
+    <div className='fieldbook-page'>
       <HTMLFlipBook
         width={480}
         height={583}
@@ -139,8 +139,8 @@ function Fieldbook() {
       >
         {pages.map((page, index) => {
           return (
-            <Page key={'page'+index} >
-                <img src={page.image}></img>
+            <Page key={'page' + index} >
+              <img src={page.image}></img>
             </Page>
           );
         })}

@@ -15,8 +15,8 @@ function PhotosFocusElement(props) {
     return (
       <>
         <div className='over-focus'>
-          <DraggableWrapper click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
-            <img className={props.imgStyle} src={props.focusSVG} draggable='false' alt='index card' />
+          <DraggableWrapper className={props.imgStyle} click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
+            <img src={props.focusSVG} draggable='false' alt='index card' />
           </DraggableWrapper>
         </div>
         {showFocusFocus && showImage &&

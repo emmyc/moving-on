@@ -1,4 +1,3 @@
-/* font imported inside public/index.html */
 .caption {
   background-color: #242A48;
   min-height: 100px;
@@ -10,7 +9,7 @@
   color: white;
   position: absolute;
   bottom: 0;
-  width:100vw;
+  width: 100vw;
   text-align: center;
 
   font-family: 'B612', sans-serif;
@@ -33,14 +32,13 @@
   display: grid;
   grid-template-rows: calc(100vh - 100px) 100px;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
-
-  * {
-    margin: auto;
-  }
 }
 
 #item-display {
+    background-image: url('../assets/explore-background.jpg');
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -77,6 +75,17 @@
 
   cursor: pointer;
 }
+
+#box {
+  height: 220px;
+  width: 170px;
+}
+
+#suitcase {
+  height: 200px;
+  width: 200px; 
+}
+
 
 // TODO: get rid of code duplication
 // #focus-discard {
@@ -215,12 +224,17 @@
 }
 
 .fieldbook-blue3-overlay {
-  background-color: #2C7A9B;
+  background: radial-gradient(#A6D9EF, #0e8880); /* if the changing works with pages 2C7A9B*/
   opacity: 0.8;
 }
 
 .fieldbook-blue4-overlay {
   background-color: #0B5C7E;
+  opacity: 0.8;
+}
+
+.yearbook-gray-overlay {
+  background-color: #757575;
   opacity: 0.8;
 }
 

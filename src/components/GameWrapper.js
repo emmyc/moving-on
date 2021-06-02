@@ -5,8 +5,12 @@ import { GAME_ITEMS } from '../GameItems';
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
+import suitcase_closed from '../assets/suitcase_closed.png';
+import box_closed from '../assets/discardbox_closed.png';
+
 function GameWrapper() {
-  const [caption, setCaption] = useState('what should i look at next?');
+  const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
+  const [caption, setCaption] = useState(DEFAULT_CAPTION);
   // const [itemFocus, setItemFocus] = useState(null);
   const [focusID, setFocusID] = useState(undefined);
   // const [overlayColor, setOverlayColor] = useState('black');
@@ -40,13 +44,17 @@ function GameWrapper() {
   };
 
   return (
-    <div>
+    <div id='explore-container'>
       {/* STATE_ZOOMED_IN */}
       {focusID !== undefined &&
         <div id='focus-content'>
-          <span className='minimal-button top-right-pos x-btn' onClick={() => setFocusID(undefined)}>X</span>
-          <span className='left-center-pos underline-item' onClick={() => { handleDrop(1, focusID); setFocusID(undefined); }}>discard</span>
-          <span className='right-center-pos underline-item' onClick={() => { handleDrop(2, focusID); setFocusID(undefined); }}>keep</span>
+          <span className='minimal-button top-right-pos x-btn' onClick={() => { setFocusID(undefined); setCaption(DEFAULT_CAPTION);}}>X</span>
+          {(GAME_ITEMS[focusID].showDiscardKeep === undefined || GAME_ITEMS[focusID].showDiscardKeep) &&
+            <>
+              <span className='left-center-pos underline-item' onClick={() => { handleDrop(1, focusID); setFocusID(undefined); }}>discard</span>
+              <span className='right-center-pos underline-item' onClick={() => { handleDrop(2, focusID); setFocusID(undefined); }}>keep</span>
+            </>
+          }
           {GAME_ITEMS[focusID].focus}
         </div>
       }
@@ -58,9 +66,19 @@ function GameWrapper() {
       <div id='item-display'>
         {focusID === undefined &&
           <>
-            <div className='bound bound0' />
+            <div className='bound bound0'>
+            <img
+              id = 'box'
+              src = {box_closed}
+            />
+            </div>
             <span id='discard'>discard</span>
-            <div className='bound bound1' />
+            <div className='bound bound1'>
+            <img
+              id = 'suitcase'
+              src = {suitcase_closed}
+            />
+            </div>
             <span id='keep'>keep</span>
           </>
         }

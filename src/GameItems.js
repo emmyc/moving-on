@@ -3,7 +3,7 @@ import Caption from './components/Caption';
 import NintendoFocusElement from './components/NintendoFocusElement';
 import SeashellsFocusElement from './components/SeashellsFocusElement';
 import PhotosFocusElement from './components/PhotosFocusElement';
-
+import Plants from './components/Plants';
 import Box from './assets/boxIcon.png';
 import FrogPreview from './assets/frog-preview.svg';
 import FrogSVG from './assets/frog.svg';
@@ -14,8 +14,6 @@ import SeashellPreview from './assets/seashell-preview.svg';
 import CookiePreview from './assets/cookie-preview.svg';
 import FieldbookPreview from './assets/fieldbook_icon.png';
 import Fieldbook from './components/Fieldbook';
-//import FoodJournal from './components/FoodJournal';
-//import FoodIcon from './assets/fooddiary_icon.png';
 import PhotosPreview from './assets/photos/photospreview.svg';
 import Polaroid1SVG from './assets/photos/done1.svg';
 import Polaroid1FocusSVG from './assets/photos/done1.jpg';
@@ -26,6 +24,10 @@ import Polaroid2FocusSVG from './assets/photos/polaroid2.jpg';
 import Polaroid1Video from './assets/photos/polaroid1video.mp4';
 import PostcardSVG from './assets/photos/postcard_back.svg';
 import PostcardFocusElement from './components/PostcardFocusElement';
+import FoodJournal from './components/FoodJournal';
+import FoodIcon from './assets/fooddiary_icon.png';
+import PlantPreview from './assets/plants/plant-journal-preview.svg';
+import './styles/Plants.scss';
 
 function FocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);
@@ -89,20 +91,22 @@ export const GAME_ITEMS = [
     // overlayColor: 'rgba(31, 202, 48, 0.45)',
     background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },
+  //seashells
   {
     explore: <img src={SeashellPreview} draggable='false' alt='SOMETHING' />,
     focus: <SeashellsFocusElement />,
-    trashCaption: 'how the years have gone by...',
-    keepCaption: 'i could never give this away!',
-    focusCaption: 'owo whats this a cardboard box',
+    trashCaption: 'I can keep the memories without keeping the shells. They are pretty though, maybe someone else would like these?',
+    keepCaption: 'I\'ve spent a long time collecting these. It\'s ok if these two school ones are broken or small—they\'re still beautiful in their own way.',
+    focusCaption: 'Some of your favorite seashells from home, and some ones from the beach near school. ',
     background: <div className='background-notebook-image full-size'><div className='seashell-blue-overlay full-size' /></div>,
   },
+  //fortune cookie
   {
     explore: <img src={CookiePreview} draggable='false' alt='SOMETHING' />,
     focus: <img src={Box} />,
-    trashCaption: 'how the years have gone by...',
-    keepCaption: 'i could never give this away!',
-    focusCaption: 'owo whats this a cardboard box',
+    trashCaption: 'They\'re just pieces of paper—I can motivate myself intrinsically without these. ',
+    keepCaption: 'This won\'t take up much room, right? They\'re bite-sized motivational quotes!',
+    focusCaption: 'A collection of fortune cookies that have resonated with me. Hover over each one to take a closer look.',
     background: <div className='background-notebook-image full-size'><div className='fortune-pink-overlay full-size' /></div>,
   },
   /*fieldbook*/
@@ -112,16 +116,17 @@ export const GAME_ITEMS = [
     trashCaption: 'It might be time to let this go. Tossing this might give me some more closure.',
     keepCaption: 'I can\'t believe she drew all these pictures for me. It was so sweet. I\'ll keep this for the memories. Maybe our paths will cross again someday.',
     focusCaption: 'Oh my goodness, I haven\'t opened this up since we broke up.',
-    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size' /></div>,
+    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue3-overlay full-size' /></div>,
   },
-  /*{
+  //food journal
+  {
     explore: <img src={FoodIcon} draggable='false' alt='SOMETHING' />,
     focus: <FoodJournal/>,
     trashCaption: 'i\'m not hungry',
     keepCaption: 'munch munch',
     focusCaption: 'food is so good',
     background: <div className='background-notebook-image full-size'><div className='foodjournal-green-overlay full-size' /></div>,
-  },*/
+  },
   {
     explore: <img src={PhotosPreview} draggable='false' alt='Stack of polaroids'></img>,
     focus: <div className='photos-focus'>
@@ -142,5 +147,14 @@ export const GAME_ITEMS = [
     keepCaption: 'i could never give this away!',
     focusCaption: 'a stack of polaroids from over the years...[click to inspect]',
     background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
+  },
+  //Plants
+  {
+    explore: <img src={PlantPreview} draggable='false' alt='Plant diary' width='300px' />,
+    focus: <Plants />,
+    trashCaption: 'plants were discarded',
+    keepCaption: 'i love plants',
+    background: <div className='plants-color-background full-size'/>,
+    showDiscardKeep: false,
   },
 ];

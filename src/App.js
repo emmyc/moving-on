@@ -1,27 +1,30 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.scss';
+import '../src/styles/YearbookIcon.scss';
+import AudioIcon from './components/AudioIcon';
 import GameWrapper from './components/GameWrapper';
 import IntroPage from './components/IntroPage';
 import Narrative from './components/Narrative';
 import Yearbook from './components/Yearbook';
-import YearbookIcon from './components/YearbookIcon';
-
+import YearbookIcon from './assets/yearbook-icon.png';
 
 function App() {
 
+  const [yearbookVisible, setYearbookVisible] = useState(false);
+  const toggleYearbookOverlay = () => setYearbookVisible(visible => !visible);
+
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
-        {/* TODO: remove placeholder audio button */}
-        <div id='audio-button'/>
-        <YearbookIcon />
+        <AudioIcon />
+
+        <div id='yearbook-icon' onClick={toggleYearbookOverlay}>
+          <img src={YearbookIcon} alt='Yearbook Icon' />
+        </div>
+        {yearbookVisible ? <Yearbook toggleFunction={toggleYearbookOverlay} /> : null}
+
         <Switch>
-
-          <Route path='/yearbook'>
-            <Yearbook />
-          </Route>
-
           <Route path='/explore'>
             <GameWrapper />
           </Route>
@@ -33,11 +36,9 @@ function App() {
           <Route path='/'>
             <IntroPage />
           </Route>
-
         </Switch>
       </Router>
     </div>
   );
 }
-
 export default App;

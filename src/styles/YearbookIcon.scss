@@ -1,15 +1,20 @@
-.yearbook-icon {
+#yearbook-icon {
   position: absolute;
-  top: 50px;
+  top: 20px;
   right: 50px;
   width: 60px;
+  height: auto;
   text-align: left;
-
   text-decoration: none;
   color: black;
-  transition: 0.3s;
+  transition: 0.2s ease;
 }
 
-.yearbook-icon:hover {
+#yearbook-icon img {
+  width: 100%;
+  height: auto;
+}
+#yearbook-icon:hover {
+  cursor: pointer;
   transform: scale(1.03);
 }

@@ -1,6 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Yearbook.scss';
+import yearbookCoverImg from '../assets/yearbook-cover.jpeg';
+import Caption from './Caption';
 
 
 const Page = React.forwardRef(function Page(props, ref) {
@@ -11,160 +13,157 @@ const Page = React.forwardRef(function Page(props, ref) {
   );
 });
 
-function Yearbook() {
-  const bookRef = useRef();
-  const teams = [
-    {
-      title: 'DEV TEAM',
-      members: [
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-      ],
-    },
-    {
-      title: 'NARRATIVE TEAM',
-      members: [
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-      ],
-    },
-    {
-      title: 'SUPERLATIVES',
-      members: [
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-      ],
-    },
-  ];
-  // const [pageNum, setPageNum] = useState(0);
+const teams = [
+  {
+    title: 'DEV TEAM',
+    members: [
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+    ],
+  },
+  {
+    title: 'NARRATIVE TEAM',
+    members: [
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+    ],
+  },
+  {
+    title: 'SUPERLATIVES',
+    members: [
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+    ],
+  },
+];
 
-  // const handlePageChange = (e) => {
-  //   setPageNum(e.data);
-  // };
+function Yearbook(props) {
 
-  const goNextPage = () => {
-    bookRef.current.pageFlip().flipNext();
-  };
-
-  const goPrevPage = () => {
-    bookRef.current.pageFlip().flipPrev();
-  };
+  const { toggleFunction } = props;
+  // function dismiss() {
+  //   document.getElementById('yearbook-close').parentNode.style.display = 'none';
+  // }
 
   return (
-    <div className='yearbook-page'>
+    <div id='yearbook-page'>
+      <span className='minimal-button top-right-pos x-btn' id='yearbook-close' onClick={toggleFunction}>X</span>
       <HTMLFlipBook
-        width={400}
-        height={600}
+        width={512}
+        height={640}
         size='stretch'
-        minWidth={315}
-        maxWidth={400}
+        minWidth={200}
+        maxWidth={550}
         minHeight={400}
-        maxHeight={600}
+        maxHeight={775}
         maxShadowOpacity={0.5}
         showCover={true}
         mobileScrollSupport={true}
         // onFlip={handlePageChange}
         className='yearbook'
-        ref={bookRef}
       >
         <Page>
-          <h1>Yearbook</h1>
+          <img className='cover-img' src={yearbookCoverImg} />
         </Page>
         {teams.map((team, index) => {
           return (
-            <Page key={'page'+index}>
+            <Page key={'page' + index}>
               <h1>{team.title}</h1>
               <div className='team-grid'>
                 {team.members.map((member, memIdx) => {
                   return (
-                    <div className='profile' key={`page${index}-member${memIdx}`}>
+                    <div
+                      className='profile'
+                      key={`page${index}-member${memIdx}`}
+                    >
                       <div className='fake-pic' />
-                      {member.name}<br />
-                      {member.year}<br />
+                      {member.name}
+                      <br />
+                      {member.year}
+                      <br />
                       {member.major}
                     </div>
                   );
@@ -178,12 +177,7 @@ function Yearbook() {
         </Page>
         <Page />
       </HTMLFlipBook>
-      <div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
-          chevron_left
-      </div>
-      <div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
-          chevron_right
-      </div>
+      <Caption caption='the cutest team!!' />
     </div>
   );
 }

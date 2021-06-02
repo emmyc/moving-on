@@ -5,6 +5,7 @@ import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 import PostcardBack from '../assets/photos/postcard_back.jpg';
 import PostcardFront from '../assets/photos/postcard_front.jpg';
+import '../styles/GameWrapper.scss';
 
 
 function PostcardFocusElement(props) {
@@ -25,13 +26,13 @@ function PostcardFocusElement(props) {
   return (
     <>
       <div className='over-focus'>
-        <DraggableWrapper className='postcard' click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
+        <DraggableWrapper id='postcard' click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
           <img src={props.focusSVG} draggable='false' alt='index card' />
         </DraggableWrapper>
       </div>
       {showFocusFocus &&
-      <>
-        <div className={'background ' + props.cssImageClass}>
+        <>
+          <div className={'background ' + props.cssImageClass}>
             <div className={'frog-focus-focus ' + props.cssColorClass}>
               <button className='left-center-pos underline-item' onClick={() => setShowFocusFocus(false)}>go back</button>
               <ReactCardFlip isFlipped={!showBack} flipDirection='horizontal'>
@@ -39,13 +40,13 @@ function PostcardFocusElement(props) {
                   <img src={PostcardBack} alt={'A picture of postcard back'} draggable='false' style={postcardStyle}
                     // style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }}
                     onClick={() => setShowBack(false)}
-                    />
+                  />
                 </div>
                 <div className='front'>
                   <img src={PostcardFront} alt={'A picture of postcard front'} draggable='false' style={postcardStyle}
                     // style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }}
                     onClick={() => setShowBack(true)}
-                    />
+                  />
                 </div>
               </ReactCardFlip>
             </div>
@@ -53,11 +54,11 @@ function PostcardFocusElement(props) {
           {props.focusCaption !== undefined &&
             <Caption caption={props.focusCaption} />
           }
-      </>
+        </>
       }
     </>
   );
-  }
+}
 
 /*function PhotosFocusElement() {
     const caption='a stack of polaroids from over the years...[double click on a photo to inspect]';

@@ -45,7 +45,6 @@ function GameWrapper() {
 
   return (
     <div id='explore-container'>
-      {/* STATE_ZOOMED_IN */}
       {focusID !== undefined &&
         <div id='focus-content'>
           <span className='minimal-button top-right-pos x-btn' onClick={() => { setFocusID(undefined); setCaption(DEFAULT_CAPTION);}}>X</span>
@@ -62,24 +61,15 @@ function GameWrapper() {
         {overlayBackground}
       </div>
 
-      {/* STATE_EXPLORE */}
       <div id='item-display'>
         {focusID === undefined &&
           <>
             <div className='bound bound0'>
-            <img
-              id = 'box'
-              src = {box_closed}
-            />
+              <img id = 'box' src = {box_closed} alt='discard to box'/>
             </div>
-            <span id='discard'>discard</span>
             <div className='bound bound1'>
-            <img
-              id = 'suitcase'
-              src = {suitcase_closed}
-            />
+              <img id = 'suitcase' src = {suitcase_closed} alt='keep in suitcase'/>
             </div>
-            <span id='keep'>keep</span>
           </>
         }
         <div style={{ width: 'inherit', height: 'inherit' }}>
@@ -95,7 +85,6 @@ function GameWrapper() {
         </div>
       </div>
 
-      {/* CAPTION */}
       <Caption caption={caption} />
     </div>
   );

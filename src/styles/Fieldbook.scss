@@ -1,0 +1,42 @@
+.fieldbook-page {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  width: 100vw;
+  height: 80vh;
+  border: 0px;
+}
+
+.fieldbook {
+  grid-column: 2;
+  width: fit-content;
+  margin: auto;
+  border: 0px;
+}  
+  
+.fpage {
+  border-radius: 4px;
+  outline: 1px solid rgb(59, 58, 57);
+  opacity: 1;
+  background: white;
+}
+
+.cassette {
+  border: none;
+  background-color: Transparent;
+}
+
+.cassette:hover {
+  transform: scale(1.1);
+  transition: .1s ease-out;
+}
+
+.songTitle {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  color: white;
+}
+
+.topLeft {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}

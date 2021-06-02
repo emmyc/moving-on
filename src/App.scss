@@ -14,7 +14,7 @@
   background-position: center;
   width: 100px;
   height: 100px;
-  z-index: -1;
+  z-index: 1;
 }
 
 .bound0 {
@@ -39,6 +39,22 @@
   right: 110px;
 }
 
+.minimal-button {
+  border: none;
+  background: none;
+  font-family: 'B612', sans-serif;
+  font-size: calc(10px + 2vmin);
+  transition: 0.2s cubic-bezier(.08,.51,.95,.49);
+  cursor: pointer;
+}
+
+.minimal-button:hover {
+  transform: scale(1.1);
+}
+
+.minimal-button:active {
+  filter: brightness(0.5);
+}
 .audioIcon {
   height: 40px;
   width: auto;

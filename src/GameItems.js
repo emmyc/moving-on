@@ -18,7 +18,7 @@ import FoodJournal from './components/FoodJournal';
 import FoodIcon from './assets/fooddiary_icon.png';
 import PlantPreview from './assets/plants/plant-journal-preview.svg';
 import './styles/Plants.scss';
-
+import FortuneCookies from './components/Fortune Cookies/FortuneCookies';
 function FocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);
 
@@ -92,7 +92,7 @@ export const GAME_ITEMS = [
   //fortune cookie
   {
     explore: <img src={CookiePreview} draggable='false' alt='SOMETHING' />,
-    focus: <img src={Box} />,
+    focus: <FortuneCookies/>,
     trashCaption: 'They\'re just pieces of paper—I can motivate myself intrinsically without these. ',
     keepCaption: 'This won\'t take up much room, right? They\'re bite-sized motivational quotes!',
     focusCaption: 'A collection of fortune cookies that have resonated with me. Hover over each one to take a closer look.',

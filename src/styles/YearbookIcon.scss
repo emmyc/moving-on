@@ -4,8 +4,6 @@
   right: 50px;
   width: 60px;
   height: auto;
-  text-align: left;
-  text-decoration: none;
   color: black;
   transition: 0.2s ease;
 }
@@ -14,7 +12,8 @@
   width: 100%;
   height: auto;
 }
+
 #yearbook-icon:hover {
   cursor: pointer;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }

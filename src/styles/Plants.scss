@@ -37,11 +37,17 @@
 }
 
 .plant-popup {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(1.2px);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
   height: calc(100vh - 100px);
   width: 100vw;
   z-index: 20;
+
+  p {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: white;
+  }
 
   .grid {
     display: grid;
@@ -60,12 +66,31 @@
     width: 80%;
     height: calc(80vh - 100px);
     box-sizing: border-box;
-    padding: 0.8em;
+    padding: 0 0.8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
     p {
-      margin-bottom: 0.5em;
       text-align: left;
-      font-size: 1.6em;
+    }
+  }
+
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75%;
+    height: calc(100vh - 100px);
+    margin-left: 12.5%;
+
+    #propogation-img {
+      width: 60%;
+    }
+
+    p {
+      text-shadow: 4px 4px 9px black;
     }
   }
 

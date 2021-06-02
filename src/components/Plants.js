@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import Caption from './Caption';
+import { GameContext } from './GameWrapper';
 import ITEM_STATES from '../constants';
 
 import '../styles/Plants.scss';
@@ -13,6 +14,7 @@ import PropogationGIF from '../assets/plants/propogation.gif';
 const DEFAULT_PLANT_CAPTION = 'Click on each plant to interact';
 
 function Plants() {
+  const { handleDrop, plantStates, setPlantStates } = useContext(GameContext);
   const roomBaseWidth = 3999;
   const plants = [
     {
@@ -84,7 +86,9 @@ function Plants() {
     {
       name: 'Propogation',
       src: PropogationGIF,
-      caption: 'little plant stalks swim inside your impromptu vases, waiting to grow ',
+      caption: 'little plant stalks swim inside your impromptu vases, waiting to grow',
+      leftText: 'you propogated this plant the day you met that cute upperclassman. they had introduced themselves at your club’s first meeting and offered you a drink',
+      rightText: 'your former lab partner always joked that you should use an erlenmeyer flask to grow your plants. you miss their chaotic energy and how you’d both scramble to complete reports before the due dates',
       keep: 'carefully pack this. There’s a chance they’ll sprout eventually',
       discard: 'part ways; they clearly weren’t growing much',
       baseWidth: 800,
@@ -103,7 +107,7 @@ function Plants() {
 
   const [loaded, setLoaded] = useState(false);
 
-  const [displayArr, setDisplayArr] = useState([1, 1, 1, 1]);
+  // const [displayArr, setDisplayArr] = useState(plantStates);
   const [caption, setCaption] = useState(DEFAULT_PLANT_CAPTION);
 
   useEffect(() => {
@@ -114,6 +118,28 @@ function Plants() {
       window.removeEventListener('resize', updateImageSizes);
     };
   }, []);
+
+  useEffect(() => {
+    let numDisplaying = 0;
+    let numSaved = 0;
+    for (let i = 0; i < plantStates.length; i++) {
+      if (plantStates[i] === ITEM_STATES.DISPLAYING)
+        numDisplaying++;
+      else if (plantStates[i] === ITEM_STATES.SAVED)
+        numSaved++;
+    }
+
+    if (numDisplaying === 0) {
+      const state = numSaved === 0 ? ITEM_STATES.DROPPED : ITEM_STATES.SAVED;
+      handleDrop(state, 5);
+    }
+  }, [plantStates]);
+
+  const stopDisplay = (state, i) => {
+    const newPlantStates = [...plantStates];
+    newPlantStates[i] = state;
+    setPlantStates(newPlantStates);
+  };
 
   const updateImageSizes = () => {
     const roomDimensions = backgroundRef.current.getBoundingClientRect();
@@ -139,16 +165,12 @@ function Plants() {
                   width={plantObj.baseWidth * roomWidth / roomBaseWidth}
                   leftMargin={(windowWidth - roomWidth) / 2 + plantObj.percLeftMargin * roomWidth}
                   topMargin={plantObj.percTopMargin * roomHeight}
-                  narrative={plantObj.narrative}
+                  narrative={plantObj.narrative} leftText={plantObj.leftText} rightText={plantObj.rightText}
                   keepCaption={plantObj.keep} discardCaption={plantObj.discard}
-                  setCaption={setCaption} stopDisplay={() => {
-                    const newDisplayArr = [...displayArr];
-                    newDisplayArr[i] = 0;
-                    setDisplayArr(newDisplayArr);
-                  }}
+                  setCaption={setCaption} stopDisplay={(state) => stopDisplay(state, i)}
                 />
               );
-            }).filter((plant, index) => displayArr[index])}
+            }).filter((plant, index) => plantStates[index] === ITEM_STATES.DISPLAYING)}
           </div>
           <Caption caption={caption} />
         </>
@@ -172,7 +194,7 @@ function PlantObj(props) {
       default:
         props.setCaption(DEFAULT_PLANT_CAPTION);
     }
-    props.stopDisplay();
+    props.stopDisplay(state);
   };
 
   return (
@@ -197,7 +219,11 @@ function PlantObj(props) {
                 <img className='max-image plant-popup-img' src={props.src} alt='Plant popup' />
               </div>
               :
-              <img className='max-image' src={props.src} alt='Plant Popup' />
+              <div className='flex-row'>
+                <p>{props.leftText}</p>
+                <img id='propogation-img' className='max-image' src={props.src} alt='Plant Popup' />
+                <p>{props.rightText}</p>
+              </div>
             }
           </div>
         </>

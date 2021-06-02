@@ -134,7 +134,7 @@ class Narrative extends React.Component {
             return (
                 <div className="page-container">
                     <Link to="/explore">
-                    <img src={skipButton}/>
+                    <img src={skipButton} style= {{position: 'absolute', width: '91px', height: '38px', left: '685px', top: '28px' }}/>
                     </Link>
                     <ProgressBar style={{ position: 'absolute', width: '1138px', height: '12px', left: '170px', top: '887px' }} value={(this.state.pageNum / this.numPages) * 100}></ProgressBar>
                     <div className="narrative-container">

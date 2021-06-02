@@ -26,12 +26,16 @@
 
 .page-content {
     position: absolute;
-    width: 1138px;
+    /// width: 1138px;
+    width: 80%;
     height: 750px;
-    left: 152px;
+    /// left: 152px;
+    left: 9%;
+    right: 10%;
     top: 147px;
     font-size: 25px;
     text-align: left;
+
 }
 
 .button-container {
@@ -52,4 +56,17 @@
 
 .progress-bar {
     color: black;
+}
+
+.centerText{
+    text-emphasis: none;
+    /*
+    text-align: center;
+    padding-right: 200px;
+    */
+}
+
+.fadeInText{
+    width: 100%;
+
 }

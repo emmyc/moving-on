@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 .App {
   text-align: center;
 }
@@ -48,6 +52,8 @@
   position: absolute;
   left: 40px;
   top: 20px;
+  transition: 0.2s ease;
+  z-index: 5;
   &:hover {
     transform: scale(1.05);
   }

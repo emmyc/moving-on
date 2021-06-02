@@ -1,9 +1,9 @@
-import React, { useRef, useCallback } from 'react';
+import React from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Yearbook.scss';
-import Sound from 'react-sound';
-import pageSound from '../assets/pageFlipSound.mp3';
 import yearbookCoverImg from '../assets/yearbook-cover.jpeg';
+import Caption from './Caption';
+
 
 const Page = React.forwardRef(function Page(props, ref) {
   return (
@@ -13,151 +13,137 @@ const Page = React.forwardRef(function Page(props, ref) {
   );
 });
 
-// function calculateAspectRatioFit(maxWidth, maxHeight) {
-//   srcWidth = window.innerwidth;
-//   srcHeight = window.innerHeight;
-//   var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
-//   return { width: srcWidth * ratio, height: srcHeight * ratio };
-// }
+const teams = [
+  {
+    title: 'DEV TEAM',
+    members: [
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+    ],
+  },
+  {
+    title: 'NARRATIVE TEAM',
+    members: [
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+    ],
+  },
+  {
+    title: 'SUPERLATIVES',
+    members: [
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+      {
+        name: 'Name',
+        year: 2024,
+        major: 'Major',
+      },
+    ],
+  },
+];
 
-function Yearbook() {
-  const bookRef = useRef();
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const teams = [
-    {
-      title: 'DEV TEAM',
-      members: [
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-      ],
-    },
-    {
-      title: 'NARRATIVE TEAM',
-      members: [
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-      ],
-    },
-    {
-      title: 'SUPERLATIVES',
-      members: [
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-        {
-          name: 'Name',
-          year: 2024,
-          major: 'Major',
-        },
-      ],
-    },
-  ];
-  // const [pageNum, setPageNum] = useState(0);
+function Yearbook(props) {
 
-  // const handlePageChange = (e) => {
-  //   setPageNum(e.data);
-  // };
-  const onFlip = useCallback((e) => {
-    setIsPlaying(false);
-    console.log('Current page: ' + e.data);
-    setIsPlaying(true);
-  }, []);
+  const { toggleFunction } = props;
+  // function dismiss() {
+  //   document.getElementById('yearbook-close').parentNode.style.display = 'none';
+  // }
 
   return (
-    <div className='yearbook-page'>
+    <div id='yearbook-page'>
+      <span className='minimal-button top-right-pos x-btn' id='yearbook-close' onClick={toggleFunction}>X</span>
       <HTMLFlipBook
         width={512}
         height={640}
         size='stretch'
-        minWidth={300}
-        maxWidth={800}
-        minHeight={450}
-        maxHeight={900}
+        minWidth={200}
+        maxWidth={550}
+        minHeight={400}
+        maxHeight={775}
         maxShadowOpacity={0.5}
         showCover={true}
         mobileScrollSupport={true}
         // onFlip={handlePageChange}
-        onFlip={onFlip}
         className='yearbook'
-        ref={bookRef}
       >
         <Page>
           <img className='cover-img' src={yearbookCoverImg} />
@@ -191,13 +177,7 @@ function Yearbook() {
         </Page>
         <Page />
       </HTMLFlipBook>
-      <Sound
-        url={pageSound}
-        playStatus={
-          isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
-        }
-      >
-      </Sound>
+      <Caption caption='the cutest team!!' />
     </div>
   );
 }

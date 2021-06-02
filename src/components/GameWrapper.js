@@ -5,6 +5,9 @@ import { GAME_ITEMS } from '../GameItems';
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
+import suitcase_closed from '../assets/suitcase_closed.png';
+import box_closed from '../assets/discardbox_closed.png';
+
 function GameWrapper() {
   const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
   const [caption, setCaption] = useState(DEFAULT_CAPTION);
@@ -63,9 +66,19 @@ function GameWrapper() {
       <div id='item-display'>
         {focusID === undefined &&
           <>
-            <div className='bound bound0' />
+            <div className='bound bound0'>
+            <img
+              id = 'box'
+              src = {box_closed}
+            />
+            </div>
             <span id='discard'>discard</span>
-            <div className='bound bound1' />
+            <div className='bound bound1'>
+            <img
+              id = 'suitcase'
+              src = {suitcase_closed}
+            />
+            </div>
             <span id='keep'>keep</span>
           </>
         }

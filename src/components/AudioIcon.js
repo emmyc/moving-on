@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import mute from '../images/mute.svg';
-import unmute from '../images/unmute.svg';
+import mute from '../assets/icons/mute.svg';
+import unmute from '../assets/icons/unmute.svg';
 
 //this handles the audio icon, keeping the unmute image as a default and turning to the mute image when clicked
 function AudioIcon() {

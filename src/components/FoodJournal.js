@@ -55,10 +55,10 @@ function FoodJournal() {
         width={450}
         height={585}
         size='stretch'
-        minWidth={450}
-        maxWidth={800}
-        minHeight={585}
-        maxHeight={900}
+        minWidth={250}
+        maxWidth={600}
+        minHeight={320}
+        maxHeight={800}
         showCover={true}
         mobileScrollSupport={true}
         className='fieldbook'
@@ -67,18 +67,18 @@ function FoodJournal() {
       >
         {pages.map((page, index) => {
           return (
-            <Page key={'page'+index} >
-                <img src={page.image} className='cover-img'></img>
+            <Page key={'page' + index} >
+              <img src={page.image} className='cover-img'></img>
             </Page>
           );
         })}
       </HTMLFlipBook>
       <Sound
-        url = {pageSound}
-        playStatus = {
-          isPlaying ? Sound.status.PLAYING: Sound.status.STOPPED
+        url={pageSound}
+        playStatus={
+          isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
         }
-        >
+      >
       </Sound>
     </div>
   );

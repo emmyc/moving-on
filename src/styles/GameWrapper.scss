@@ -76,6 +76,17 @@
   cursor: pointer;
 }
 
+#box {
+  height: 220px;
+  width: 170px;
+}
+
+#suitcase {
+  height: 200px;
+  width: 200px; 
+}
+
+
 // TODO: get rid of code duplication
 // #focus-discard {
 //   top: 600px;
@@ -212,6 +223,11 @@
 
 .fieldbook-blue4-overlay {
   background-color: #0B5C7E;
+  opacity: 0.8;
+}
+
+.yearbook-gray-overlay {
+  background-color: #757575;
   opacity: 0.8;
 }
 

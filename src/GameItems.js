@@ -17,7 +17,6 @@ import Fieldbook from './components/Fieldbook';
 import FoodJournal from './components/FoodJournal';
 import FoodIcon from './assets/fooddiary_icon.png';
 import PlantPreview from './assets/plants/plant-journal-preview.svg';
-
 import './styles/Plants.scss';
 
 function FocusElement(props) {

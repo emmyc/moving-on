@@ -1,8 +1,12 @@
-.yearbook-page {
+#yearbook-page {
+  position: absolute;
   display: grid;
+  background-color: rgba($color: #131313, $alpha: 0.9);
   grid-template-columns: 10% 80% 10%;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
+  margin-bottom: 120px;
+  z-index: 5;
 }
 
 .yearbook {

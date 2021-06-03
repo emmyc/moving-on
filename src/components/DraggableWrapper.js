@@ -52,7 +52,7 @@ function DraggableWrapper(props) {
       if (hoverLoc !== prevHoverState.current && !inHover) {
         prevHoverState.current = hoverLoc;
         setInHover(true);
-        props.setHover(hoverLoc);
+        props.setHover && props.setHover(hoverLoc); // check for undefined
       }
     }
   };
@@ -94,7 +94,7 @@ function DraggableWrapper(props) {
     } else {
       const dropLoc = inDropBox(currLoc);
       if (dropLoc) {
-        props.setHover(ITEM_STATES.DISPLAYING);
+        props.setHover && props.setHover(ITEM_STATES.DISPLAYING); // check for undefined
         props.dropped && props.dropped(dropLoc);
         return;
       }

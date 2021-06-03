@@ -110,9 +110,9 @@ export const GAME_ITEMS = [
   {
     explore: <img src={FoodIcon} draggable='false' alt='SOMETHING' />,
     focus: <FoodJournal/>,
-    trashCaption: 'i\'m not hungry',
-    keepCaption: 'munch munch',
-    focusCaption: 'food is so good',
+    trashCaption: 'I\'d hate to see this diary just collecting dust on the shelf, but I don\'t see myself getting much use out of it anymore. At least I can recycle it.',
+    keepCaption: 'It wasn\'t just good food I kept track of and want to remember — it was also all the fun times with friends, care packages from family, and my evolution into a total food connoisseur.',
+    focusCaption: 'I kept this food diary over the past year. There\'s still a faint fragrance of those late-night fries I snacked on once while jotting things down.',
     background: <div className='background-notebook-image full-size'><div className='foodjournal-green-overlay full-size' /></div>,
   },
   //dance
@@ -121,7 +121,7 @@ export const GAME_ITEMS = [
     focus: <div><iframe src="https://drive.google.com/file/d/13TgMpI0MCeFHc7miDipKu_ciCs4HNxg4/preview" width="1008" height="567" className= 'responsive-iframe'></iframe></div>,
     trashCaption: 'It\'s time to move on. Maybe my friend will like it.',
     keepCaption: 'I miss her and what we could\'ve been, but I\'m grateful for our friendship.',
-    focusCaption: 'A memory:',
+    focusCaption: 'A memory...',
     background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size'/></div>,
     showDiscardKeep: true,
   },

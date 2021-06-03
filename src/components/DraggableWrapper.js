@@ -1,38 +1,70 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Draggable from 'react-draggable';
+import ITEM_STATES from '../constants';
 import '../styles/DraggableWrapper.scss';
 
 function DraggableWrapper(props) {
   const nodeRef = React.useRef(null);
   const prevLoc = useRef(null); //use previous location to distinguish between click and drag
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  let bounds = [
-    {
-      left: 0,
-      right: 100,
-      top: 400,
-      bottom: 500,
-    },
-    {
-      left: windowWidth - 100,
-      right: windowWidth,
-      top: 400,
-      bottom: 500,
-    },
-  ];
+  const [mouseDown, setMouseDown] = useState(false);
+  const mouseDownRef = useRef(false);
+  // need a mouseDown ref in addition to mouseDown hook because function passed to document.eventlistener will get copies of the outerscope variables,
+  // if mouseDown variable is used in the checkHover function the mousemove event listener gets a copy of mouseDown's value
+  // so even if mouseDown is updated the copy in the checkHover function won't be updated
+  // if we pass a ref to checkHover the value of the ref is copied. The ref is just a reference to a value (can think of like a pointer)
+  // so it is ok that the checkHover function never receives a new value
+  // when checkHover follows the mouseDownRef it will read the updated value even though the mouseDownRef is still the same
+
+  const prevHoverState = useRef(ITEM_STATES.DISPLAYING);
+  const [inHover, setInHover] = useState(false);
+  const bounds = useRef([]);  // bounds needs to be a reference since checkHover also uses bounds
 
   useEffect(() => {
-    window.addEventListener('resize', updateWindowWidth);
-    return () => window.removeEventListener('resize', updateWindowWidth);
+    window.addEventListener('resize', updateBounds);
+    document.addEventListener('mousemove', checkHover);
+    updateBounds();
+    return () => {
+      window.removeEventListener('resize', updateBounds);
+      document.removeEventListener('mousemove', checkHover);
+    };
   }, []);
 
-  const updateWindowWidth = () => {
-    setWindowWidth(window.innerWidth);
+  useEffect(() => {
+    mouseDownRef.current = mouseDown;
+  }, [mouseDown]);
+
+  const updateBounds = () => {
+    bounds.current = [
+      {
+        left: 0,
+        right: 100,
+        top: 400,
+        bottom: 500,
+      },
+      {
+        left: window.innerWidth - 100,
+        right: window.innerWidth,
+        top: 400,
+        bottom: 500,
+      },
+    ];
+  };
+
+  const checkHover = () => {  // all outer scope variables that checkHover and it's child functions uses must be a ref and not a hook
+    if (mouseDownRef.current) { // must use mouseDownRef.current here and NOT mouseDown
+      const hoverLoc = inDropBox(nodeRef.current.getBoundingClientRect());
+      console.log('is hovering over: ' + hoverLoc);
+      if (hoverLoc !== prevHoverState.current && !inHover) {
+        prevHoverState.current = hoverLoc;
+        setInHover(true);
+        props.setHover(hoverLoc);
+      }
+    }
   };
 
   const inDropBox = (currLoc) => {
-    for (let i = 0; i < bounds.length; i++) {
-      if (overlaps(bounds[i], currLoc) || overlaps(currLoc, bounds[i])) {
+    for (let i = 0; i < bounds.current.length; i++) {
+      if (overlaps(bounds.current[i], currLoc) || overlaps(currLoc, bounds.current[i])) {
         return i + 1;
       }
     }
@@ -56,15 +88,18 @@ function DraggableWrapper(props) {
 
   const handleStart = () => {
     prevLoc.current = nodeRef.current.getBoundingClientRect();
+    setMouseDown(true);
   };
 
   const handleStop = () => {
+    setMouseDown(false);
     const currLoc = nodeRef.current.getBoundingClientRect();
     if (currLoc.x === prevLoc.current.x && currLoc.y === prevLoc.current.y) {
-        handleClick();
+      handleClick();
     } else {
       const dropLoc = inDropBox(currLoc);
       if (dropLoc) {
+        props.setHover(ITEM_STATES.DISPLAYING);
         props.dropped && props.dropped(dropLoc);
       }
     }

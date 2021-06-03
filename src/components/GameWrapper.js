@@ -5,8 +5,10 @@ import { GAME_ITEMS } from '../GameItems';
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
-import suitcase_closed from '../assets/suitcase_closed.png';
-import box_closed from '../assets/discardbox_closed.png';
+import ClosedSuitcasePNG from '../assets/suitcase_closed.png';
+import OpenSuitcasePNG from '../assets/suitcase_openEMPTY.png';
+import ClosedBoxPNG from '../assets/discardbox_closed.png';
+import OpenBoxPNG from '../assets/discardbox_open.png';
 
 function GameWrapper() {
   const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
@@ -16,6 +18,7 @@ function GameWrapper() {
   // const [overlayColor, setOverlayColor] = useState('black');
   const [overlayBackground, setOverlayBackground] = useState();
   const [renderItems, setRenderItems] = useState([]);
+  const [hoverBound, setHoverBound] = useState(ITEM_STATES.DISPLAYING);
   const { DISPLAYING } = ITEM_STATES;
 
   useEffect(() => {
@@ -43,6 +46,10 @@ function GameWrapper() {
     return true;
   };
 
+  const setHover = (hoverBound) => {
+    setHoverBound(hoverBound);
+  };
+
   return (
     <div id='explore-container'>
       {focusID !== undefined &&
@@ -65,10 +72,10 @@ function GameWrapper() {
         {focusID === undefined &&
           <>
             <div className='bound bound0'>
-              <img id = 'box' src = {box_closed} alt='discard to box'/>
+              <img id = 'box' src = {hoverBound === ITEM_STATES.DROPPED ? OpenBoxPNG : ClosedBoxPNG} alt='discard to box'/>
             </div>
             <div className='bound bound1'>
-              <img id = 'suitcase' src = {suitcase_closed} alt='keep in suitcase'/>
+              <img id = 'suitcase' src = {hoverBound === ITEM_STATES.SAVED ? OpenSuitcasePNG : ClosedSuitcasePNG} alt='keep in suitcase'/>
             </div>
           </>
         }
@@ -78,6 +85,7 @@ function GameWrapper() {
               key={id}
               name={Math.random() * 1000}
               click={() => handleClick(id)}
+              setHover={setHover}
               dropped={(dropLoc) => handleDrop(dropLoc, id)}>
               {item.explore}
             </DraggableWrapper>,

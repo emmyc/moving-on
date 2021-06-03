@@ -15,9 +15,7 @@ import OpenBoxPNG from '../assets/discardbox_open.png';
 function GameWrapper() {
   const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
   const [caption, setCaption] = useState(DEFAULT_CAPTION);
-  // const [itemFocus, setItemFocus] = useState(null);
   const [focusID, setFocusID] = useState(undefined);
-  // const [overlayColor, setOverlayColor] = useState('black');
   const [overlayBackground, setOverlayBackground] = useState();
   const [renderItems, setRenderItems] = useState([]);
   const [hoverBound, setHoverBound] = useState(ITEM_STATES.DISPLAYING);
@@ -35,10 +33,8 @@ function GameWrapper() {
 
   const handleClick = (id) => {
     setCaption(GAME_ITEMS[id].focusCaption);
-    // setItemFocus(GAME_ITEMS[id].focus);
     setOverlayBackground(GAME_ITEMS[id].background);
     setFocusID(id);
-    // setOverlayColor(GAME_ITEMS[id].overlayColor);
   };
 
   const handleDrop = (dropLoc, id) => { //discard or keep based on dropLoc ( 1 == discard, 2 == keep)
@@ -75,35 +71,33 @@ function GameWrapper() {
         </div>
 
         {/* STATE_EXPLORE */}
-
-        </div>
-
-      <div id='item-display'>
-        {focusID === undefined &&
-          <>
-            <div className='bound bound0'>
-              <img id = 'box' src = {hoverBound === ITEM_STATES.DROPPED ? OpenBoxPNG : ClosedBoxPNG} alt='discard to box'/>
-            </div>
-            <div className='bound bound1'>
-              <img id = 'suitcase' src = {hoverBound === ITEM_STATES.SAVED ? OpenSuitcasePNG : ClosedSuitcasePNG} alt='keep in suitcase'/>
-            </div>
-          </>
-        }
-         <div className='draggables-container'>
+        <div id='item-display'>
+          {focusID === undefined &&
+            <>
+              <div className='bound bound0'>
+                <img id='box' src={hoverBound === ITEM_STATES.DROPPED ? OpenBoxPNG : ClosedBoxPNG} alt='discard to box' />
+              </div>
+              <div className='bound bound1'>
+                <img id='suitcase' src={hoverBound === ITEM_STATES.SAVED ? OpenSuitcasePNG : ClosedSuitcasePNG} alt='keep in suitcase' />
+              </div>
+            </>
+          }
+          <div className='draggables-container'>
             {GAME_ITEMS.map((item, id) =>
               <DraggableWrapper
                 key={id}
                 name={Math.random() * 1000}
                 click={() => handleClick(id)}
+                setHover={setHover}
                 dropped={(dropLoc) => handleDrop(dropLoc, id)}>
                 {item.explore}
               </DraggableWrapper>,
             ).filter((item, id) => renderItems[id] === DISPLAYING)}
           </div>
-      </div>
+        </div>
 
-      <Caption caption={caption} />
-    </div>
+        <Caption caption={caption} />
+      </div>
     </GameContext.Provider>
   );
 }

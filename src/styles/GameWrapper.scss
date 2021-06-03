@@ -67,6 +67,11 @@
   overflow: hidden;
 }
 
+.draggables-container {
+  width: inherit;
+  height: inherit;
+}
+
 #box {
   height: 220px;
   width: 170px;

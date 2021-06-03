@@ -76,8 +76,8 @@ function FoodJournal() {
   return (
     <div className='fieldbook-page'>
       <HTMLFlipBook
-        width={450}
-        height={585}
+        width={525}
+        height={675}
         size='stretch'
         minWidth={250}
         maxWidth={600}

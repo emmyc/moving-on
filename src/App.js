@@ -8,6 +8,7 @@ import IntroPage from './components/IntroPage';
 import Narrative from './components/Narrative';
 import Yearbook from './components/Yearbook';
 import YearbookIcon from './assets/yearbook-icon.png';
+import Conclusion from './components/Conclusion';
 
 function App() {
 
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path='/narrative'>
             <Narrative />
+          </Route>
+          <Route path='/conclusion'>
+            <Conclusion />
           </Route>
 
           <Route path='/'>

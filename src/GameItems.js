@@ -18,8 +18,14 @@ import Polaroid1SVG from './assets/photos/done1.svg';
 import Polaroid1FocusSVG from './assets/photos/done1.jpg';
 import Polaroid2SVG from './assets/photos/done2.svg';
 import Polaroid2FocusSVG from './assets/photos/polaroid2.jpg';
-//import Polaroid3SVG from './assets/photos/polaroid3.svg';
-//import Polaroid3FocusSVG from './assets/photos/polaroid3.jpg';
+import Polaroid3SVG from './assets/photos/polaroid3.svg';
+import Polaroid3FocusSVG from './assets/photos/polaroid3.jpg';
+import Polaroid4SVG from './assets/photos/polaroid4.svg';
+import Polaroid4FocusSVG from './assets/photos/polaroid4.jpg';
+import Polaroid5SVG from './assets/photos/polaroid5.svg';
+import Polaroid5FocusSVG from './assets/photos/polaroid5.jpg';
+import PhotoStripSVG from './assets/photos/photostrip.svg';
+import PhotoStripFocusSVG from './assets/photos/photostrip.jpg';
 import Polaroid1Video from './assets/photos/polaroid1video.mp4';
 import PostcardSVG from './assets/photos/postcard_back.svg';
 import PostcardFocusElement from './components/PostcardFocusElement';
@@ -135,9 +141,18 @@ export const GAME_ITEMS = [
       <PhotosFocusElement imgStyle='polaroid2' focusSVG={Polaroid2SVG} focusFocusSVG={Polaroid2FocusSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
         focusCaption='c/o 2020 May 21 grad!' />
-      {/*<PhotosFocusElement imgStyle='polaroid3' focusSVG={Polaroid3SVG} focusFocusSVG={Polaroid3FocusSVG}
+      <PhotosFocusElement imgStyle='polaroid3' focusSVG={Polaroid3SVG} focusFocusSVG={Polaroid3FocusSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
-        focusCaption='♪ sidewalks we crossed ♪' />*/}
+        focusCaption='...and the adventure begins.' />
+      <PhotosFocusElement imgStyle='polaroid4' focusSVG={Polaroid4SVG} focusFocusSVG={Polaroid4FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='♪ sidewalks we crossed ♪' />
+      <PhotosFocusElement imgStyle='polaroid5' focusSVG={Polaroid5SVG} focusFocusSVG={Polaroid5FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='middle school benches and the taste of home...' />
+      <PhotosFocusElement imgStyle='photo-strip' focusSVG={PhotoStripSVG} focusFocusSVG={PhotoStripFocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay' focusFocusCSS={{height: '550px'}}
+        focusCaption='needs a caption?' />
       <PostcardFocusElement focusSVG={PostcardSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
         focusCaption='need to make a caption blah blah. Click to flip the postcard.' />

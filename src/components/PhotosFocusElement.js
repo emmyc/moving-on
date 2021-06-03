@@ -15,7 +15,7 @@ function PhotosFocusElement(props) {
     return (
       <>
         <div className='over-focus'>
-          <DraggableWrapper className={props.imgStyle} click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
+          <DraggableWrapper id={props.imgStyle} click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
             <img src={props.focusSVG} draggable='false' alt='index card' />
           </DraggableWrapper>
         </div>
@@ -24,7 +24,7 @@ function PhotosFocusElement(props) {
             <div className={'background ' + props.cssImageClass}>
               <div className={'frog-focus-focus ' + props.cssColorClass}>
                 <button className='left-center-pos underline-item' onClick={() => setShowFocusFocus(false)}>go back</button>
-                <img src={props.focusFocusSVG} alt={'A picture of '+props.focusFocusSVG} draggable='false'
+                <img style={props.focusFocusCSS} src={props.focusFocusSVG} alt={'A picture of '+props.focusFocusSVG} draggable='false'
                   // style={{ visibility: showFocusFocus ? 'visible' : 'hidden' }}
                   onClick={() => props.videoSource && setShowImage(false)}
                   />

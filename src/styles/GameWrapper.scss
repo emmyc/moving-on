@@ -235,34 +235,66 @@
 }
 
 /* these need to be laid out */
-.polaroid1 {
+#polaroid1 {
   position: absolute;
-  width: 211.5px;
-  height: 258.16px;
-  left: 223px;
-  top: 490.7px;
+  //width: 211.5px;
+  //height: 258.16px;
+  width: auto;
+  height: auto;
+  left: 425.77px;
+  top: 525px;
   //transform: rotate(-5deg);
 }
 
-.polaroid2 {
+#polaroid2 {
   position: absolute;
-  width: 211.5px;
-  height: 258.16px;
+  //width: 211.5px;
+  //height: 258.16px;
+  width: auto;
+  height: auto;
   left: 223px;
   top: 490.7px;
   //transform: rotate(10deg);
 }
 
-.polaroid3 {
-  height: 200px;
-  //transform: rotate(-10deg);
+#polaroid3 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 792px;
+  top: 485.9px;
+}
+
+#polaroid4 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 823.34px;
+  top: 153px;
+}
+
+#polaroid5 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 945px;
+  top: 351.67px;
+}
+
+#photo-strip {
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 644.54px;
+  top: 168px;
 }
 
 #postcard {
   position: absolute !important;
-  // width: 478.79px;
-  // height: 324.63px;
-  width: 100%;
+  //width: 478.79px;
+  width: auto;
+  //height: 324.63px;
+  //width: 100%;
   height: auto;
   left: 296.45px;
   top: 125px;

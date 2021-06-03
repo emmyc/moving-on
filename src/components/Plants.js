@@ -87,7 +87,7 @@ function Plants() {
       name: 'Propogation',
       src: PropogationGIF,
       caption: 'little plant stalks swim inside your impromptu vases, waiting to grow',
-      leftText: 'you propogated this plant the day you met that cute upperclassman. they had introduced themselves at your club’s first meeting and offered you a drink',
+      leftText: 'you propagated this plant the day you met that cute upperclassman. they had introduced themselves at your club’s first meeting and offered you a drink',
       rightText: 'your former lab partner always joked that you should use an erlenmeyer flask to grow your plants. you miss their chaotic energy and how you’d both scramble to complete reports before the due dates',
       keep: 'carefully pack this. There’s a chance they’ll sprout eventually',
       discard: 'part ways; they clearly weren’t growing much',
@@ -107,7 +107,6 @@ function Plants() {
 
   const [loaded, setLoaded] = useState(false);
 
-  // const [displayArr, setDisplayArr] = useState(plantStates);
   const [caption, setCaption] = useState(DEFAULT_PLANT_CAPTION);
 
   useEffect(() => {
@@ -212,14 +211,14 @@ function PlantObj(props) {
             <span className='left-center-pos underline-item' onClick={() => { console.log('discarded'); handleClick(ITEM_STATES.DROPPED); }}>give away</span>
             <span className='right-center-pos underline-item' onClick={() => { console.log('kept'); handleClick(ITEM_STATES.SAVED); }}>keep</span>
             {props.narrative !== undefined ?
-              <div className='grid'>
+              <div className='flex-row'>
                 <div className='plant-card'>
                   {props.narrative}
                 </div>
                 <img className='max-image plant-popup-img' src={props.src} alt='Plant popup' />
               </div>
               :
-              <div className='flex-row'>
+              <div className='center-flex'>
                 <p>{props.leftText}</p>
                 <img id='propogation-img' className='max-image' src={props.src} alt='Plant Popup' />
                 <p>{props.rightText}</p>

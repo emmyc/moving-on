@@ -82,7 +82,7 @@ class Narrative extends React.Component {
                         running on your computer. No wonder it whirred so much.</p></FadeIn>
                     </div>
                 </NarrativeContent>;
-            next = <div><img src={rightArrow} onClick={() => this.handleNextClick()} style={{ height: '50px', position: 'absolute', top: '100px', right: '7px' }} />
+            next = <div><img src={rightArrow} onClick={() => this.handleNextClick()} style={{ height: '50px', position: 'absolute', top: '100px', right: '70px' }} />
             </div>;
         }
         else if (this.state.pageNum === 2) {
@@ -102,7 +102,7 @@ class Narrative extends React.Component {
                         for the summer.</p></FadeIn>
                     </div>
                 </NarrativeContent>;
-            next = <div><img src={rightArrow} onClick={() => this.handleNextClick()} style={{ height: '50px', position: 'absolute', top: '100px', right: '7px' }} /></div>;
+            next = <div><img src={rightArrow} onClick={() => this.handleNextClick()} style={{ height: '50px', position: 'absolute', top: '100px', right: '70px' }} /></div>;
         }
         else if (this.state.pageNum >= 3) {
             prev = <div><img src={leftArrow} onClick={() => this.handlePrevClick()} style={{ height: '50px', position: 'absolute', top: '100px', left: '7px' }} />
@@ -123,7 +123,7 @@ class Narrative extends React.Component {
                      You smile a little as you open up the chat—they always texted like that.</p></FadeIn>
                     </div>
                 </NarrativeContent>;
-            next = <div><img src={rightArrow} onClick={() => this.handleNextClick()} style={{ height: '50px', position: 'absolute', top: '100px', right: '7px' }} /></div>;
+            next = <div><img src={rightArrow} onClick={() => this.handleNextClick()} style={{ height: '50px', position: 'absolute', top: '100px', right: '70px' }} /></div>;
         }
         if (this.state.submitted) {
             return (

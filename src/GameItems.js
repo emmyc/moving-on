@@ -3,7 +3,6 @@ import Caption from './components/Caption';
 import NintendoFocusElement from './components/NintendoFocusElement';
 import SeashellsFocusElement from './components/SeashellsFocusElement';
 import Plants from './components/Plants';
-
 import FrogPreview from './assets/frog-preview.svg';
 import FrogSVG from './assets/frog.svg';
 import IndexCardSVG from './assets/index-card.svg';
@@ -63,7 +62,7 @@ export const GAME_ITEMS = [
     TODO: possibly change captions to a single array?
   */
   {
-    explore: <img src={FrogPreview} draggable='false' alt='A Frog Keychain, Nintendo, and Index Card' />,
+    explore: <img src={FrogPreview} id='frog-preview' draggable='false' alt='A Frog Keychain, Nintendo, and Index Card' />,
     focus:
       <div className='frog-focus'>
         <FocusElement focusSVG={IndexCardSVG} focusFocusSVG={IndexCardSVG}
@@ -117,7 +116,7 @@ export const GAME_ITEMS = [
   },
   //Plants
   {
-    explore: <img src={PlantPreview} draggable='false' alt='Plant diary' width='300px' />,
+    explore: <img src={PlantPreview} id='plant-preview' draggable='false' alt='Plant diary' width='300px' />,
     focus: <Plants />,
     trashCaption: 'plants were discarded',
     keepCaption: 'i love plants',

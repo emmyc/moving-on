@@ -10,7 +10,7 @@ import FrogSVG from './assets/frog.svg';
 import IndexCardSVG from './assets/index-card.svg';
 import NintendoSVG from './assets/nintendo.svg';
 import DraggableWrapper from './components/DraggableWrapper';
-import SeashellPreview from './assets/seashell-preview.svg';
+import SeashellPreview from './assets/seashell-box-closed.svg';
 import CookiePreview from './assets/cookie-preview.svg';
 import FieldbookPreview from './assets/fieldbook_icon.png';
 import Fieldbook from './components/Fieldbook';

@@ -110,7 +110,7 @@ function Plants() {
   const [caption, setCaption] = useState(DEFAULT_PLANT_CAPTION);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setShowingPreview(false), 500);
+    const timeout = setTimeout(() => setShowingPreview(false), 4300);
     window.addEventListener('resize', updateImageSizes);
     return () => {
       clearTimeout(timeout);

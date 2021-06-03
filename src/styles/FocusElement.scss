@@ -20,13 +20,17 @@
 //   align-items: flex-start;
 // }
 
+.pointer {
+  cursor: pointer;
+}
+
 .seashells-grid {
   position: absolute;
-  top: 100px;
+  top: 5vh;
   left: 10vw;
   display: grid;
   width: 80vw;
-  max-height: calc(100vh - 116px);
+  max-height: calc(95vh - 100px);
   grid-template-columns: 50% 20% 30%;
   grid-template-rows: 33% 66%;
   align-items: center;

@@ -6,14 +6,21 @@ import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
 export const GameContext = React.createContext();
+import ClosedSuitcasePNG from '../assets/suitcase_closed.png';
+import OpenSuitcasePNG from '../assets/suitcase_openEMPTY.png';
+import ClosedBoxPNG from '../assets/discardbox_closed.png';
+import OpenBoxPNG from '../assets/discardbox_open.png';
+
 
 function GameWrapper() {
-  const [caption, setCaption] = useState('what should i look at next?');
+  const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
+  const [caption, setCaption] = useState(DEFAULT_CAPTION);
   // const [itemFocus, setItemFocus] = useState(null);
   const [focusID, setFocusID] = useState(undefined);
   // const [overlayColor, setOverlayColor] = useState('black');
   const [overlayBackground, setOverlayBackground] = useState();
   const [renderItems, setRenderItems] = useState([]);
+  const [hoverBound, setHoverBound] = useState(ITEM_STATES.DISPLAYING);
   const { DISPLAYING } = ITEM_STATES;
   const [plantStates, setPlantStates] =
     useState([ITEM_STATES.DISPLAYING, ITEM_STATES.DISPLAYING, ITEM_STATES.DISPLAYING, ITEM_STATES.DISPLAYING]);
@@ -43,9 +50,13 @@ function GameWrapper() {
     return true;
   };
 
+  const setHover = (hoverBound) => {
+    setHoverBound(hoverBound);
+  };
+
   return (
     <GameContext.Provider value={{ handleDrop, plantStates, setPlantStates }}>
-      <div>
+      <div id='explore-container'>
         {/* STATE_ZOOMED_IN */}
         {focusID !== undefined &&
           <div id='focus-content'>
@@ -64,16 +75,21 @@ function GameWrapper() {
         </div>
 
         {/* STATE_EXPLORE */}
-        <div id='item-display'>
-          {focusID === undefined &&
-            <>
-              <div className='bound bound0' />
-              <span id='discard'>discard</span>
-              <div className='bound bound1' />
-              <span id='keep'>keep</span>
-            </>
-          }
-          <div className='draggables-container'>
+
+        </div>
+
+      <div id='item-display'>
+        {focusID === undefined &&
+          <>
+            <div className='bound bound0'>
+              <img id = 'box' src = {hoverBound === ITEM_STATES.DROPPED ? OpenBoxPNG : ClosedBoxPNG} alt='discard to box'/>
+            </div>
+            <div className='bound bound1'>
+              <img id = 'suitcase' src = {hoverBound === ITEM_STATES.SAVED ? OpenSuitcasePNG : ClosedSuitcasePNG} alt='keep in suitcase'/>
+            </div>
+          </>
+        }
+         <div className='draggables-container'>
             {GAME_ITEMS.map((item, id) =>
               <DraggableWrapper
                 key={id}
@@ -84,11 +100,10 @@ function GameWrapper() {
               </DraggableWrapper>,
             ).filter((item, id) => renderItems[id] === DISPLAYING)}
           </div>
-        </div>
-
-        {/* CAPTION */}
-        <Caption caption={caption} />
       </div>
+
+      <Caption caption={caption} />
+    </div>
     </GameContext.Provider>
   );
 }

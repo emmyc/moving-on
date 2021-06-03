@@ -35,7 +35,7 @@ function Fieldbook() {
   const onFlip = useCallback((e) => {
     setPage(e.data);
     var songNum = 0;
-    switch(e.data) {
+    switch (e.data) {
       case 1:
       case 2:
         songNum = 0;
@@ -59,14 +59,6 @@ function Fieldbook() {
     setIsPlaying(false);
   }, []);
   const bookRef = useRef();
-  const goNextPage = () => {
-    bookRef.current.pageFlip().flipNext();
-  };
-
-  const goPrevPage = () => {
-    bookRef.current.pageFlip().flipPrev();
-  };
-
   const songs = [
     Sun,
     Love,
@@ -79,13 +71,6 @@ function Fieldbook() {
     'space oddity',
     'blue christmas',
   ];
-  /*const colors = [
-    'fieldbook-blue0-overlay',
-    'fieldbook-blue1-overlay',
-    'fieldbook-blue2-overlay',
-    'fieldbook-blue3-overlay',
-    'fieldbook-blue4-overlay',
-  ];*/
   const pages = [
     {
       image: cover,
@@ -120,24 +105,24 @@ function Fieldbook() {
   ];
   let songButton;
   if (currPage != 0 && currPage != 9) {
-    songButton = <div style={{ gridColumnStart: 1 }} className = "topLeft">
-    <Sound
-     url = {songs[currSong]}
-     playStatus = {
-       isPlaying ? Sound.status.PLAYING: Sound.status.STOPPED
-     }
-    >
-    </Sound>
-    <button type="button" className = "cassette" onClick={() => setIsPlaying(!isPlaying)}><img src ={Casette} alt='SOMETHING'/></button>
-    <span><br></br></span>
-    <label className = "songTitle">{songTitles[currSong]}</label>
+    songButton = <div style={{ gridColumnStart: 1 }} className="topLeft">
+      <Sound
+        url={songs[currSong]}
+        playStatus={
+          isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
+        }
+      >
+      </Sound>
+      <button type="button" className="cassette" onClick={() => setIsPlaying(!isPlaying)}><img src={Casette} alt='SOMETHING' /></button>
+      <span><br></br></span>
+      <label className="songTitle">{songTitles[currSong]}</label>
     </div>;
   }
   else {
     songButton = <div></div>;
   }
   return (
-    <div className = 'fieldbook-page'>
+    <div className='fieldbook-page'>
       <HTMLFlipBook
         width={480}
         height={583}
@@ -154,19 +139,13 @@ function Fieldbook() {
       >
         {pages.map((page, index) => {
           return (
-            <Page key={'page'+index} >
-                <img src={page.image}></img>
+            <Page key={'page' + index} >
+              <img src={page.image}></img>
             </Page>
           );
         })}
       </HTMLFlipBook>
-      <div className="icon" onClick={goPrevPage} style={{ gridColumnStart: 1 }}>
-          chevron_left {currPage}
-      </div>
       {songButton}
-      <div className="icon" onClick={goNextPage} style={{ gridColumnStart: 3 }}>
-          chevron_right
-      </div>
     </div>
   );
 }

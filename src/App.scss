@@ -1,25 +1,9 @@
+body {
+  margin: 0px;
+}
+
 .App {
   text-align: center;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.bound {
-  border: 2px solid black;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-image: url('./assets/dropbox.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100px;
-  height: 100px;
-  z-index: -1;
 }
 
 .bound0 {
@@ -60,35 +44,51 @@
 .minimal-button:active {
   filter: brightness(0.5);
 }
-.audioIcon {
-  height: 40px;
-  width: auto;
+
+#audio-toggle {
+  cursor: pointer;
+  width: 60px;
+  height: auto;
   position: absolute;
   left: 40px;
   top: 20px;
+  transition: 0.2s ease;
+  z-index: 5;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
-.fadeInText {
-position: absolute;
-width: 1136px;
-height: 68px;
-left: 30px;
-top: 0px;
 
-font-family: Anonymous Pro, monospace;
-font-style: normal;
-font-weight: normal;
-font-size: 25px;
-line-height: 34px;
-letter-spacing: 0.04em;
-color: #000000;
+.audioIcon {
+  width: 100%;
+  height: auto;
 }
+
+.fadeInText {
+  position: absolute;
+  width: 80%;
+  height: 68px;
+  left: 30px;
+  top: 0px;
+  
+  font-family: Anonymous Pro, monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 34px;
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+
 .fade-wrapper {
-    transition:opacity ease-in-out;
+  transition:opacity ease-in-out;
 }
+
 .fade-in {
-    transition: opacity 1s ease;
+  transition: opacity 1s ease;
 }
+
 .fade-out {
-    opacity: 0;
-    transition: opacity 1s ease;
+  opacity: 0;
+  transition: opacity 1s ease;
 }

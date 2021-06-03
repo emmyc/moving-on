@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/IntroPage.scss';
-import SuitcaseImg from '../images/suitcase_closed.png';
+import SuitcaseImg from '../assets/icons/suitcase_closed.png';
 
 function IntroPage() {
   return (

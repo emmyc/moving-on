@@ -37,6 +37,10 @@
   justify-content: center;
   height: fit-content;
 
+  img:hover{
+    cursor: pointer;
+  }
+
   .right-col {
     grid-column: 3/4;
     grid-row: 1/3;

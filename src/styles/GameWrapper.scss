@@ -242,3 +242,28 @@
   max-width: 400px;
   max-height: 400px;
 }
+
+.container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /*padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.responsive-iframe {
+  /*border: none;*/
+  /*border: 10px #1b6063;
+  border-style: groove;*/
+  font-size: 1.6rem;
+	display: grid;
+	place-items: center;
+	min-height: 200px;
+	border: 8px solid;
+	padding: 1rem;
+  position: relative;
+	background: linear-gradient(to left, rgb(53, 70, 104), rgb(11, 109, 112));
+	/*The background extends to the outside edge of the padding. No background is drawn beneath the border.*/
+	background-clip: padding-box;
+	border: solid 8px transparent;
+	border-radius: 1.2rem;
+}

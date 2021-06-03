@@ -5,11 +5,10 @@ import '../styles/DraggableWrapper.scss';
 
 function DraggableWrapper(props) {
   const nodeRef = React.useRef(null);
-  const prevLoc = useRef(null); //use previous location to distinguish between click and drag
-  const [mouseDown, setMouseDown] = useState(false);
+  const prevLoc = useRef(null); // use previous location to distinguish between click and drag
   const mouseDownRef = useRef(false);
-  // need a mouseDown ref in addition to mouseDown hook because function passed to document.eventlistener will get copies of the outerscope variables,
-  // if mouseDown variable is used in the checkHover function the mousemove event listener gets a copy of mouseDown's value
+  // need a mouseDown ref and not a mouseDown hook because function passed to document.eventlistener will get copies of the outerscope variables,
+  // if mouseDown hook is used in the checkHover function the mousemove event listener gets a copy of mouseDown's value
   // so even if mouseDown is updated the copy in the checkHover function won't be updated
   // if we pass a ref to checkHover the value of the ref is copied. The ref is just a reference to a value (can think of like a pointer)
   // so it is ok that the checkHover function never receives a new value
@@ -29,10 +28,6 @@ function DraggableWrapper(props) {
     };
   }, []);
 
-  useEffect(() => {
-    mouseDownRef.current = mouseDown;
-  }, [mouseDown]);
-
   const updateBounds = () => {
     bounds.current = [
       {
@@ -51,7 +46,7 @@ function DraggableWrapper(props) {
   };
 
   const checkHover = () => {  // all outer scope variables that checkHover and it's child functions uses must be a ref and not a hook
-    if (mouseDownRef.current) { // must use mouseDownRef.current here and NOT mouseDown
+    if (mouseDownRef.current) { // must use mouseDownRef.current here and NOT a mouseDown hook
       const hoverLoc = inDropBox(nodeRef.current.getBoundingClientRect());
       console.log('is hovering over: ' + hoverLoc);
       if (hoverLoc !== prevHoverState.current && !inHover) {
@@ -71,7 +66,7 @@ function DraggableWrapper(props) {
     return 0;
   };
 
-  const overlaps = (box1, box2) => {  //checks if box1 overlaps box2, note: sometimes it isn't commutative when box1 or box2 is much bigger than the other
+  const overlaps = (box1, box2) => {  // checks if box1 overlaps box2, note: sometimes it isn't commutative when box1 or box2 is much bigger than the other
     let xOverlaps, yOverlaps;
     if ((box1.left >= box2.left && box1.left <= box2.right) || (box1.right >= box2.left && box1.right <= box2.right)) {
       xOverlaps = true;
@@ -88,11 +83,11 @@ function DraggableWrapper(props) {
 
   const handleStart = () => {
     prevLoc.current = nodeRef.current.getBoundingClientRect();
-    setMouseDown(true);
+    mouseDownRef.current = true;
   };
 
   const handleStop = () => {
-    setMouseDown(false);
+    mouseDownRef.current = false;
     const currLoc = nodeRef.current.getBoundingClientRect();
     if (currLoc.x === prevLoc.current.x && currLoc.y === prevLoc.current.y) {
       handleClick();
@@ -101,13 +96,14 @@ function DraggableWrapper(props) {
       if (dropLoc) {
         props.setHover(ITEM_STATES.DISPLAYING);
         props.dropped && props.dropped(dropLoc);
+        return;
       }
     }
     prevLoc.current = currLoc;
   };
 
   const handleClick = () => {
-    props.click && props.click(); //check for undefined
+    props.click && props.click(); // check for undefined
   };
 
   return (

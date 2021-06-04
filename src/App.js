@@ -22,7 +22,8 @@ function App() {
           <img src={YearbookIcon} alt='Yearbook Icon' />
         </div>
         {yearbookVisible ? <Yearbook toggleFunction={toggleYearbookOverlay} /> : null}
-        <YearbookIcon />
+        <Switch>
+          <Route path='/explore'>
             <GameWrapper />
           </Route>
           <Route path='/narrative'>

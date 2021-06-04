@@ -167,11 +167,7 @@ function Fishing() {
   return (
     <div id='cont'>
       <div id='game' onClick={handleClick} onKeyDown={handleKeyPress} tabIndex="0">
-      {/*<img src={BigWater} id='bigwater'/>*/}
-    {/*<img src={BigWater} id='bigwater2'/>*/}
       <img src={BoatWater} id='back' />
-        <div id='bigwater'></div>
-      {/*<img src={Boat} id='boat'/>*/}
         <img src={froggy} id={'frog' + frogFrame}/>
         <img src={lTextImg} id={'leftext' + lTextCount}/>
         <img src={Textright} id={'rightext' + rTextCount}/>

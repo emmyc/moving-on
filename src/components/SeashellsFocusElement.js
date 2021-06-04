@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Caption from '../components/Caption';
+import DraggableWrapper from '../components/DraggableWrapper';
 
 import Seashell1SVG from '../assets/seashells/seashell1.svg';
 import Seashell2SVG from '../assets/seashells/seashell2.svg';
@@ -8,12 +9,12 @@ import Seashell4SVG from '../assets/seashells/seashell4.svg';
 import Seashell5SVG from '../assets/seashells/seashell5.svg';
 import Seashell6SVG from '../assets/seashells/seashell6.svg';
 import Seashell7SVG from '../assets/seashells/seashell7.svg';
-// import SeashellBoxSVG from '../assets/seashell-box.svg';
-import SeashellCard from '../assets/seashell-preview.svg';
+import SeashellBoxClosedSVG from '../assets/seashell-box-closed.svg';
+import SeashellBoxOpenSVG from '../assets/seashell-box-open.svg';
 
 function SeashellsFocusElement() {
-  const [caption, setCaption] = useState('Some of your favorite seashells from home, and some ones from the beach near school. (Click for more information)');
-  // const seashells = [Seashell1SVG, Seashell2SVG, Seashell3SVG, Seashell4SVG, Seashell5SVG, Seashell6SVG, Seashell7SVG];
+  const [caption, setCaption] = useState('Shells you\'ve collected, both at home and here at school. (Click the box, and hover over each shell)');
+  const [closed, setClosed] = useState(true);
   const captionMSG =
     ['I\'m not sure what this one is, but I love the ridges on it. I found this one the same day I found the sea urchin skeleton—what a day for shell collecting!',
       'My mom found this scallop shell for me in 3rd grade. I remember thinking it would be fun to try and use it as a spoon. ',
@@ -25,37 +26,52 @@ function SeashellsFocusElement() {
 
   return (
     <>
-      {/* <div className='seashells-focus'> */}
       <div className='seashells-grid'>
-        <img src={SeashellCard} alt='Seashells' draggable='true' />
-        <img src={Seashell5SVG} alt={'A picture of a Seashell'} draggable='true'
-          className='tilt-1' onClick={() => setCaption(captionMSG[4])} />
+        {closed ? <img className='pointer' src={SeashellBoxClosedSVG} alt='Seashells' draggable='false' onClick={() => setClosed(false)} />
+          :
+          <>
+            <img className='pointer' src={SeashellBoxOpenSVG} alt='Seashells' draggable='false' onClick={() => setClosed(true)} />
+            <DraggableWrapper>
+              <img src={Seashell5SVG} alt={'A picture of a Seashell'} draggable='false'
+                className='tilt-1' onMouseEnter={() => setCaption(captionMSG[4])} />
+            </DraggableWrapper>
 
-        <div className='right-col'>
-          <img src={Seashell3SVG} alt={'A picture of a Seashell'} draggable='false'
-            onClick={() => setCaption(captionMSG[2])} />
-          <img src={Seashell4SVG} alt={'A picture of a Seashell'} draggable='false'
-            className='tilt-2' onClick={() => setCaption(captionMSG[3])} />
-        </div>
+            <div className='right-col'>
+              <DraggableWrapper>
+                <img src={Seashell3SVG} alt={'A picture of a Seashell'} draggable='false'
+                  onMouseEnter={() => setCaption(captionMSG[2])} />
+              </DraggableWrapper>
+              <DraggableWrapper>
+                <img src={Seashell4SVG} alt={'A picture of a Seashell'} draggable='false'
+                  className='tilt-2' onMouseEnter={() => setCaption(captionMSG[3])} />
+              </DraggableWrapper>
+            </div>
 
-        <div className='lower-left-box'>
-          <div id='top-row' className='flex-row'>
-            <img src={Seashell1SVG} alt={'A picture of a Seashell'} draggable='false'
-              className='tilt-3' onClick={() => setCaption(captionMSG[0])} />
-            <img src={Seashell6SVG} alt={'A picture of a Seashell'} draggable='false'
-              onClick={() => setCaption(captionMSG[5])} />
-          </div>
-          <div id='bottom-row' className='flex-row'>
-            <img src={Seashell2SVG} alt={'A picture of a Seashell'} draggable='false'
-              onClick={() => setCaption(captionMSG[1])} />
-            <img src={Seashell7SVG} alt={'A picture of a Seashell'} draggable='false'
-              onClick={() => setCaption(captionMSG[6])} />
-          </div>
-        </div>
-        {/* {seashells.map((src, i) => <img src={src} alt={'A picture of ' + src} draggable='false' key={i}
-            onMouseEnter={() => setCaption(captionMSG[i])} />)} */}
+            <div className='lower-left-box'>
+              <div id='top-row' className='flex-row'>
+                <DraggableWrapper>
+                  <img src={Seashell1SVG} alt={'A picture of a Seashell'} draggable='false'
+                    className='tilt-3' onMouseEnter={() => setCaption(captionMSG[0])} />
+                </DraggableWrapper>
+                <DraggableWrapper>
+                  <img src={Seashell6SVG} alt={'A picture of a Seashell'} draggable='false'
+                    onMouseEnter={() => setCaption(captionMSG[5])} />
+                </DraggableWrapper>
+              </div>
+              <div id='bottom-row' className='flex-row'>
+                <DraggableWrapper>
+                  <img src={Seashell2SVG} alt={'A picture of a Seashell'} draggable='false'
+                    onMouseEnter={() => setCaption(captionMSG[1])} />
+                </DraggableWrapper>
+                <DraggableWrapper>
+                  <img src={Seashell7SVG} alt={'A picture of a Seashell'} draggable='false'
+                    onMouseEnter={() => setCaption(captionMSG[6])} />
+                </DraggableWrapper>
+              </div>
+            </div>
+          </>
+        }
       </div>
-      {/* </div> */}
       {caption !== undefined &&
         <Caption caption={caption} />
       }

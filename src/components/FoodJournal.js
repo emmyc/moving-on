@@ -80,9 +80,9 @@ function FoodJournal() {
         height={675}
         size='stretch'
         minWidth={250}
-        maxWidth={600}
+        maxWidth={500}
         minHeight={320}
-        maxHeight={800}
+        maxHeight={650}
         showCover={true}
         mobileScrollSupport={true}
         className='fieldbook'

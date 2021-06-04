@@ -67,17 +67,23 @@
   overflow: hidden;
 }
 
+.draggables-container {
+  width: inherit;
+  height: inherit;
+}
+
 #box {
-  height: 220px;
-  width: 170px;
+  height: 300px;
+  width: auto;
 }
 
 #suitcase {
-  height: 200px;
-  width: 200px; 
+  height: 300px;
+  width: 300px; 
 }
 
 .underline-item {
+  color: #242A48;
   display: block;
   position: fixed;
   padding: 0.2em 0;
@@ -86,6 +92,8 @@
   outline: none;
   border: none;
   font-family: 'B612', sans-serif;
+  font-weight: 700;
+  margin: 0px 10px;
   font-size: calc(10px + 2vmin);
   cursor: pointer;
 }
@@ -231,7 +239,6 @@
   height: 100%;
 }
 
-
 #frog-preview {
   max-width: 400px;
   max-height:300px;
@@ -266,4 +273,10 @@
 	background-clip: padding-box;
 	border: solid 8px transparent;
 	border-radius: 1.2rem;
+#frog-card {
+  max-width: 800px;
+}
+
+#frog-cartridge {
+  max-width: 200px;
 }

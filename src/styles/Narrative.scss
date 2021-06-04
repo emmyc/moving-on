@@ -1,11 +1,14 @@
+
+$color-dark: #192450;
+$color-light: #FFFBF4;
 .page-container {
-  background-color:white;
+  background-color:$color-light;
   max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: $color-dark;
 }
 
 .narrative-container {
@@ -13,20 +16,24 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 2vmin);
   text-align: left;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: row;
-  color: black;
+  color: $color-dark;
 }
 
 .page-content {
   position: absolute;
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
   height: 50%;
-  font-size: 25px;
+  font-size: 18px;
   text-align: left;
 }
 
@@ -45,7 +52,7 @@
 }
 
 .progress-bar {
-    color: black;
+    color: $color-dark;
 }
 
 .centerText{
@@ -94,6 +101,6 @@
 
 #progress-bar-inner {
   height: 100%;
-  background-color: black;
+  background-color: $color-dark;
   border-radius: 70px;
 }

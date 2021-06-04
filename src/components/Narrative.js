@@ -7,6 +7,7 @@ import rightArrow from '../assets/rightArrow.svg';
 import skipButton from '../assets/skipButton.png';
 import SUITCASE_GIF from '../assets/suitcase_gif.gif';
 import TAKEOUT_CONTAINER from '../assets/takeout_containers.png';
+import TEXT_1 from '../assets/exposition/text1.png';
 
 function ProgressBar(props) {
     return (
@@ -39,20 +40,21 @@ export const Page1 = () => (
 
 export const Page2 = () => (
     <NarrativeContent>
-        <div className='fadeInText'>
-            <FadeIn transitionDuration='1000'> <p>
-                <i>Ding! Ding! Ding!</i>
-                <br />
+        <div className='text-columns'>
+            <div className='text-left'>
+                <FadeIn transitionDuration='1000'> <p>
+                    <i>Ding! Ding! Ding!</i>
+                    <br />
+                </p></FadeIn>
+                <FadeIn transitionDuration='1000' delay='300'> <p>
+                    You groggily check your phone and see that your best friend from
+                    high school has texted you 13498 times in the past minute.
+                    You smile a little as you open up the chat—they always texted like that.
             </p></FadeIn>
-            <FadeIn transitionDuration='1000' delay='300'> <p>
-                You groggily check your phone and see that your best friend from
-                high school has texted you 13498 times in the past minute.
-                You smile a little as you open up the chat—they always texted like that.
-        </p></FadeIn>
-
-            {/* TEXT MESSAGE SCREEN HERE */}
+            </div>
+            <div className='text-right'> <FadeIn transitionDuration='1000' delay='1200'><img id='text1' src={TEXT_1} /> </FadeIn></div>
         </div>
-    </NarrativeContent>
+    </NarrativeContent >
 );
 
 

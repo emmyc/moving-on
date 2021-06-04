@@ -8,7 +8,8 @@ import IntroPage from './components/IntroPage';
 import Narrative from './components/Narrative';
 import Yearbook from './components/Yearbook';
 import YearbookIcon from './assets/yearbook-icon.png';
-
+import ScreenRedirect from './components/ScreenRedirect';
+//import MobileRedirect from './components/MobileRedirect';
 function App() {
 
   const [yearbookVisible, setYearbookVisible] = useState(false);
@@ -26,6 +27,9 @@ function App() {
           <Route path='/explore'>
             <GameWrapper />
           </Route>
+          <Route path='/error'>
+          <ScreenRedirect/>
+         </Route>
           <Route path='/narrative'>
             <Narrative />
           </Route>

@@ -13,7 +13,7 @@ import SeashellBoxClosedSVG from '../assets/seashell-box-closed.svg';
 import SeashellBoxOpenSVG from '../assets/seashell-box-open.svg';
 
 function SeashellsFocusElement() {
-  const [caption, setCaption] = useState('Shells you\'ve collected, both at home and here at school. (Hover for more information)');
+  const [caption, setCaption] = useState('Shells you\'ve collected, both at home and here at school. (Click the box, and hover over each shell)');
   const [closed, setClosed] = useState(true);
   const captionMSG =
     ['I\'m not sure what this one is, but I love the ridges on it. I found this one the same day I found the sea urchin skeleton—what a day for shell collecting!',

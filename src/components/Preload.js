@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import '../styles/Preload.scss';
 // import 'regenerator-runtime/runtime';
+import Loading from '../assets/loading.svg';
 
 const PRELOAD_TIMEOUT_IN_SEC = 10;
 
@@ -33,7 +34,7 @@ function Preload(props) {
   return (
     <>
       <div className='loading-screen'>
-        loading...
+        <img src={Loading} alt='loading...'/>
       </div>
     </>
   );

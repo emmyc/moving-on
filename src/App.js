@@ -22,7 +22,7 @@ function App() {
         <div id='yearbook-icon' onClick={toggleYearbookOverlay}>
           <img src={YearbookIcon} alt='Yearbook Icon' />
         </div>
-        {yearbookVisible ? <div className = "smaller"><Yearbook toggleFunction={toggleYearbookOverlay} /></div> : null}
+        {yearbookVisible ? <Yearbook toggleFunction={toggleYearbookOverlay} /> : null}
         <Switch>
           <Route path='/explore'>
             <GameWrapper />

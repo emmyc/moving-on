@@ -143,7 +143,7 @@ export const GAME_ITEMS = [
     focus: <div className='photos-focus'>
       <PostcardFocusElement focusSVG={PostcardSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
-        focusCaption='' />
+        focusCaption='Click to flip postcard.' />
       <PhotosFocusElement imgStyle='polaroid4' focusSVG={Polaroid4SVG} focusFocusSVG={Polaroid4FocusSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
         focusCaption='♪ sidewalks we crossed ♪' />
@@ -179,7 +179,7 @@ export const GAME_ITEMS = [
     </div>,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',
-    focusCaption: 'a stack of polaroids from over the years...[click to inspect]',
+    focusCaption: 'A stack of polaroids from over the years...[click to inspect]',
     background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },
   //Plants

@@ -18,17 +18,14 @@ function App() {
     <div className='App'>
       <Router>
         <AudioIcon />
-
         <div id='yearbook-icon' onClick={toggleYearbookOverlay}>
           <img src={YearbookIcon} alt='Yearbook Icon' />
         </div>
         {yearbookVisible ? <Yearbook toggleFunction={toggleYearbookOverlay} /> : null}
-
         <Switch>
           <Route path='/explore'>
             <GameWrapper />
           </Route>
-
           <Route path='/narrative'>
             <Narrative />
           </Route>

@@ -3,14 +3,12 @@ import Caption from './components/Caption';
 import NintendoFocusElement from './components/NintendoFocusElement';
 import SeashellsFocusElement from './components/SeashellsFocusElement';
 import Plants from './components/Plants';
-
-import Box from './assets/boxIcon.png';
 import FrogPreview from './assets/frog-preview.svg';
 import FrogSVG from './assets/frog.svg';
 import IndexCardSVG from './assets/index-card.svg';
 import NintendoSVG from './assets/nintendo.svg';
 import DraggableWrapper from './components/DraggableWrapper';
-import SeashellPreview from './assets/seashell-preview.svg';
+import SeashellPreview from './assets/seashell-box-closed.svg';
 import CookiePreview from './assets/cookie-preview.svg';
 import FieldbookPreview from './assets/fieldbook_icon.png';
 import Fieldbook from './components/Fieldbook';
@@ -18,7 +16,7 @@ import FoodJournal from './components/FoodJournal';
 import FoodIcon from './assets/fooddiary_icon.png';
 import PlantPreview from './assets/plants/plant-journal-preview.svg';
 import './styles/Plants.scss';
-
+import FortuneCookies from './components/Fortune Cookies/FortuneCookies';
 function FocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);
 
@@ -64,7 +62,7 @@ export const GAME_ITEMS = [
     TODO: possibly change captions to a single array?
   */
   {
-    explore: <img src={FrogPreview} draggable='false' alt='A Frog Keychain, Nintendo, and Index Card' />,
+    explore: <img src={FrogPreview} id='frog-preview' draggable='false' alt='A Frog Keychain, Nintendo, and Index Card' />,
     focus:
       <div className='frog-focus'>
         <FocusElement focusSVG={IndexCardSVG} focusFocusSVG={IndexCardSVG}
@@ -92,7 +90,7 @@ export const GAME_ITEMS = [
   //fortune cookie
   {
     explore: <img src={CookiePreview} draggable='false' alt='SOMETHING' />,
-    focus: <img src={Box} />,
+    focus: <FortuneCookies/>,
     trashCaption: 'They\'re just pieces of paper—I can motivate myself intrinsically without these. ',
     keepCaption: 'This won\'t take up much room, right? They\'re bite-sized motivational quotes!',
     focusCaption: 'A collection of fortune cookies that have resonated with me. Hover over each one to take a closer look.',
@@ -118,7 +116,7 @@ export const GAME_ITEMS = [
   },
   //Plants
   {
-    explore: <img src={PlantPreview} draggable='false' alt='Plant diary' width='300px' />,
+    explore: <img src={PlantPreview} id='plant-preview' draggable='false' alt='Plant diary' width='300px' />,
     focus: <Plants />,
     trashCaption: 'plants were discarded',
     keepCaption: 'i love plants',

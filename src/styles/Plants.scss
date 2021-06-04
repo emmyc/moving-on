@@ -37,11 +37,62 @@
 }
 
 .plant-popup {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(1.2px);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
   height: calc(100vh - 100px);
   width: 100vw;
   z-index: 20;
+
+  p {
+    font-weight: 800;
+    font-size: 1.2vw;
+    color: white;
+  }
+
+  .flex-row {
+    display: flex;
+    width: 90%;
+    height: calc(90vh - 100px);
+    justify-content: center;
+    margin: 5vh 5%;
+  }
+
+  .plant-card {
+    background-color: #d4bcac;
+    color: white;
+    margin-left: 10%;
+    width: 90%;
+    min-width: 150px;
+    height: calc(80vh - 100px);
+    box-sizing: border-box;
+    padding: 0 0.8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .center-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75%;
+    height: calc(100vh - 100px);
+    margin-left: 12.5%;
+
+    #propogation-img {
+      width: 60%;
+    }
+
+    p {
+      text-shadow: 4px 4px 9px black;
+    }
+  }
+
+  .plant-popup-img {
+    // grid-column: 2/3;
+    flex-shrink: 2;
+  }
 
   .underline-item {
     color: white;

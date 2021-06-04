@@ -1,7 +1,6 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
-import OpenBoxPNG from '../assets/discardbox_open.png';
+import BoxImg from '../assets/discardbox_quarterview.png';
 import '../styles/Conclusion.scss';
 import anime from 'animejs';
 import ITEM_STATES from '../constants';
@@ -12,74 +11,70 @@ import Video from './video.mp4';
 const ITEMS = [
   {
     visual:
-     <img id='conclusion-box' src={OpenBoxPNG} />,
+      <div id='conclusion-left-box'>
+        <img id='conclusion-box' src={BoxImg} />
+      </div>,
     poem:
       <>
         <div className='packed-up-title'>All packed up!</div>
+        {/* <p className='poem-title'>I. </p> */}
         <p id='poem1' className='poem' key={0}>
-          <br/><br/>
-          I&apos;m too anxious to say the words<br/>
-          Words I already know<br/>
-          Words I&apos;ve known for so long<br/>
-          Words I&apos;ve yet to speak aloud<br/>
-          so I write them
-          <br/><br/>
-          I write them here on paper and in my mind and pretty much anywhere
-          but there.
-          <br/><br/>
-          Packing these bags, I&apos;m packing these words to ship alongside myself<br/>
-          back home to you
-          You being pretty much everyone I haven&apos;t seen in a year<br/>
+          Packing these bags, I&apos;m packing these words to ship alongside myself<br />
+          back home to you <br />
+          You being pretty much everyone I haven&apos;t seen in a year<br />
           Pretty much everyone that hasn&apos;t seen me in a year
-          <br/><br/>
-          So long it&apos;ll be hard to recognize who I am and where I fit in<br/>
-          and if I ever do
-          I&apos;m too anxious to say the words<br/>
-          that let you know<br/>
-          I&apos;m anxious to go back<br/>
-          to a place I no longer call home but still call my house
-          <br/><br/>
-          because home is here and I&apos;m not sure who I am there.
+          <br /><br />
+          So long it&apos;ll be hard to recognize who I am and where I fit in<br />
+          and if I ever did <br /><br />
+          I&apos;m too anxious to say the words<br />
+          that let you know<br />
+          I&apos;m anxious to go back<br />
+          to a place I no longer call home
+          <br /><br />
+          but still call my house
+          and will still welcome me with open arms <br />
+          and hopefully embrace me for who I am <br />
+          even if I&apos;m still figuring out who that is.
         </p>
       </>,
   },
   {
     visual:
-      <div id='conclusion-box'>
+      <div id='conclusion-left-plane'>
         <div id='plane-window'>
           <video controls autoPlay muted loop>
-            <source src={Video} type='video/mp4'/>
+            <source src={Video} type='video/mp4' />
           </video>
         </div>
       </div>,
     poem:
       <p id='poem2' className='poem' key={1}>
-        Look at this stuff all around me<br/>
+        Look at this stuff all around me<br />
         Who knew what the cost of memories could be?
-        <br/><br/>
-        I can&apos;t bear to say one is better than another<br/>
+        <br /><br />
+        I can&apos;t bear to say one is better than another<br />
         that one deserves to be thrown away any more than the other.
-        <br/><br/>
-        To me, it all means something.<br/>
+        <br /><br />
+        To me, it all means something.<br />
         It&apos;s all part of me, my story, my upbringing.
-        <br/><br/>
-        Necklace, frog game, polaroids<br/>
+        <br /><br />
+        Necklace, frog game, polaroids<br />
         It&apos;s kind of lame but throwing them away&apos;s something I&apos;ll always avoid
-        <br/><br/>
-        without one, my collection&apos;s incomplete<br/>
-        A treasure trove without the gold<br/>
-        A picture but no people<br/>
+        <br /><br />
+        without one, my collection&apos;s incomplete<br />
+        A treasure trove without the gold<br />
+        A picture but no people<br />
         A life lived and all the memories lost
-        <br/><br/>
-        I&apos;m no longer that person who has everything<br/>
-        and I&apos;m still picking up the pieces<br/>
-        So why do I have to give away this piece of myself?
+        <br /><br />
+        I&apos;m no longer that person who has everything<br />
+        and I&apos;m still picking up the pieces<br />
+        and maybe that&apos;s okay.
       </p>,
   },
 ];
 
 function Frame(props) {
-  const {frame, setFrame} = props;
+  const { frame, setFrame } = props;
   const timeline = useRef(null);
   useEffect(() => {
     timeline.current = anime.timeline({
@@ -92,8 +87,8 @@ function Frame(props) {
       targets: '#poem1',
       translateY: '-90vh',
       duration: 5000,
-    },'-1000').add({
-      duration: 1000,
+    }, '-1000').add({
+      duration: 2000,
     }).add({
       targets: 'next-conclusion-btn',
       opacity: [0, 1],
@@ -106,7 +101,7 @@ function Frame(props) {
       opacity: [1, 0],
       duration: 2000,
       changeComplete: () => {
-        setFrame(frame+1);
+        setFrame(frame + 1);
       },
     }).add({
       duration: 1000,
@@ -168,8 +163,8 @@ function Frame(props) {
 }
 
 function RestartScreen(props) {
-  const {SAVED} = ITEM_STATES;
-  const {itemStates} = props;
+  const { SAVED } = ITEM_STATES;
+  const { itemStates } = props;
   return (
     <div id='restart-screen'>
       <div className='conclude-title'>
@@ -177,7 +172,7 @@ function RestartScreen(props) {
       </div>
       <div id='saved-items'>
         {itemStates.map((_state, id) =>
-          <div key={id}>{GAME_ITEMS[id].explore}</div>)
+          <div className='item' key={id}>{GAME_ITEMS[id].explore}</div>)
           .filter((_item, id) => itemStates[id] === SAVED)}
       </div>
       <div id='restart-btn-container'>
@@ -185,7 +180,7 @@ function RestartScreen(props) {
           <div className='restart-btn'>explore again</div>
         </Link>
         <Link to='/'>
-          <div className='restart-btn'>go back to home page</div>
+          <div className='restart-btn'>back to home page</div>
         </Link>
       </div>
     </div>
@@ -199,8 +194,8 @@ export default function Conclusion() {
   const plants = history?.location?.state.plants ?? [];
   return (
     <div id='conclusion'>
-      {frame < 2 && <Frame frame={frame} setFrame={setFrame}/>}
-      {frame === 2 && <RestartScreen itemStates={items} plantStates={plants}/>}
+      {frame < 2 && <Frame frame={frame} setFrame={setFrame} />}
+      {frame === 2 && <RestartScreen itemStates={items} plantStates={plants} />}
     </div>
   );
 }

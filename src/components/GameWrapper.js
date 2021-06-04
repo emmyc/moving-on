@@ -34,9 +34,12 @@ function GameWrapper() {
   }, []);
 
   useEffect(() => {
-    renderItems.length !== 0
-      && !renderItems.includes(DISPLAYING)
-      && history.push({pathname: '/conclusion', state: { items: renderItems, plants: plantStates}});
+    if (renderItems.length !== 0 && !renderItems.includes(DISPLAYING)) {
+      const timeout = setTimeout(() => {
+        history.push({pathname: '/conclusion', state: { items: renderItems, plants: plantStates}});
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
   }, [renderItems]);
 
   const handleClick = (id) => {

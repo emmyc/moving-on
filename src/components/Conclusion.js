@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import OpenBoxPNG from '../assets/discardbox_open.png';
 import '../styles/Conclusion.scss';
-// import anime from 'animejs';
+import anime from 'animejs';
 import ITEM_STATES from '../constants';
 import { GAME_ITEMS } from '../GameItems';
 
@@ -14,30 +14,34 @@ const ITEMS = [
     visual:
      <img id='conclusion-box' src={OpenBoxPNG} />,
     poem:
-      <p className='poem' key={0}>
-        I&apos;m too anxious to say the words<br/>
-        Words I already know<br/>
-        Words I&apos;ve known for so long<br/>
-        Words I&apos;ve yet to speak aloud<br/>
-        so I write them
-        <br/><br/>
-        I write them here on paper and in my mind and pretty much anywhere
-        but there.
-        <br/><br/>
-        Packing these bags, I&apos;m packing these words to ship alongside myself<br/>
-        back home to you
-        You being pretty much everyone I haven&apos;t seen in a year<br/>
-        Pretty much everyone that hasn&apos;t seen me in a year
-        <br/><br/>
-        So long it&apos;ll be hard to recognize who I am and where I fit in<br/>
-        and if I ever do
-        I&apos;m too anxious to say the words<br/>
-        that let you know<br/>
-        I&apos;m anxious to go back<br/>
-        to a place I no longer call home but still call my house
-        <br/><br/>
-        because home is here and I&apos;m not sure who I am there.
-      </p>,
+      <>
+        <div className='packed-up-title'>All packed up!</div>
+        <p id='poem1' className='poem' key={0}>
+          <br/><br/>
+          I&apos;m too anxious to say the words<br/>
+          Words I already know<br/>
+          Words I&apos;ve known for so long<br/>
+          Words I&apos;ve yet to speak aloud<br/>
+          so I write them
+          <br/><br/>
+          I write them here on paper and in my mind and pretty much anywhere
+          but there.
+          <br/><br/>
+          Packing these bags, I&apos;m packing these words to ship alongside myself<br/>
+          back home to you
+          You being pretty much everyone I haven&apos;t seen in a year<br/>
+          Pretty much everyone that hasn&apos;t seen me in a year
+          <br/><br/>
+          So long it&apos;ll be hard to recognize who I am and where I fit in<br/>
+          and if I ever do
+          I&apos;m too anxious to say the words<br/>
+          that let you know<br/>
+          I&apos;m anxious to go back<br/>
+          to a place I no longer call home but still call my house
+          <br/><br/>
+          because home is here and I&apos;m not sure who I am there.
+        </p>
+      </>,
   },
   {
     visual:
@@ -49,9 +53,7 @@ const ITEMS = [
         </div>
       </div>,
     poem:
-      <p className='poem' key={1}>
-        All packed up!
-        <br/><br/>
+      <p id='poem2' className='poem' key={1}>
         Look at this stuff all around me<br/>
         Who knew what the cost of memories could be?
         <br/><br/>
@@ -78,78 +80,73 @@ const ITEMS = [
 
 function Frame(props) {
   const {frame, setFrame} = props;
-  // const timeline = useRef(null);
-  // useEffect(() => {
-  //   timeline.current = anime.timeline({
-  //     easing: 'easeInSine',
-  //   }).add({
-  //     targets: ['#conclusion-left', '#conclusion-right'],
-  //     opacity: [0, 1],
-  //     duration: 4000,
-  //   }).add({
-  //     targets: '#poem',
-  //     translateY: '-100vh',
-  //     duration: 5000,
-  //   }).add({
-  //     duration: 1000,
-  //   }).add({
-  //     targets: 'next-conclusion-btn',
-  //     opacity: [0, 1],
-  //     duration: 1000,
-  //     changeComplete: () => {
-  //       timeline.current?.pause();
-  //     },
-  //   }).add({
-  //     targets: ['#conclusion-left', '#conclusion-right'],
-  //     opacity: [1, 0],
-  //     duration: 2000,
-  //     changeComplete: () => {
-  //       setFrame(frame+1);
-  //     },
-  //   }).add({
-  //     targets: '#poem',
-  //     translateY: '100vh',
-  //     duration: 1,
-  //   }).add({
-  //     targets: ['#conclusion-left', '#conclusion-right'],
-  //     opacity: [0, 1],
-  //     duration: 2000,
-  //   }).add({
-  //     targets: '#poem',
-  //     translateY: '-100vh',
-  //     duration: 5000,
-  //   }).add({
-  //     duration: 1000,
-  //   }).add({
-  //     targets: ['#conclusion-left', '#conclusion-right'],
-  //     opacity: [1, 0],
-  //     duration: 3000,
-  //     changeComplete: () => {
-  //       timeline.current?.pause();
-  //       skip();
-  //     },
-  //   });
+  const timeline = useRef(null);
+  useEffect(() => {
+    timeline.current = anime.timeline({
+      easing: 'easeInSine',
+    }).add({
+      targets: ['#conclusion-left', '#conclusion-right'],
+      opacity: [0, 1],
+      duration: 4000,
+    }).add({
+      targets: '#poem1',
+      translateY: '-90vh',
+      duration: 5000,
+    },'-1000').add({
+      duration: 1000,
+    }).add({
+      targets: 'next-conclusion-btn',
+      opacity: [0, 1],
+      duration: 1000,
+      changeComplete: () => {
+        timeline.current?.pause();
+      },
+    }).add({
+      targets: ['#conclusion-left', '#conclusion-right'],
+      opacity: [1, 0],
+      duration: 2000,
+      changeComplete: () => {
+        setFrame(frame+1);
+      },
+    }).add({
+      duration: 1000,
+    }).add({
+      targets: ['#conclusion-left', '#conclusion-right'],
+      opacity: [0, 1],
+      duration: 2000,
+    }).add({
+      duration: 1000,
+      changeComplete: () => {
+        console.log('translate poem 2');
+        timeline.current?.pause();
+      },
+    }).add({
+      targets: ['#conclusion-left', '#conclusion-right'],
+      opacity: [1, 0],
+      duration: 3000,
+    }).add({
+      duration: 2000,
+      changeComplete: () => {
+        timeline.current?.pause();
+        skip();
+      },
+    });
 
-  //   timeline.current?.pause();
-  //   timeline.current?.seek(0);
-  //   const timeout = setTimeout(() => {
-  //     timeline.current?.play();
-  //   }, 250);
-  //   return () => clearTimeout(timeout);
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(frame);
-  //   timeline.current?.play();
-  // }, [props]);
+    timeline.current?.pause();
+    timeline.current?.seek(0);
+    const timeout = setTimeout(() => {
+      timeline.current?.play();
+    }, 250);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const skip = () => {
     setFrame(2);
   };
 
   const next = () => {
-    setFrame(frame+1);
-    // timeline.current?.play();
+    // setFrame(frame+1);
+    timeline.current?.play();
   };
 
   return (
@@ -161,9 +158,7 @@ function Frame(props) {
         </div>
       </div>
       <div id='conclusion-right'>
-        <div id='poem'>
-          {ITEMS[props.frame].poem}
-        </div>
+        {ITEMS[props.frame].poem}
         <div id='next-conclusion-btn' onClick={next}>
           next &gt;
         </div>

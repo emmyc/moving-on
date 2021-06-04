@@ -73,8 +73,8 @@ function FocusElement(props) {
 const FISHING_FRIEND_HR_TXT = 'Fropper.. you\'re pretty sure you have 1000+ hours on this baby';
 const FISHING_FRIEND_CARD_TXT = 'A note from a friend; oh right, you almost forgot about this gift...';
 const FISHING_FRIEND_KEYCHAIN_TXT = 'The main character of Fropper; what a cutie!';
-const FISHING_FRIEND_KEEP = '';
-const FISHING_FRIEND_DISCARD = '';
+const FISHING_FRIEND_KEEP = 'There\'s so much replayability! What\'s a few more playthroughs?';
+const FISHING_FRIEND_DISCARD = 'I\'ve already played this so many times. I could resell the game for some cash.';
 
 const FOOD_JOURNAL_KEEP = 'It wasn\'t just good food I kept track of and want to remember — it was also all the fun times with friends, care packages from family, and my evolution into a total food connoisseur.';
 const FOOD_JOURNAL_DISCARD = 'I\'d hate to see this diary just collecting dust on the shelf, but I don\'t see myself getting much use out of it anymore. At least I can recycle it.';
@@ -189,7 +189,7 @@ export const GAME_ITEMS = [
     </div>,
     trashCaption: 'I mean, I have these saved on my phone anyway...',
     keepCaption: ' I\'ll put these up in my new apartment next year',
-    focusCaption: 'A stack of polaroids from over the years...[click to inspect]',
+    focusCaption: 'A stack of polaroids from over the years...(click to inspect)',
     background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },
   //dance

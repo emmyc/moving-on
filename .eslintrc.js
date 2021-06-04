@@ -46,10 +46,10 @@ module.exports = {
     ],
 
     // Require all imported libraries actually resolve (!!required for import/no-extraneous-dependencies to work!!)
-    'import/no-unresolved': ['error'],
+    'import/no-unresolved': ['warn'],
 
     // Cannot import from the same module twice
-    'no-duplicate-imports': ['error'],
+    'no-duplicate-imports': ['warn'],
 
     // Required spacing in property declarations (copied from TSLint, defaults are good)
     'key-spacing': ['error'],

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/IntroPage.scss';
-import SuitcaseImg from '../assets/icons/suitcase_closed.png';
+import LandingBoxImg from '../assets/intro_box.png';
+import SeashellIcon from '../assets/seashell_icon.png';
 
 function IntroPage() {
   return (
     <div className='intro-page'>
       <div className='intro-pic'>
-        <img src={SuitcaseImg} height='150' width='150' alt='suitcase'></img>
+        <img src={LandingBoxImg} height='150' width='150' alt='suitcase'></img>
       </div>
       <div id='intro-text'>
         <div id='title'>
@@ -15,26 +16,28 @@ function IntroPage() {
         </div>
 
         <div className='options'>
-          <div className='option'>
+          <div className=' option'>
+            <img src={SeashellIcon} />
             <Link className='narrative-option' to='/narrative'>
-              on why we&apos;re moving
-          </Link>
+              start scenic route
+            </Link>
           </div>
           <div className='option'>
+            <img src={SeashellIcon} />
             <Link className='explore-option' to='/explore'>
               {' '}
-            on what we&apos;re packing
+              start packing
           </Link>
           </div>
         </div>
         <div id='option-subtext'>
           <p className='explore-desc desc'>
-            take me straight to the gameplay babey; interact with the objects
-            you have to pack
-          </p>
+            Skip the narrative. You can only take so much with you.
+            What will you pack and what will you leave behind?
+            </p>
           <p className='narrative-desc desc'>
-            take me through the scenic route; extra narrative content and
-            background information on character
+            Take the long route.
+            Find out who you are and delve into the backstory behind the move.
           </p>
         </div>
       </div>

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import {useHistory} from 'react-router-dom';
 import '../styles/GameWrapper.scss';
 import ITEM_STATES from '../constants.js';
 import { GAME_ITEMS } from '../GameItems';
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 
+import useKeyboardEvent from './useKeyboardEvent';
 export const GameContext = React.createContext();
 import ClosedSuitcasePNG from '../assets/suitcase_closed.png';
 import OpenSuitcasePNG from '../assets/suitcase_openEMPTY.png';
 import ClosedBoxPNG from '../assets/discardbox_closed.png';
 import OpenBoxPNG from '../assets/discardbox_open.png';
-
 
 function GameWrapper() {
   const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
@@ -18,10 +19,11 @@ function GameWrapper() {
   const [focusID, setFocusID] = useState(undefined);
   const [overlayBackground, setOverlayBackground] = useState();
   const [renderItems, setRenderItems] = useState([]);
-  const [hoverBound, setHoverBound] = useState(ITEM_STATES.DISPLAYING);
-  const { DISPLAYING } = ITEM_STATES;
+  const { DISPLAYING, DROPPED, SAVED } = ITEM_STATES;
+  const [hoverBound, setHoverBound] = useState(DISPLAYING);
   const [plantStates, setPlantStates] =
-    useState([ITEM_STATES.DISPLAYING, ITEM_STATES.DISPLAYING, ITEM_STATES.DISPLAYING, ITEM_STATES.DISPLAYING]);
+    useState([DISPLAYING, DISPLAYING, DISPLAYING, DISPLAYING]);
+  const history = useHistory();
 
   useEffect(() => {
     const newItems = [];
@@ -31,6 +33,15 @@ function GameWrapper() {
     setRenderItems(newItems);
   }, []);
 
+  useEffect(() => {
+    if (renderItems.length !== 0 && !renderItems.includes(DISPLAYING)) {
+      const timeout = setTimeout(() => {
+        history.push({pathname: '/conclusion', state: { items: renderItems, plants: plantStates}});
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [renderItems]);
+
   const handleClick = (id) => {
     setCaption(GAME_ITEMS[id].focusCaption);
     setOverlayBackground(GAME_ITEMS[id].background);
@@ -38,13 +49,19 @@ function GameWrapper() {
   };
 
   const handleDrop = (dropLoc, id) => { //discard or keep based on dropLoc ( 1 == discard, 2 == keep)
-    const newCaption = dropLoc === ITEM_STATES.DROPPED ? GAME_ITEMS[id].trashCaption : GAME_ITEMS[id].keepCaption;
+    const newCaption = dropLoc === DROPPED ? GAME_ITEMS[id].trashCaption : GAME_ITEMS[id].keepCaption;
     setCaption(newCaption);
     const newRenders = [...renderItems];
     newRenders[id] = dropLoc;
     setRenderItems(newRenders);
-    return true;
   };
+
+  const escape = () => {
+    setCaption(DEFAULT_CAPTION);
+    setFocusID(undefined);
+  };
+
+  useKeyboardEvent('Escape', () => escape());
 
   const setHover = (hoverBound) => {
     setHoverBound(hoverBound);
@@ -56,7 +73,7 @@ function GameWrapper() {
         {/* STATE_ZOOMED_IN */}
         {focusID !== undefined &&
           <div id='focus-content'>
-            <span className='minimal-button top-right-pos x-btn' onClick={() => { setFocusID(undefined); setCaption(DEFAULT_CAPTION); }}>X</span>
+            <span className='minimal-button top-right-pos x-btn' onClick={escape}>X</span>
             {(GAME_ITEMS[focusID].showDiscardKeep === undefined || GAME_ITEMS[focusID].showDiscardKeep) &&
               <>
                 <span className='left-center-pos underline-item' onClick={() => { handleDrop(1, focusID); setFocusID(undefined); }}>discard</span>
@@ -75,10 +92,10 @@ function GameWrapper() {
           {focusID === undefined &&
             <>
               <div className='bound bound0'>
-                <img id='box' src={hoverBound === ITEM_STATES.DROPPED ? OpenBoxPNG : ClosedBoxPNG} alt='discard to box' />
+                <img id='box' src={hoverBound === DROPPED ? OpenBoxPNG : ClosedBoxPNG} alt='discard to box' />
               </div>
               <div className='bound bound1'>
-                <img id='suitcase' src={hoverBound === ITEM_STATES.SAVED ? OpenSuitcasePNG : ClosedSuitcasePNG} alt='keep in suitcase' />
+                <img id='suitcase' src={hoverBound === SAVED ? OpenSuitcasePNG : ClosedSuitcasePNG} alt='keep in suitcase' />
               </div>
             </>
           }

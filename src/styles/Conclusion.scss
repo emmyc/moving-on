@@ -10,7 +10,7 @@
 
 #conclusion-left {
   flex: 2;
-  background-color: #ffffff;
+  background-color: #d3d3d3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,19 +22,30 @@
   background-color: #2e2e2e;
   color: #ffffff;
   padding: 4em;
-  font-size: 1em;
+  font-size: calc(8px + 1vh);
+  line-height: 1.5;
   overflow: hidden;
   position: relative;
+  font-family: serif;
 }
 
 .conclude-title {
   font-weight: bold;
   font-size: 3em;
+  font-family: 'Volkhov', serif;
   color: #ffffff;
 }
 
 #conclusion-box {
-  width: 100%;
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#conclusion-left-plane {
+  width: 80%;
   height: auto;
   max-height: 100vh;
   display: flex;
@@ -63,18 +74,25 @@
 }
 
 #skip-conclusion {
+  font-family: "B612", sans-serif;
   position: absolute;
+  color: #2e2e2e;
+  font-weight: 700;
   bottom: 20px;
   padding-right: 2em;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
+  font-size: calc(10px + 1vh);
 }
 
 #next-conclusion-btn {
+  font-family: "B612", sans-serif !important;
+  font-weight: 700;
   position: absolute;
   color: #ffffff;
+  font-size: calc(10px + 1vh);
   bottom: 20px;
   right: 20px;
   padding-right: 2em;
@@ -112,7 +130,7 @@
 
 #restart-screen a {
   text-decoration: none;
-  color: black;
+  color: rgb(42, 42, 42);
   transition: 0.2s ease;
 
   &:hover {
@@ -129,8 +147,8 @@
 
 .restart-btn {
   margin: 20px;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid rgb(63, 63, 63);
+  border-radius: 8px;
   width: 15em;
   max-width: 50vw;
   padding-top: 1em;
@@ -149,5 +167,12 @@
   img {
     width: 33%;
     height: auto;
+  }
+}
+
+.item {
+  img {
+    max-width: 200px !important;
+    max-height: 200px !important;
   }
 }

@@ -181,7 +181,7 @@ export const GAME_ITEMS = [
         focusCaption='...and the adventure begins.' />
       <PhotosFocusElement imgStyle='polaroid1' videoSource={Polaroid1Video} focusSVG={Polaroid1SVG} focusFocusSVG={Polaroid1FocusSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
-        focusCaption='Senior sunrise &apos;20...you can hear the beach around you. Click to remember.' />
+        focusCaption='Senior sunset &apos;20...you can hear the beach around you. Click to remember.' />
       <div></div>
       <PhotosFocusElement imgStyle='polaroid8' focusSVG={Polaroid8SVG} focusFocusSVG={Polaroid8FocusSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'

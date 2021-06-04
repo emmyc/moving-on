@@ -108,6 +108,7 @@ function Fieldbook() {
     songButton = <div style={{ gridColumnStart: 1 }} className="topLeft">
       <Sound
         url={songs[currSong]}
+        volume={30}
         playStatus={
           isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED
         }

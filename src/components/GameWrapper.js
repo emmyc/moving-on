@@ -13,8 +13,16 @@ import OpenSuitcasePNG from '../assets/suitcase_openEMPTY.png';
 import ClosedBoxPNG from '../assets/discardbox_closed.png';
 import OpenBoxPNG from '../assets/discardbox_open.png';
 
+import Preload from './Preload.js';
+
+// gets all files that end in .jpg .svg or .png from given folder
+const imgs = require.context('../assets/', true, /\.(svg|jpg|png)$/);
+const paths = imgs.keys();
+const requiredImages = paths.map(path => imgs(path).default);
+
 function GameWrapper() {
   const DEFAULT_CAPTION = 'Click each item to inspect. Drag items to the box (left) to discard, or to the suitcase (right) to keep.';
+  const [isPreloading, setIsPreloading] = useState(true);
   const [caption, setCaption] = useState(DEFAULT_CAPTION);
   const [focusID, setFocusID] = useState(undefined);
   const [overlayBackground, setOverlayBackground] = useState();
@@ -68,6 +76,7 @@ function GameWrapper() {
   };
 
   return (
+    isPreloading ? <Preload images={requiredImages} onPreloaded={() => setIsPreloading(false)} /> :
     <GameContext.Provider value={{ handleDrop, plantStates, setPlantStates }}>
       <div id='explore-container'>
         {/* STATE_ZOOMED_IN */}

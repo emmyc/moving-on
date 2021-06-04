@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import Caption from './Caption';
 import { GameContext } from './GameWrapper';
 import ITEM_STATES from '../constants';
+import FadeIn from 'react-fade-in';
 
 import '../styles/Plants.scss';
 
@@ -47,11 +48,11 @@ function Plants() {
       narrative:
         <>
           <p>with its dual colored leaves, you’re reminded of your high school friend [ ],
-           whose vibrant friendship has brought beauty and balance into your life.</p>
-          <p>the contrasts and intricacies of your personalities just seem to
+           whose vibrant friendship has brought beauty and balance into your life.<br /><br />
+          the contrasts and intricacies of your personalities just seem to
           effortlessly complement one another. and even as time passes wordlessly,
-            whenever you need them, their lovely spirit enters to shine through the darkness.</p>
-          <p>it’s been a while since your last catch-up session with them, but you’re not too worried.
+            whenever you need them, their lovely spirit enters to shine through the darkness. <br /><br />
+          it’s been a while since your last catch-up session with them, but you’re not too worried.
            for whatever reason, you feel assured that everything will be ok.</p>
         </>,
       keep: 'hold onto this! it’s a good reminder your friend’s always got your back',
@@ -66,16 +67,16 @@ function Plants() {
       caption: 'your golden pothos is chilling on the shelf, confidently fanning its many green leaves.',
       narrative:
         <>
-          <p>brilliant and easy-going, you think of [ ], the first friend you made at college.</p>
-          <p>you can still remember that overwhelming nervousness of week 1. you had hurriedly
+          <p>brilliant and easy-going, you think of [ ], the first friend you made at college. <br /><br />
+          you can still remember that overwhelming nervousness of week 1. you had hurriedly
           rushed into your first lecture and found a random seat, when [] suddenly appeared.
           They beamed at you and warmly introduced themselves, and it became the bright start
           to a fun friendship. From the endless conversations to the spontaneous adventures,
-                they always knew what to do or say to make your day.</p>
-          <p>with everything going on, you haven’t been able to spend much time together lately.
-             maybe you should hit them up before leaving?</p>
-          <p>regardless, you’ll always be thankful for how their crazy ideas broaden your horizons,
-             and how their positive nature was the sunrise of your college journey.</p>
+          they always knew what to do or say to make your day. <br /><br />
+          with everything going on, you haven’t been able to spend much time together lately.
+          maybe you should hit them up before leaving?<br /><br />
+          regardless, you’ll always be thankful for how their crazy ideas broaden your horizons,
+          and how their positive nature was the sunrise of your college journey.</p>
         </>,
       keep: 'take with you for the memories',
       discard: 'say goodbye and let go. perhaps your friend will want it?',
@@ -110,7 +111,7 @@ function Plants() {
   const [caption, setCaption] = useState(DEFAULT_PLANT_CAPTION);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setShowingPreview(false), 4300);
+    const timeout = setTimeout(() => setShowingPreview(false), 5000);
     window.addEventListener('resize', updateImageSizes);
     return () => {
       clearTimeout(timeout);
@@ -152,7 +153,9 @@ function Plants() {
     <>
       { showingPreview ?
         <div className='plant-preview'>
-          you look towards your window to look at your plants basking in the sunlight.
+          <FadeIn transitionDuration='1500' delay='800'>
+            you look toward your window at all of your plants, glowing in soft moonlight.
+          </FadeIn>
         </div>
         :
         <>

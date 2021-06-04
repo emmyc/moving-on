@@ -3,15 +3,16 @@
 }
 
 .plant-preview {
+  font-family: "B612", sans-serif;
   height: calc(100vh - 100px);
   width: 100vw;
-  background-color: #363333;
+  background-color: #242425;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 36px;
+  font-size: 24px;
   z-index: 50;
 }
 
@@ -33,21 +34,21 @@
 
 .max-image {
   max-height: 100%;
-  max-width: 100%; 
+  max-width: 100%;
 }
 
 .plant-popup {
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(3px);
+  background-color: rgba(223, 232, 255, 0.6);
+  backdrop-filter: blur(5px);
   height: calc(100vh - 100px);
   width: 100vw;
   z-index: 20;
 
   p {
-    font-weight: 800;
-    font-size: 1.2vw;
-    color: white;
-    text-align: justify;
+    font-size: 1.8vh;
+    color: #4e5266;
+    text-align: left;
+    margin: 5px 0px;
   }
 
   .flex-row {
@@ -60,13 +61,14 @@
   }
 
   .plant-card {
-    background-color: #d4bcac;
-    color: white;
+    background-color: #e6d8ce;
+    border-radius: 8px;
     margin-left: 10%;
     min-width: 150px;
-    height: calc(80vh - 100px);
+    max-height: calc(80vh - 100px);
+    max-width: 600px;
     box-sizing: border-box;
-    padding: 0 0.8em;
+    padding: 3em 2em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -86,8 +88,9 @@
     }
 
     p {
-      text-shadow: 4px 4px 9px black;
-      width: 22.5%
+      font-size: 1vw;
+      color: #4e5266;
+      width: 25%;
     }
   }
 
@@ -97,11 +100,11 @@
   }
 
   .underline-item {
-    color: white;
+    color: rgb(78, 104, 165);
   }
 
   .underline-item::after {
-    background-color: white;
+    background-color: rgb(78, 104, 165);
   }
 }
 

@@ -309,22 +309,15 @@ class Narrative extends React.Component {
         }
         else {
             return (
-                <div className='page-container'>
-                    <Link to='/explore'>
+                <div className="page-container">
+                    <Link to="/explore">
                         <img src={skipButton} id='skip-narrative-btn' />
                     </Link>
                     <ProgressBar value={(this.state.pageNum / this.numPages) * 100} />
-                    <div className='narrative-container'>
+                    <div className="narrative-container">
                         {content}
-                        {/* {Object.keys(content).forEach(function (page, idx) {
-                            console.log(content[idx]);
-                            return (
-                                <NarrativeContent key={idx}>
-                                    {content[page]}
-                                </NarrativeContent>);
-                        })} */}
                     </div>
-                    <div className='button-container'>
+                    <div className="button-container">
                         {prev && <img src={leftArrow} className='arrow-btn left-arrow' onClick={() => this.handlePrevClick()} />}
                         {next && <img src={rightArrow} className='arrow-btn right-arrow' onClick={() => this.handleNextClick()} />}
                     </div>

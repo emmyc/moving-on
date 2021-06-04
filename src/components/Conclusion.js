@@ -43,7 +43,7 @@ const ITEMS = [
     visual:
       <div id='conclusion-box'>
         <div id='plane-window'>
-          <video controls autoPlay muted>
+          <video controls autoPlay muted loop>
             <source src={Video} type='video/mp4'/>
           </video>
         </div>

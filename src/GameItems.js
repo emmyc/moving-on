@@ -118,8 +118,6 @@ export const GAME_ITEMS = [
   {
     explore: <img src={PlantPreview} id='plant-preview' draggable='false' alt='Plant diary' width='300px' />,
     focus: <Plants />,
-    trashCaption: 'plants were discarded',
-    keepCaption: 'i love plants',
     background: <div className='plants-color-background full-size'/>,
     showDiscardKeep: false,
   },

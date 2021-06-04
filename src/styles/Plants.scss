@@ -47,6 +47,7 @@
     font-weight: 800;
     font-size: 1.2vw;
     color: white;
+    text-align: justify;
   }
 
   .flex-row {
@@ -54,6 +55,7 @@
     width: 90%;
     height: calc(90vh - 100px);
     justify-content: center;
+    align-items: center;
     margin: 5vh 5%;
   }
 
@@ -61,7 +63,6 @@
     background-color: #d4bcac;
     color: white;
     margin-left: 10%;
-    width: 90%;
     min-width: 150px;
     height: calc(80vh - 100px);
     box-sizing: border-box;
@@ -81,17 +82,18 @@
     margin-left: 12.5%;
 
     #propogation-img {
-      width: 60%;
+      width: 55%;
     }
 
     p {
       text-shadow: 4px 4px 9px black;
+      width: 22.5%
     }
   }
 
   .plant-popup-img {
     // grid-column: 2/3;
-    flex-shrink: 2;
+    width: 50%;
   }
 
   .underline-item {

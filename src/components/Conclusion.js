@@ -7,6 +7,8 @@ import '../styles/Conclusion.scss';
 import ITEM_STATES from '../constants';
 import { GAME_ITEMS } from '../GameItems';
 
+import Video from './video.mp4';
+
 const ITEMS = [
   {
     visual:
@@ -42,7 +44,7 @@ const ITEMS = [
       <div id='conclusion-box'>
         <div id='plane-window'>
           <video controls autoPlay muted>
-            <source src='/assets/videos/plane-window.mp4' type='video/mp4'/>
+            <source src={Video} type='video/mp4'/>
           </video>
         </div>
       </div>,

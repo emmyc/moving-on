@@ -83,6 +83,7 @@
 }
 
 .underline-item {
+  color: #242A48;
   display: block;
   position: fixed;
   padding: 0.2em 0;
@@ -91,6 +92,8 @@
   outline: none;
   border: none;
   font-family: 'B612', sans-serif;
+  font-weight: 700;
+  margin: 0px 10px;
   font-size: calc(10px + 2vmin);
   cursor: pointer;
 }
@@ -245,4 +248,12 @@
   width: 400px;
   max-width: 400px;
   max-height: 400px;
+}
+
+#frog-card {
+  max-width: 800px;
+}
+
+#frog-cartridge {
+  max-width: 200px;
 }

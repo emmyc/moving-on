@@ -44,6 +44,22 @@
   height: 50px;
 }
 
+.progress-bar {
+    color: black;
+}
+
+.centerText{
+    text-emphasis: none;
+    /*
+    text-align: center;
+    padding-right: 200px;
+    */
+}
+
+.fadeInText{
+    width: 100%;
+
+}
 #skip-narrative-btn {
   position: absolute;
   width: 91px;

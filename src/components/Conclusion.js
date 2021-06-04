@@ -87,17 +87,11 @@ function Frame(props) {
     }).add({
       targets: ['#conclusion-left', '#conclusion-right'],
       opacity: [0, 1],
-      duration: 4000,
+      duration: 3000,
     }).add({
       targets: '#poem1',
       translateY: '-90vh',
-      duration: 5000,
-    },'-1000').add({
-      duration: 1000,
-    }).add({
-      targets: 'next-conclusion-btn',
-      opacity: [0, 1],
-      duration: 1000,
+      duration: 10000,
       changeComplete: () => {
         timeline.current?.pause();
       },
@@ -195,8 +189,8 @@ function RestartScreen(props) {
 export default function Conclusion() {
   const [frame, setFrame] = useState(0);
   const history = useHistory();
-  const items = history?.location?.state.items ?? [];
-  const plants = history?.location?.state.plants ?? [];
+  const items = history.location?.state?.items ?? [];
+  const plants = history.location?.state?.plants ?? [];
   return (
     <div id='conclusion'>
       {frame < 2 && <Frame frame={frame} setFrame={setFrame}/>}

@@ -12,8 +12,9 @@
   flex: 2;
   background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 #conclusion-right {
@@ -25,15 +26,12 @@
   overflow: hidden;
 }
 
-#skip-conclusion {
-  position: absolute;
-  cursor: pointer;
-  // bottom: 20px;
-}
-
 #conclusion-box {
   width: 100%;
   height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #plane-window {
@@ -55,8 +53,18 @@
   min-height: 56.25vw;
 }
 
+#skip-conclusion {
+  width: inherit;
+  position: absolute;
+  bottom: 10px;
+  padding-right: 2em;
+  cursor: pointer;
+}
+
 .poem {
   text-align: left;
+  position: absolute;
+  top: 100vh;
 }
 
 #restart-screen {

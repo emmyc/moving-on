@@ -93,7 +93,7 @@ function NintendoGameIntro(props) {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    marginLeft: '-5px',
+    marginLeft: '-1px',
   };
 
   const d1 = (<div></div>);

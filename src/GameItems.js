@@ -161,7 +161,7 @@ export const GAME_ITEMS = [
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
         focusCaption='middle school benches and the taste of home...' />
       <PhotosFocusElement imgStyle='photo-strip' focusSVG={PhotoStripSVG} focusFocusSVG={PhotoStripFocusSVG}
-        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay' focusFocusCSS={{height: '550px'}}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay' focusFocusCSS={{ height: '550px' }}
         focusCaption='' />
       <div></div>
       <div></div>
@@ -187,19 +187,19 @@ export const GAME_ITEMS = [
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
         focusCaption='first club retreat! / never been to an airbnb before : 0' />
     </div>,
-    trashCaption: 'how the years have gone by...',
-    keepCaption: 'i could never give this away!',
+    trashCaption: 'I mean, I have these saved on my phone anyway...',
+    keepCaption: ' I\'ll put these up in my new apartment next year',
     focusCaption: 'A stack of polaroids from over the years...[click to inspect]',
     background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },
-    //dance
+  //dance
   {
     explore: <img src={necklace} id='plant-preview' draggable='false' alt='SOMETHING' />,
-    focus: <div><iframe src="https://drive.google.com/file/d/13TgMpI0MCeFHc7miDipKu_ciCs4HNxg4/preview" width="1008" height="567" className= 'responsive-iframe'></iframe></div>,
+    focus: <div><iframe src="https://drive.google.com/file/d/13TgMpI0MCeFHc7miDipKu_ciCs4HNxg4/preview" width="1008" height="567" className='responsive-iframe'></iframe></div>,
     trashCaption: 'It\'s time to move on. Maybe my friend will like it.',
     keepCaption: 'I miss her and what we could\'ve been, but I\'m grateful for our friendship.',
     focusCaption: 'A memory...',
-    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size'/></div>,
+    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size' /></div>,
     showDiscardKeep: true,
   },
   //Plants

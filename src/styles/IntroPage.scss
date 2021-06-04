@@ -25,7 +25,8 @@
     width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    height: 200px;
 }
 
 #title {
@@ -84,25 +85,4 @@ a:hover {
     margin-left: 40px;
     max-width: 480px;
     width: 100%;
-}
-
-
-// TODO: make explore-desc and narrative-desc
-// show up whwen we hover over .explore-option
-// and .narrative-option links respectively
-
-.narrative-desc {
-    display: block;
-}
-
-.explore-desc {
-    display: none;
-}
-
-.narrative-option:hover {
-    display: block;
-}
-
-.explore-option:hover + .explore-desc {
-    display: block;
 }

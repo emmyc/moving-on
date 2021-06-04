@@ -9,6 +9,7 @@ import Narrative from './components/Narrative';
 import Yearbook from './components/Yearbook';
 import YearbookIcon from './assets/yearbook-icon.png';
 import Conclusion from './components/Conclusion';
+import '../src/styles/GameWrapper.scss';
 
 function App() {
   const [yearbookVisible, setYearbookVisible] = useState(false);
@@ -21,7 +22,7 @@ function App() {
         <div id='yearbook-icon' onClick={toggleYearbookOverlay}>
           <img src={YearbookIcon} alt='Yearbook Icon' />
         </div>
-        {yearbookVisible ? <Yearbook toggleFunction={toggleYearbookOverlay} /> : null}
+        {yearbookVisible ? <div className = "smaller"><Yearbook toggleFunction={toggleYearbookOverlay} /></div> : null}
         <Switch>
           <Route path='/explore'>
             <GameWrapper />

@@ -18,8 +18,20 @@ import Polaroid1SVG from './assets/photos/done1.svg';
 import Polaroid1FocusSVG from './assets/photos/done1.jpg';
 import Polaroid2SVG from './assets/photos/done2.svg';
 import Polaroid2FocusSVG from './assets/photos/polaroid2.jpg';
-//import Polaroid3SVG from './assets/photos/polaroid3.svg';
-//import Polaroid3FocusSVG from './assets/photos/polaroid3.jpg';
+import Polaroid3SVG from './assets/photos/polaroid3.svg';
+import Polaroid3FocusSVG from './assets/photos/polaroid3.jpg';
+import Polaroid4SVG from './assets/photos/polaroid4.svg';
+import Polaroid4FocusSVG from './assets/photos/polaroid4.jpg';
+import Polaroid5SVG from './assets/photos/polaroid5.svg';
+import Polaroid5FocusSVG from './assets/photos/polaroid5.jpg';
+import Polaroid6SVG from './assets/photos/polaroid6.svg';
+import Polaroid6FocusSVG from './assets/photos/polaroid6.jpg';
+import Polaroid7SVG from './assets/photos/polaroid7.svg';
+import Polaroid7FocusSVG from './assets/photos/polaroid7.jpg';
+import Polaroid8SVG from './assets/photos/polaroid8.svg';
+import Polaroid8FocusSVG from './assets/photos/polaroid8.jpg';
+import PhotoStripSVG from './assets/photos/photostrip.svg';
+import PhotoStripFocusSVG from './assets/photos/photostrip.jpg';
 import Polaroid1Video from './assets/photos/polaroid1video.mp4';
 import PostcardSVG from './assets/photos/postcard_back.svg';
 import PostcardFocusElement from './components/PostcardFocusElement';
@@ -129,18 +141,41 @@ export const GAME_ITEMS = [
   {
     explore: <img src={PhotosPreview} draggable='false' alt='Stack of polaroids'></img>,
     focus: <div className='photos-focus'>
-      <PhotosFocusElement imgStyle='polaroid1' videoSource={Polaroid1Video} focusSVG={Polaroid1SVG} focusFocusSVG={Polaroid1FocusSVG}
+      <PostcardFocusElement focusSVG={PostcardSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
-        focusCaption='Senior sunrise &apos;20...you can hear the beach around you. Click to remember.' />
+        focusCaption='' />
+      <PhotosFocusElement imgStyle='polaroid4' focusSVG={Polaroid4SVG} focusFocusSVG={Polaroid4FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='♪ sidewalks we crossed ♪' />
+      <PhotosFocusElement imgStyle='polaroid5' focusSVG={Polaroid5SVG} focusFocusSVG={Polaroid5FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='middle school benches and the taste of home...' />
+      <PhotosFocusElement imgStyle='photo-strip' focusSVG={PhotoStripSVG} focusFocusSVG={PhotoStripFocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay' focusFocusCSS={{height: '550px'}}
+        focusCaption='' />
+      <div></div>
+      <div></div>
+      <PhotosFocusElement imgStyle='polaroid7' focusSVG={Polaroid7SVG} focusFocusSVG={Polaroid7FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='warm on a cold night' />
+      <div></div>
+      <div></div>
+      <PhotosFocusElement imgStyle='polaroid6' focusSVG={Polaroid6SVG} focusFocusSVG={Polaroid6FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='new city, new beach, new me' />
       <PhotosFocusElement imgStyle='polaroid2' focusSVG={Polaroid2SVG} focusFocusSVG={Polaroid2FocusSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
         focusCaption='c/o 2020 May 21 grad!' />
-      {/*<PhotosFocusElement imgStyle='polaroid3' focusSVG={Polaroid3SVG} focusFocusSVG={Polaroid3FocusSVG}
+      <PhotosFocusElement imgStyle='polaroid3' focusSVG={Polaroid3SVG} focusFocusSVG={Polaroid3FocusSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
-        focusCaption='♪ sidewalks we crossed ♪' />*/}
-      <PostcardFocusElement focusSVG={PostcardSVG}
+        focusCaption='...and the adventure begins.' />
+      <PhotosFocusElement imgStyle='polaroid1' videoSource={Polaroid1Video} focusSVG={Polaroid1SVG} focusFocusSVG={Polaroid1FocusSVG}
         cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
-        focusCaption='need to make a caption blah blah. Click to flip the postcard.' />
+        focusCaption='Senior sunrise &apos;20...you can hear the beach around you. Click to remember.' />
+      <div></div>
+      <PhotosFocusElement imgStyle='polaroid8' focusSVG={Polaroid8SVG} focusFocusSVG={Polaroid8FocusSVG}
+        cssImageClass='background-camera-image' cssColorClass='photos-orange-overlay'
+        focusCaption='first club retreat! / never been to an airbnb before : 0' />
     </div>,
     trashCaption: 'how the years have gone by...',
     keepCaption: 'i could never give this away!',

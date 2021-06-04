@@ -6,7 +6,7 @@
 }
 
 .caption {
-  background-color: #242A48;
+  background-color: #242a48;
   min-height: 100px;
   width: 100vw;
   display: flex;
@@ -18,7 +18,7 @@
   position: absolute;
   bottom: 0;
   text-align: center;
-  font-family: 'B612', sans-serif;
+  font-family: "B612", sans-serif;
 }
 
 .bound {
@@ -54,7 +54,7 @@
 }
 
 #item-display {
-  background-image: url('../assets/explore-background.jpg');
+  background-image: url("../assets/explore-background.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -79,11 +79,11 @@
 
 #suitcase {
   height: 300px;
-  width: 300px; 
+  width: 300px;
 }
 
 .underline-item {
-  color: #242A48;
+  color: #242a48;
   display: block;
   position: fixed;
   padding: 0.2em 0;
@@ -91,7 +91,7 @@
   background: none;
   outline: none;
   border: none;
-  font-family: 'B612', sans-serif;
+  font-family: "B612", sans-serif;
   font-weight: 700;
   margin: 0px 10px;
   font-size: calc(10px + 2vmin);
@@ -100,19 +100,19 @@
 
 @media only screen and (min-width: 1000px) {
   .underline-item::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 0.1em;
-    background-color: #242A48;
+    background-color: #242a48;
     transition: opacity 300ms, transform 300ms;
     opacity: 1;
     transform: translate3d(-100%, 0, 0);
   }
-  
-  .underline-item:hover::after{
+
+  .underline-item:hover::after {
     transform: translate3d(0, 0, 0);
   }
 }
@@ -167,7 +167,7 @@
 }
 
 .background-notebook-image {
-  background: url('../assets/frog-background.svg');
+  background: url("../assets/frog-background.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -178,37 +178,37 @@
 }
 
 .fortune-pink-overlay {
-  background-color: #D76CAC;
+  background-color: #d76cac;
   opacity: 0.8;
 }
 
 .seashell-blue-overlay {
-  background-color: #519FA4;
+  background-color: #519fa4;
   opacity: 0.8;
 }
 
 .fieldbook-blue0-overlay {
-  background-color: #A6D9EF;
+  background-color: #a6d9ef;
   opacity: 0.5;
 }
 
 .fieldbook-blue1-overlay {
-  background-color: #77BDDB;
+  background-color: #77bddb;
   opacity: 0.8;
 }
 
 .fieldbook-blue2-overlay {
-  background-color: #3F96BC;
+  background-color: #3f96bc;
   opacity: 0.8;
 }
 
 .fieldbook-blue3-overlay {
-  background: radial-gradient(#A6D9EF, #0e8880); /* if the changing works with pages 2C7A9B*/
+  background: radial-gradient(#a6d9ef, #0e8880); /* if the changing works with pages 2C7A9B*/
   opacity: 0.8;
 }
 
 .fieldbook-blue4-overlay {
-  background-color: #0B5C7E;
+  background-color: #0b5c7e;
   opacity: 0.8;
 }
 
@@ -218,7 +218,7 @@
 }
 
 .foodjournal-green-overlay {
-  background: radial-gradient(#B9CF80, #369E8C);
+  background: radial-gradient(#b9cf80, #369e8c);
   opacity: 0.8;
 }
 
@@ -241,7 +241,7 @@
 
 #frog-preview {
   max-width: 400px;
-  max-height:300px;
+  max-height: 300px;
 }
 
 #plant-preview {
@@ -262,17 +262,19 @@
   /*border: 10px #1b6063;
   border-style: groove;*/
   font-size: 1.6rem;
-	display: grid;
-	place-items: center;
-	min-height: 200px;
-	border: 8px solid;
-	padding: 1rem;
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  border: 8px solid;
+  padding: 1rem;
   position: relative;
-	background: linear-gradient(to left, rgb(53, 70, 104), rgb(11, 109, 112));
-	/*The background extends to the outside edge of the padding. No background is drawn beneath the border.*/
-	background-clip: padding-box;
-	border: solid 8px transparent;
-	border-radius: 1.2rem;
+  background: linear-gradient(to left, rgb(53, 70, 104), rgb(11, 109, 112));
+  /*The background extends to the outside edge of the padding. No background is drawn beneath the border.*/
+  background-clip: padding-box;
+  border: solid 8px transparent;
+  border-radius: 1.2rem;
+}
+
 #frog-card {
   max-width: 800px;
 }

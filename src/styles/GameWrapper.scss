@@ -227,7 +227,7 @@
 }
 
 .photos-focus {
-  width: 70vw;
+  width: 80vw;
   height: calc(100vh - 100px);
   display: grid;
   grid-template-columns: repeat(5, 20%);
@@ -242,9 +242,10 @@
 }
 
 #polaroid1 {
-  position: relative;
+  position: absolute;
   width: auto;
   height: auto;
+  bottom: 100px;
   //left: 425.77px;
   //top: 525px;
 }
@@ -253,14 +254,16 @@
   position: relative;
   width: auto;
   height: auto;
+  bottom: 100px;
   //left: 223px;
   //top: 490.7px;
 }
 
 #polaroid3 {
-  position: relative;
+  position: absolute;
   width: auto;
   height: auto;
+  bottom: 100px;
   //left: 792px;
   //top: 485.9px;
 }
@@ -279,6 +282,22 @@
   height: auto;
   //left: 945px;
   //top: 351.67px;
+}
+
+#polaroid6 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  bottom: 350px;
+  right: 150px;
+}
+
+#polaroid8 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  bottom: 100px;
+  right: 150px;
 }
 
 #photo-strip {

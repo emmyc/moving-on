@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
-
 import Caption from './Caption';
 import DraggableWrapper from './DraggableWrapper';
 import PostcardBack from '../assets/photos/postcard_back.jpg';
 import PostcardFront from '../assets/photos/postcard_front.jpg';
 import '../styles/GameWrapper.scss';
-
 
 function PostcardFocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);

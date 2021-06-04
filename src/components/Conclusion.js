@@ -1,9 +1,9 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import OpenBoxPNG from '../assets/discardbox_open.png';
 import '../styles/Conclusion.scss';
-import anime from 'animejs';
+// import anime from 'animejs';
 import ITEM_STATES from '../constants';
 import { GAME_ITEMS } from '../GameItems';
 
@@ -76,48 +76,78 @@ const ITEMS = [
 
 function Frame(props) {
   const {frame, setFrame} = props;
-  const timeline = useRef(null);
-  useEffect(() => {
-    timeline.current = anime.timeline({
-      autoplay: false,
-      easing: 'easeInSine',
-    }).add({
-      targets: ['#conclusion-left', '#conclusion-right'],
-      opacity: [0, 1],
-      duration: 2000,
-    }).add({
-      targets: '#poem',
-      translateY: '-100vh',
-      duration: 5000,
-    }).add({
-      duration: 1000,
-    }).add({
-      targets: ['#conclusion-left', '#conclusion-right'],
-      opacity: [1, 0],
-      duration: 2000,
-    }).add({
-      duration: 1000,
-      changeComplete: () => {
-        timeline.current?.pause();
-        setFrame(frame+1);
-        console.log('yeet');
-      },
-    });
+  // const timeline = useRef(null);
+  // useEffect(() => {
+  //   timeline.current = anime.timeline({
+  //     easing: 'easeInSine',
+  //   }).add({
+  //     targets: ['#conclusion-left', '#conclusion-right'],
+  //     opacity: [0, 1],
+  //     duration: 4000,
+  //   }).add({
+  //     targets: '#poem',
+  //     translateY: '-100vh',
+  //     duration: 5000,
+  //   }).add({
+  //     duration: 1000,
+  //   }).add({
+  //     targets: 'next-conclusion-btn',
+  //     opacity: [0, 1],
+  //     duration: 1000,
+  //     changeComplete: () => {
+  //       timeline.current?.pause();
+  //     },
+  //   }).add({
+  //     targets: ['#conclusion-left', '#conclusion-right'],
+  //     opacity: [1, 0],
+  //     duration: 2000,
+  //     changeComplete: () => {
+  //       setFrame(frame+1);
+  //     },
+  //   }).add({
+  //     targets: '#poem',
+  //     translateY: '100vh',
+  //     duration: 1,
+  //   }).add({
+  //     targets: ['#conclusion-left', '#conclusion-right'],
+  //     opacity: [0, 1],
+  //     duration: 2000,
+  //   }).add({
+  //     targets: '#poem',
+  //     translateY: '-100vh',
+  //     duration: 5000,
+  //   }).add({
+  //     duration: 1000,
+  //   }).add({
+  //     targets: ['#conclusion-left', '#conclusion-right'],
+  //     opacity: [1, 0],
+  //     duration: 3000,
+  //     changeComplete: () => {
+  //       timeline.current?.pause();
+  //       skip();
+  //     },
+  //   });
 
-    timeline.current?.pause();
-    timeline.current?.seek(0);
-    const timeout = setTimeout(() => {
-      timeline.current?.play();
-    }, 250);
-    return () => clearTimeout(timeout);
-  }, []);
+  //   timeline.current?.pause();
+  //   timeline.current?.seek(0);
+  //   const timeout = setTimeout(() => {
+  //     timeline.current?.play();
+  //   }, 250);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
-  useEffect(() => {
-    timeline.current?.play();
-  }, [props]);
+  // useEffect(() => {
+  //   console.log(frame);
+  //   timeline.current?.play();
+  // }, [props]);
 
   const skip = () => {
     setFrame(2);
+  };
+
+  const next = () => {
+    setFrame(frame+1);
+    // timeline.current?.play();
   };
 
   return (
@@ -132,6 +162,9 @@ function Frame(props) {
         <div id='poem'>
           {ITEMS[props.frame].poem}
         </div>
+        <div id='next-conclusion-btn' onClick={next}>
+          next &gt;
+        </div>
       </div>
     </>
   );
@@ -142,8 +175,13 @@ function RestartScreen(props) {
   const {itemStates} = props;
   return (
     <div id='restart-screen'>
+      <div className='conclude-title'>
+        <p>moving (on)</p>
+      </div>
       <div id='saved-items'>
-        {itemStates.map((_state, id) => GAME_ITEMS[id].explore).filter((_item, id) => itemStates[id] === SAVED)}
+        {itemStates.map((_state, id) =>
+          <div key={id}>{GAME_ITEMS[id].explore}</div>)
+          .filter((_item, id) => itemStates[id] === SAVED)}
       </div>
       <div id='restart-btn-container'>
         <Link to='/explore'>
@@ -162,7 +200,6 @@ export default function Conclusion() {
   const history = useHistory();
   const items = history?.location?.state.items ?? [];
   const plants = history?.location?.state.plants ?? [];
-  console.log(history?.location.state);
   return (
     <div id='conclusion'>
       {frame < 2 && <Frame frame={frame} setFrame={setFrame}/>}

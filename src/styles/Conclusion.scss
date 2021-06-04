@@ -26,6 +26,12 @@
   overflow: hidden;
 }
 
+.conclude-title {
+  font-weight: bold;
+  font-size: 45px;
+  color: #ffffff;
+}
+
 #conclusion-box {
   width: 100%;
   height: auto;
@@ -54,9 +60,17 @@
 }
 
 #skip-conclusion {
-  width: inherit;
   position: absolute;
   bottom: 20px;
+  padding-right: 2em;
+  cursor: pointer;
+}
+
+#next-conclusion-btn {
+  position: absolute;
+  color: #ffffff;
+  bottom: 20px;
+  right: 20px;
   padding-right: 2em;
   cursor: pointer;
 }
@@ -64,7 +78,7 @@
 .poem {
   text-align: left;
   position: absolute;
-  top: 100vh;
+  // top: 100vh;
 }
 
 #restart-screen {

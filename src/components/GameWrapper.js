@@ -34,7 +34,9 @@ function GameWrapper() {
   }, []);
 
   useEffect(() => {
-    renderItems.length !== 0 && !renderItems.includes(DISPLAYING) && history.push('/conclusion');
+    renderItems.length !== 0
+      && !renderItems.includes(DISPLAYING)
+      && history.push({pathname: '/conclusion', state: { items: renderItems, plants: plantStates}});
   }, [renderItems]);
 
   const handleClick = (id) => {
@@ -49,7 +51,6 @@ function GameWrapper() {
     const newRenders = [...renderItems];
     newRenders[id] = dropLoc;
     setRenderItems(newRenders);
-    return true;
   };
 
   const escape = () => {

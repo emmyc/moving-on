@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Link } from 'react-router-dom';
-
-// import { GAME_ITEMS } from '../GameItems';
+import { Link, useHistory } from 'react-router-dom';
 
 import OpenBoxPNG from '../assets/discardbox_open.png';
 import '../styles/Conclusion.scss';
 import anime from 'animejs';
+import ITEM_STATES from '../constants';
+import { GAME_ITEMS } from '../GameItems';
 
 const ITEMS = [
   {
@@ -75,6 +75,7 @@ const ITEMS = [
 ];
 
 function Frame(props) {
+  const {frame, setFrame} = props;
   const timeline = useRef(null);
   useEffect(() => {
     timeline.current = anime.timeline({
@@ -94,9 +95,12 @@ function Frame(props) {
       targets: ['#conclusion-left', '#conclusion-right'],
       opacity: [1, 0],
       duration: 2000,
+    }).add({
+      duration: 1000,
       changeComplete: () => {
         timeline.current?.pause();
-        props.incFrame();
+        setFrame(frame+1);
+        console.log('yeet');
       },
     });
 
@@ -112,11 +116,15 @@ function Frame(props) {
     timeline.current?.play();
   }, [props]);
 
+  const skip = () => {
+    setFrame(2);
+  };
+
   return (
     <>
       <div id='conclusion-left'>
         {ITEMS[props.frame].visual}
-        <div id='skip-conclusion'>
+        <div id='skip-conclusion' onClick={skip}>
           skip &gt;
         </div>
       </div>
@@ -129,11 +137,13 @@ function Frame(props) {
   );
 }
 
-function RestartScreen() {
+function RestartScreen(props) {
+  const {SAVED} = ITEM_STATES;
+  const {itemStates} = props;
   return (
     <div id='restart-screen'>
-      <div>
-        Objects that you saved
+      <div id='saved-items'>
+        {itemStates.map((_state, id) => GAME_ITEMS[id].explore).filter((_item, id) => itemStates[id] === SAVED)}
       </div>
       <div id='restart-btn-container'>
         <Link to='/explore'>
@@ -149,10 +159,14 @@ function RestartScreen() {
 
 export default function Conclusion() {
   const [frame, setFrame] = useState(0);
+  const history = useHistory();
+  const items = history?.location?.state.items ?? [];
+  const plants = history?.location?.state.plants ?? [];
+  console.log(history?.location.state);
   return (
     <div id='conclusion'>
-      {frame < 2 && <Frame frame={frame} incFrame={() => setFrame(frame+1)}/>}
-      {frame === 2 && <RestartScreen/>}
+      {frame < 2 && <Frame frame={frame} setFrame={setFrame}/>}
+      {frame === 2 && <RestartScreen itemStates={items} plantStates={plants}/>}
     </div>
   );
 }

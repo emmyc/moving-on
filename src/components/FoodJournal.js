@@ -2,12 +2,18 @@ import React, { useRef, useCallback } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import '../styles/Fieldbook.scss';
 import '../styles/Yearbook.scss';
-import tester from '../assets/foodjournal/prototype.jpg'; /*for testing purposess*/
 import cover from '../assets/foodjournal/fooddiary_cover.jpg';
 import back from '../assets/foodjournal/fooddiary_coverback.jpg';
-import august from '../assets/foodjournal/fooddiary__august.jpg';
-import september from '../assets/foodjournal/fooddiary__september.jpg';
-import december from '../assets/foodjournal/fooddiary__december.jpg';
+import august from '../assets/foodjournal/1_fooddiary__august.jpg';
+import september from '../assets/foodjournal/2_fooddiary__september.jpg';
+import october from '../assets/foodjournal/3_fooddiary__october.jpg';
+import november from '../assets/foodjournal/4_fooddiary__november.jpg';
+import december from '../assets/foodjournal/5_fooddiary__december.jpg';
+import january from '../assets/foodjournal/6_fooddiary__january.jpg';
+import february from '../assets/foodjournal/7_fooddiary__february.jpg';
+import march from '../assets/foodjournal/8_fooddiary__march.jpg';
+import april from '../assets/foodjournal/9_fooddiary__april.jpg';
+import may from '../assets/foodjournal/10_fooddiary__may.jpg';
 import Sound from 'react-sound';
 import pageSound from '../assets/pageFlipSound.mp3';
 
@@ -40,10 +46,28 @@ function FoodJournal() {
       image: september,
     },
     {
-      image: tester,
+      image: october,
+    },
+    {
+      image: november,
     },
     {
       image: december,
+    },
+    {
+      image: january,
+    },
+    {
+      image: february,
+    },
+    {
+      image: march,
+    },
+    {
+      image: april,
+    },
+    {
+      image: may,
     },
     {
       image: back,
@@ -52,8 +76,8 @@ function FoodJournal() {
   return (
     <div className='fieldbook-page'>
       <HTMLFlipBook
-        width={450}
-        height={585}
+        width={525}
+        height={675}
         size='stretch'
         minWidth={250}
         maxWidth={500}

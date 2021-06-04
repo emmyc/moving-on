@@ -17,6 +17,7 @@ import FoodIcon from './assets/fooddiary_icon.png';
 import PlantPreview from './assets/plants/plant-journal-preview.svg';
 import './styles/Plants.scss';
 import FortuneCookies from './components/Fortune Cookies/FortuneCookies';
+import necklace from './assets/necklace.png';
 function FocusElement(props) {
   const [showFocusFocus, setShowFocusFocus] = useState(false);
 
@@ -123,6 +124,16 @@ export const GAME_ITEMS = [
     keepCaption: FOOD_JOURNAL_KEEP,
     focusCaption: FOOD_JOURNAL_FOCUS,
     background: <div className='background-notebook-image full-size'><div className='foodjournal-green-overlay full-size' /></div>,
+  },
+  //dance
+  {
+    explore: <img src={necklace} id='plant-preview' draggable='false' alt='SOMETHING' />,
+    focus: <div><iframe src="https://drive.google.com/file/d/13TgMpI0MCeFHc7miDipKu_ciCs4HNxg4/preview" width="1008" height="567" className= 'responsive-iframe'></iframe></div>,
+    trashCaption: 'It\'s time to move on. Maybe my friend will like it.',
+    keepCaption: 'I miss her and what we could\'ve been, but I\'m grateful for our friendship.',
+    focusCaption: 'A memory...',
+    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size'/></div>,
+    showDiscardKeep: true,
   },
   //Plants
   {

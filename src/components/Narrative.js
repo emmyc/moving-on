@@ -8,6 +8,8 @@ import skipButton from '../assets/skipButton.png';
 import SUITCASE_GIF from '../assets/suitcase_gif.gif';
 import TAKEOUT_CONTAINER from '../assets/takeout_containers.png';
 import TEXT_1 from '../assets/exposition/text1.png';
+import TEXT_2 from '../assets/exposition/text2.png';
+
 
 function ProgressBar(props) {
     return (
@@ -52,7 +54,7 @@ export const Page2 = () => (
                     You smile a little as you open up the chat—they always texted like that.
             </p></FadeIn>
             </div>
-            <div className='text-right'> <FadeIn transitionDuration='1000' delay='1200'><img id='text1' src={TEXT_1} /> </FadeIn></div>
+            <FadeIn transitionDuration='1000' delay='1200'><div className='text-right'> <img id='text1' src={TEXT_1} /> </div></FadeIn>
         </div>
     </NarrativeContent >
 );
@@ -60,15 +62,15 @@ export const Page2 = () => (
 
 export const Page3 = () => (
     <NarrativeContent>
-        <div className='fadeInText'>
-            <FadeIn transitionDuration='1000'> <p>
-                As you reply, your phone dings again—one of your classmates texts you
-            <br />
-            </p></FadeIn>
-
-            {/* TEXT SCREEN NUMBER 2 */}
+        <div className='text-columns'>
+            <div className='text-left'>
+                <FadeIn transitionDuration='1000'> <p>
+                    As you reply, your phone dings again—one of your college classmates texts you.
+                <br /></p></FadeIn>
+            </div>
+            <FadeIn transitionDuration='1000' delay='1200'><div className='text-right'> <img id='text2' src={TEXT_2} /> </div></FadeIn>
         </div>
-    </NarrativeContent>
+    </NarrativeContent >
 );
 
 export const Page4 = () => (
@@ -126,7 +128,7 @@ export const Page6 = () => (
                 You almost said no, but now it&apos;s your favorite spot. You still remember heading down there
                 — the five of you — rowdily meandering down the street, rambunctious as all hell.
         </p></FadeIn>
-            <FadeIn transitionDuration='1000' delay='300'> <p>
+            <FadeIn transitionDuration='1000' delay='00'> <p>
                 You still remember sneaking up to the top of the science building
                 in the middle of the night all on your own,
                 which isn&apos;t a big feat considering half the school has done it, but still.
@@ -152,30 +154,33 @@ export const Page6 = () => (
 
 export const Page7 = () => (
     <NarrativeContent>
-        <div className='fadeInText'>
-            <FadeIn transitionDuration='1000'> <p>
-                Okay, okay. That&apos;s enough reminiscing. Your flight is in just a few hours.
-                Although at home you were able to get away with showing up to the airport
-                less than an hour before takeoff, your parents and friends have been
-                reminding you non-stop the past few days that &quot;this is the big city&quot;
-                and &quot;you need at least two hours before takeoff&quot;. It&apos;s been a bit annoying,
-                but they&apos;re right—your head is already starting to hurt just thinking
-                about traffic and all the lines you&apos;ll probably have to wait in.
-        </p></FadeIn>
-            <FadeIn transitionDuration='1000' delay='300'>
-                You eat one more bite of your take-out and get a drink of water before setting both off to the side.
-        </FadeIn>
-
-            <FadeIn transitionDuration='1000' delay='300'>
-                <img src={TAKEOUT_CONTAINER} id='takeout-container' />
+        <div className='flex-vertical'>
+            <div className='flex-top'>
+                <FadeIn className='hi' transitionDuration='1000'> <p>
+                    Okay, okay. That&apos;s enough reminiscing. Your flight is in just a few hours.
+                    Although at home you were able to get away with showing up to the airport
+                    less than an hour before takeoff, your parents and friends have been
+                    reminding you non-stop the past few days that &quot;this is the big city&quot;
+                    and &quot;you need at least two hours before takeoff&quot;. It&apos;s been a bit annoying,
+                    but they&apos;re right—your head is already starting to hurt just thinking
+                    about traffic and all the lines you&apos;ll probably have to wait in.
+                </p></FadeIn>
+                <FadeIn transitionDuration='1000' delay='300'>
+                    You eat one more bite of your take-out and get a drink of water before setting both off to the side.
             </FadeIn>
+            </div>
+            <div className='flex-bottom'>
+                <FadeIn transitionDuration='1000' delay='300'>
+                    <img src={TAKEOUT_CONTAINER} id='takeout-container' />
+                </FadeIn>
+            </div>
         </div>
     </NarrativeContent>
 );
 
 export const Page8 = () => (
     <NarrativeContent>
-        <div className='fadeInText'>
+        <div className='flex-vertical'>
             <FadeIn transitionDuration='1000'> <p>
                 Just one last thing before you can get packing—music!
                 You take a deep breath, and face the disaster strewn across your living space.
@@ -193,8 +198,11 @@ export const Page8 = () => (
             <FadeIn transitionDuration='1000' delay='300'>
                 Not much more will fit, but the sight of a pile of items still on your desk makes you anxious.
                 Some things are artifacts of the past, and some things are newly accumulated.
-                You turn around to see your box, almost filled to its brim, a meager space for excess.
+                You turn around to see your suitcase, almost filled to its brim, a meager space for excess.
         </FadeIn>
+            <FadeIn transitionDuration='1000' delay='300'>
+                <img src={SUITCASE_GIF} id='suitcase-gif'></img>
+            </FadeIn>
         </div>
     </NarrativeContent>
 );
@@ -217,11 +225,10 @@ export const Page9 = () => (
                 but now you feel a tinge of sadness even thinking about packing to leave for the summer.
         </FadeIn>
             <FadeIn transitionDuration='1000' delay='300'>
-                <img src={SUITCASE_GIF} id='suitcase-gif'></img>
-            </FadeIn>
-            <FadeIn transitionDuration='1000' delay='300'>
+                <br></br>
                 They&apos;re just some objects — so why do you find it so hard to part with them?
-                You sit down and decide to spend some time going through your things one last time.
+                <br></br>
+                <b>You sit down and decide to spend some time going through your things one last time.</b>
         </FadeIn>
         </div>
     </NarrativeContent>
@@ -288,7 +295,7 @@ class Narrative extends React.Component {
         let content = [];
         let prev;
         let next;
-        const pages = [<Page3 key='page3' />, <Page4 key='page4' />, <Page5 key='page5' />];
+        // const pages = [<Page3 key='page3' />, <Page4 key='page4' />, <Page5 key='page5' />];
 
         if (this.state.pageNum <= 1) {
             content.push(<Page1 key='page1' />);
@@ -299,9 +306,39 @@ class Narrative extends React.Component {
             content.push(<Page2 key='page2' />);
             next = true;
         }
-        else if (this.state.pageNum >= 3) {
+        else if (this.state.pageNum === 3) {
             prev = true;
-            content = pages;
+            content.push(<Page3 key='page3' />);
+            next = true;
+        }
+        else if (this.state.pageNum === 4) {
+            prev = true;
+            content.push(<Page4 key='page4' />);
+            next = true;
+        }
+        else if (this.state.pageNum === 5) {
+            prev = true;
+            content.push(<Page5 key='page5' />);
+            next = true;
+        }
+        else if (this.state.pageNum === 6) {
+            prev = true;
+            content.push(<Page6 key='page6' />);
+            next = true;
+        }
+        else if (this.state.pageNum === 7) {
+            prev = true;
+            content.push(<Page7 key='page7' />);
+            next = true;
+        }
+        else if (this.state.pageNum === 8) {
+            prev = true;
+            content.push(<Page8 key='page8' />);
+            next = true;
+        }
+        else if (this.state.pageNum >= 9) {
+            prev = true;
+            content.push(<Page9 key='page9' />);
             next = true;
         }
         if (this.state.submitted) {
@@ -317,6 +354,7 @@ class Narrative extends React.Component {
                     </Link>
                     <ProgressBar value={(this.state.pageNum / this.numPages) * 100} />
                     <div className="narrative-container">
+                        {console.log(typeof (content))}
                         {content}
                     </div>
                     <div className="button-container">

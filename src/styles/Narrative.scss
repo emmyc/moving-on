@@ -110,12 +110,31 @@ $color-light: #FFFBF4;
 }
 
 .text-left {
-  max-width: 60%;
+  max-width: 50%;
   margin-right: 40px;
 }
 .text-right {
-
+  display: flex;
+  justify-content: center;
 }
 #text1 {
-  width: 70%;
+  width: 50%;
+}
+#text2 {
+  width: 50%;
+}
+
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#takeout-container {
+  max-width: 400px;
+}
+
+#suitcase-gif {
+  max-height: 300px;
 }

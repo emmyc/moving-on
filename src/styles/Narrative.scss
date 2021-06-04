@@ -1,11 +1,14 @@
+
+$color-dark: #192450;
+$color-light: #FFFBF4;
 .page-container {
-  background-color:white;
+  background-color:$color-light;
   max-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: black;
+  color: $color-dark;
 }
 
 .narrative-container {
@@ -19,14 +22,18 @@
   height: 100vh;
   display: flex;
   flex-direction: row;
-  color: black;
+  color: $color-dark;
 }
 
 .page-content {
   position: absolute;
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
   height: 50%;
-  font-size: 25px;
+  font-size: calc(10px + 1vmin);
   text-align: left;
 }
 
@@ -45,7 +52,7 @@
 }
 
 .progress-bar {
-    color: black;
+    color: $color-dark;
 }
 
 .centerText{
@@ -94,6 +101,40 @@
 
 #progress-bar-inner {
   height: 100%;
-  background-color: black;
+  background-color: $color-dark;
   border-radius: 70px;
+}
+
+.text-columns {
+  display: flex;
+}
+
+.text-left {
+  max-width: 50%;
+  margin-right: 40px;
+}
+.text-right {
+  display: flex;
+  justify-content: center;
+}
+#text1 {
+  width: 50%;
+}
+#text2 {
+  width: 50%;
+}
+
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#takeout-container {
+  max-width: 400px;
+}
+
+#suitcase-gif {
+  max-height: 300px;
 }

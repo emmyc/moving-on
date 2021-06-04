@@ -18,7 +18,7 @@ function NintendoFocusElement(props) {
     <>
       <div className='over-focus'>
         <DraggableWrapper click={() => { setShowFocusFocus(true); console.log('clicked focus element'); }}>
-          <img src={props.focusSVG} draggable='false' alt='index card' />
+          <img src={props.focusSVG} id={props.id} draggable='false' alt='index card' />
         </DraggableWrapper>
       </div>
       {showFocusFocus &&

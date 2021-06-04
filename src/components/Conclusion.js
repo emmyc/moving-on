@@ -1,7 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Link } from 'react-router-dom';
 
+// import { GAME_ITEMS } from '../GameItems';
+
+import OpenBoxPNG from '../assets/discardbox_open.png';
 import '../styles/Conclusion.scss';
+import anime from 'animejs';
 
 const POEMS = [
   <p className='poem' key={0}>
@@ -54,21 +58,57 @@ const POEMS = [
   </p>,
 ];
 
-function Frame() {
+function Frame(props) {
+  const timeline = useRef(null);
+  useEffect(() => {
+    timeline.current = anime.timeline({
+      autoplay: false,
+      easing: 'easeInSine',
+    });
+
+    timeline.current?.add({
+      targets: '#poem',
+      translateY: -500,
+      duration: 5000,
+    }).add({
+      duration: 1000,
+    }).add({
+      targets: ['#conclusion-left', '#conclusion-right'],
+      opacity: [1, 0],
+      duration: 2000,
+      changeComplete: () => {
+        timeline.current?.pause();
+        props.incFrame();
+      },
+    });
+  }, []);
+
+  useEffect(() => {
+    timeline.current?.pause();
+    timeline.current?.seek(0);
+    const timeout = setTimeout(() => {
+      timeline.current?.play();
+    }, 250);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <>
       <div id='conclusion-left'>
-        <div id='plane-window'>
+        <img id='conclusion-box' src={OpenBoxPNG} />
+        {/* <div id='plane-window'>
           <video controls autoPlay muted>
             <source src='/assets/videos/plane-window.mp4' type='video/mp4'/>
           </video>
-        </div>
+        </div> */}
         <div id='skip-conclusion'>
           skip
         </div>
       </div>
       <div id='conclusion-right'>
-        {POEMS[0]}
+        <div id='poem'>
+          {POEMS[0]}
+        </div>
       </div>
     </>
   );
@@ -77,12 +117,17 @@ function Frame() {
 function RestartScreen() {
   return (
     <div id='restart-screen'>
+      <div>
+        Objects that you saved
+      </div>
+      <div id='restart-btn-container'>
         <Link to='/explore'>
-          <div>explore again</div>
+          <div className='restart-btn'>explore again</div>
         </Link>
         <Link to='/'>
-          <div>go back to home page</div>
+          <div className='restart-btn'>go back to home page</div>
         </Link>
+      </div>
     </div>
   );
 }
@@ -92,8 +137,8 @@ export default function Conclusion() {
   setFrame;
   return (
     <div id='conclusion'>
-      {frame === 2 && <Frame/>}
-      {frame === 0 && <RestartScreen/>}
+      {frame === 0 && <Frame incFrame={() => setFrame(frame+1)}/>}
+      {frame === 1 && <RestartScreen/>}
     </div>
   );
 }

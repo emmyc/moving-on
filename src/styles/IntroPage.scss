@@ -1,56 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400&display=swap");
+
 .intro-page {
-    background-color: rgb(255, 255, 255);
+    background-color: #fffbf4;
+    height: 100vh;
     max-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     /*justify-content: center;*/
     font-size: calc(10px + 2vmin);
     text-align: left;
-    color: black;
+}
+.intro-pic {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    img {
+        width: 70%;
+        height: auto;
+    }
 }
 
-.title {
+#intro-text {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 200px;
+}
+
+#title {
     font-weight: bold;
-    font-size: 45px;
+    font-size: 4vw;
+    letter-spacing: 0.1rem;
+    font-family: "Volkhov", serif;
+    color: #2f3554;
+    font-weight: 700;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+    p {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+a {
+    color: #2f3554;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 .options {
     display: flex;
+    flex-direction: column;
     min-width: 40vw;
     justify-content: space-between;
 }
 
-.narrative-option {
+.option {
+    font-size: calc(14px + 1vh);
+    display: flex;
+    img {
+        margin-right: 5px;
+        width: 35px;
+        height: auto;
+        max-width: 50px;
+    }
+    margin: 6px 0px;
     font-weight: bold;
+}
+
+.narrative-option {
+    margin-top: 5px;
 }
 
 .explore-option {
-    font-weight: bold;
+    margin-top: 5px;
 }
 
-.narrative-desc {
-    display: none;
-    width: 240px;
-}
-
-.explore-desc {
-    display: none;
-    width: 220px;
-}
-
-.narrative-option:hover + .narrative-desc {
-    display: block;
-}
-
-.explore-option:hover + .explore-desc {
-    display: block;
-}
-
-.narrative-option:visited {
-    color: black;
-}
-
-.explore-option:visited {
-    color: black;
+.desc {
+    color: #3a28ad;
+    font-size: calc(8px + 0.8vh);
+    margin-left: 40px;
+    max-width: 480px;
+    width: 100%;
 }

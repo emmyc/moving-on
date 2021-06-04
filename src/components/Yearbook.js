@@ -69,7 +69,7 @@ const teams = [
       {
         name: 'Remas Bashanfar',
         year: 2024,
-        major: 'Computer Engineering',
+        major: 'Materials Engineering',
         photo: PHOTO_PLACEHOLDER,
         desc: '*googles funny yearbook quotes*',
         url: URL_REMAS,

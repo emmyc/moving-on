@@ -112,7 +112,7 @@ function DraggableWrapper(props) {
       onStart={handleStart}
       onStop={handleStop}
       nodeRef={nodeRef}>
-      <div className='draggable-wrapper' ref={nodeRef}>
+      <div className='draggable-wrapper' id={props.id} ref={nodeRef}>
         {props.children}
       </div >
     </Draggable>

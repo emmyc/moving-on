@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Preload.scss';
 // import 'regenerator-runtime/runtime';
 import Loading from '../assets/loading.svg';
 
-const PRELOAD_TIMEOUT_IN_SEC = 10;
+// const PRELOAD_TIMEOUT_IN_SEC = 10;
 
 function Preload(props) {
   const { images } = props;
+  const [percent, setPercent] = useState(0);
   const REQUEST_BLOCK = 8;
   useEffect(() => {
     // void means the promise's result is being ignored.
     // we do this to avoid an eslint rule: @typescript-eslint/no-floating-promises
     void cacheImages(images);
-    const timeout = setTimeout(() => props.onPreloaded(), PRELOAD_TIMEOUT_IN_SEC * 1000);
-    return () => clearTimeout(timeout);
+    // const timeout = setTimeout(() => props.onPreloaded(), PRELOAD_TIMEOUT_IN_SEC * 1000);
+    // return () => clearTimeout(timeout);
   }, []);
 
   const cacheImages = async (srcArray) => {
-    for (let i = 0; i < srcArray.length; i+=REQUEST_BLOCK) {
+    for (let i = 0; i < srcArray.length; i += REQUEST_BLOCK) {
       const promises = [];
       // preload REQUEST_BLOCK number of images
       for (let j = i; j < srcArray.length && j - i < REQUEST_BLOCK; j++) {
@@ -35,6 +36,7 @@ function Preload(props) {
       }
 
       await Promise.all(promises);
+      setPercent(100* Math.min(i+REQUEST_BLOCK, srcArray.length)/srcArray.length);
     }
 
     // const promises = await srcArray.map((src) => {
@@ -55,7 +57,8 @@ function Preload(props) {
   return (
     <>
       <div className='loading-screen'>
-        <img src={Loading} alt='loading...'/>
+        <img src={Loading} alt='loading...' />
+        <div className='loading-bar' style={{ background: `linear-gradient(to right, #2f3554 0%, #2f3554 ${percent}%, #fffbf4 ${percent}%, #fffbf4)` }}></div>
       </div>
     </>
   );

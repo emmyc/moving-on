@@ -202,7 +202,7 @@ export const GAME_ITEMS = [
     background: <div className='background-notebook-image full-size'><div className='fieldbook-blue1-overlay full-size' /></div>,
     showDiscardKeep: true,
   },
-  //Plants
+  //Plants, if you add or remove items before this, please update the index number in the Plants.js file
   {
     explore: <img src={PlantPreview} id='plant-preview' draggable='false' alt='Plant diary' width='300px' />,
     focus: <Plants />,

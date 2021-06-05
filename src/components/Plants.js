@@ -131,7 +131,7 @@ function Plants() {
 
     if (numDisplaying === 0) {
       const state = numSaved === 0 ? ITEM_STATES.DROPPED : ITEM_STATES.SAVED;
-      handleDrop(state, 5);
+      handleDrop(state, 7); // this is a bad coding practice, but please keep this number the same as the index in the Plants element in the GAME_ITEMS array
     }
   }, [plantStates]);
 
@@ -211,8 +211,8 @@ function PlantObj(props) {
       {showPopup &&
         <>
           <div className='plant-popup'>
-            <span className='left-center-pos underline-item' onClick={() => { console.log('discarded'); handleClick(ITEM_STATES.DROPPED); }}>give away</span>
-            <span className='right-center-pos underline-item' onClick={() => { console.log('kept'); handleClick(ITEM_STATES.SAVED); }}>keep</span>
+            <span className='left-center-pos underline-item' onClick={() => handleClick(ITEM_STATES.DROPPED)} >give away</span>
+            <span className='right-center-pos underline-item' onClick={() => handleClick(ITEM_STATES.SAVED)} >keep</span>
             {props.narrative !== undefined ?
               <div className='flex-row'>
                 <div className='plant-card'>

@@ -108,7 +108,7 @@ export const GAME_ITEMS = [
       </div>,
     trashCaption: FISHING_FRIEND_DISCARD,
     keepCaption: FISHING_FRIEND_KEEP,
-    focusCaption: 'A pile of stuff relating to Fishing Friend; a keychain of Sailor, the game cartridge, and a note. click on each item to interact',
+    focusCaption: 'A pile of stuff relating to Fropper; a keychain of Sailor, the game cartridge, and a note. click on each item to interact',
     // overlayColor: 'rgba(31, 202, 48, 0.45)',
     background: <div className='background-notebook-image full-size'><div className='frog-green-overlay full-size' /></div>,
   },

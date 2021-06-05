@@ -37,7 +37,7 @@ import PostcardSVG from './assets/photos/postcard_back.svg';
 import PostcardFocusElement from './components/PostcardFocusElement';
 import FoodJournal from './components/FoodJournal';
 import FoodIcon from './assets/fooddiary_icon.png';
-import PlantPreview from './assets/plants/plant-journal-preview.svg';
+import PlantPreview from './assets/plants/plant-diary-preview.png';
 import './styles/Plants.scss';
 import FortuneCookies from './components/Fortune Cookies/FortuneCookies';
 import necklace from './assets/necklace.png';
@@ -194,7 +194,7 @@ export const GAME_ITEMS = [
   },
   //dance
   {
-    explore: <img src={necklace} id='plant-preview' draggable='false' alt='SOMETHING' />,
+    explore: <img src={necklace} id='necklace-preview' draggable='false' alt='SOMETHING' />,
     focus: <div><iframe src="https://drive.google.com/file/d/13TgMpI0MCeFHc7miDipKu_ciCs4HNxg4/preview" width="1008" height="567" className='responsive-iframe'></iframe></div>,
     trashCaption: 'It\'s time to move on. Maybe my friend will like it.',
     keepCaption: 'I miss her and what we could\'ve been, but I\'m grateful for our friendship.',

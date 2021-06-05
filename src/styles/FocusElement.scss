@@ -6,7 +6,7 @@
 }
 
 .mint-background {
-  background-color: #6CD78A;
+  background-color: #6cd78a;
   opacity: 0.8;
 }
 
@@ -37,7 +37,7 @@
   justify-content: center;
   height: fit-content;
 
-  img:hover{
+  img:hover {
     cursor: pointer;
   }
 
@@ -68,9 +68,11 @@
       flex-direction: row;
       align-items: center;
     }
+
     #top-row {
       justify-content: space-evenly;
     }
+
     #bottom-row {
       justify-content: flex-end;
 
@@ -95,15 +97,12 @@
 
 .polaroid-video-background {
   background-color: rgba(73, 71, 67, 0.815);
+  animation: polaroid-video-change 2s linear;
 }
 
 @keyframes polaroid-video-change {
-  from { background: rgba(226, 182, 100, 0.5) }
-    to { background-color: rgba(73, 71, 67, 0.815)}
-}
-
-.polaroid-video-background {
- animation: polaroid-video-change 2s linear;
+  from { background: rgba(226, 182, 100, 0.5); }
+  to { background-color: rgba(73, 71, 67, 0.815); }
 }
 
 .white-text {

@@ -66,10 +66,10 @@ function Fieldbook() {
     BlueXmas,
   ];
   const songTitles = [
-    'here comes the sun',
-    'how deep is your love',
-    'space oddity',
-    'blue christmas',
+    '"here comes the sun"',
+    '"how deep is your love"',
+    '"space oddity"',
+    '"blue christmas"',
   ];
   const pages = [
     {
@@ -116,7 +116,8 @@ function Fieldbook() {
       </Sound>
       <button type="button" className="cassette" onClick={() => setIsPlaying(!isPlaying)}><img src={Casette} alt='SOMETHING' /></button>
       <span><br></br></span>
-      <label className="songTitle">{songTitles[currSong]}</label>
+      <label className="songTitle">{songTitles[currSong]}<br></br></label>
+      <label className="play">play me!</label>
     </div>;
   }
   else {

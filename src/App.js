@@ -9,6 +9,7 @@ import Narrative from './components/Narrative';
 import Yearbook from './components/Yearbook';
 import YearbookIcon from './assets/yearbook-icon.png';
 import Conclusion from './components/Conclusion';
+import '../src/styles/GameWrapper.scss';
 
 function App() {
   const [yearbookVisible, setYearbookVisible] = useState(false);

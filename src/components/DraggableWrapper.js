@@ -48,7 +48,6 @@ function DraggableWrapper(props) {
   const checkHover = () => {  // all outer scope variables that checkHover and it's child functions uses must be a ref and not a hook
     if (mouseDownRef.current) { // must use mouseDownRef.current here and NOT a mouseDown hook
       const hoverLoc = inDropBox(nodeRef.current.getBoundingClientRect());
-      console.log('is hovering over: ' + hoverLoc);
       if (hoverLoc !== prevHoverState.current && !inHover) {
         prevHoverState.current = hoverLoc;
         setInHover(true);

@@ -3,7 +3,7 @@ import '../styles/Preload.scss';
 // import 'regenerator-runtime/runtime';
 import Loading from '../assets/loading.svg';
 
-// const PRELOAD_TIMEOUT_IN_SEC = 10;
+const PRELOAD_TIMEOUT_IN_SEC = 10;
 
 function Preload(props) {
   const { images } = props;
@@ -13,8 +13,8 @@ function Preload(props) {
     // void means the promise's result is being ignored.
     // we do this to avoid an eslint rule: @typescript-eslint/no-floating-promises
     void cacheImages(images);
-    // const timeout = setTimeout(() => props.onPreloaded(), PRELOAD_TIMEOUT_IN_SEC * 1000);
-    // return () => clearTimeout(timeout);
+    const timeout = setTimeout(() => props.onPreloaded(), PRELOAD_TIMEOUT_IN_SEC * 1000);
+    return () => clearTimeout(timeout);
   }, []);
 
   const cacheImages = async (srcArray) => {

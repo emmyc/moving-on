@@ -86,7 +86,7 @@ function Frame(props) {
     }).add({
       targets: '#poem1',
       translateY: '-90vh',
-      duration: 10000,
+      duration: 7000,
       changeComplete: () => {
         timeline.current?.pause();
       },

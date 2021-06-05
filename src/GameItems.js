@@ -142,7 +142,7 @@ export const GAME_ITEMS = [
   //food journal
   {
     explore: <img src={FoodIcon} draggable='false' alt='SOMETHING' />,
-    focus: <FoodJournal />,
+    focus: <div className = "smaller"><FoodJournal /></div>,
     trashCaption: FOOD_JOURNAL_DISCARD,
     keepCaption: FOOD_JOURNAL_KEEP,
     focusCaption: FOOD_JOURNAL_FOCUS,

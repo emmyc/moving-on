@@ -93,7 +93,7 @@
   border: none;
   font-family: "B612", sans-serif;
   font-weight: 700;
-  margin: 0px 10px;
+  margin: 0 10px;
   font-size: calc(10px + 2vmin);
   cursor: pointer;
 }
@@ -210,7 +210,7 @@
 }
 
 .fieldbook-blue3-overlay {
-  background: radial-gradient(#a6d9ef, #0e8880); /* if the changing works with pages 2C7A9B*/
+  background: radial-gradient(#a6d9ef, #0e8880); /* if the changing works with pages 2C7A9B */
   opacity: 0.8;
 }
 
@@ -363,22 +363,24 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  /*padding-top: 56.25%; /* 16:9 Aspect Ratio */
+
+  /* padding-top: 56.25%; /* 16:9 Aspect Ratio */
 }
 
 .responsive-iframe {
-  /*border: none;*/
-  /*border: 10px #1b6063;
-  border-style: groove;*/
+  /* border: none; */
+
+  /* border: 10px #1b6063;
+  border-style: groove; */
   font-size: 1.6rem;
   display: grid;
   place-items: center;
   min-height: 200px;
-  border: 8px solid;
   padding: 1rem;
   position: relative;
   background: linear-gradient(to left, rgb(53, 70, 104), rgb(11, 109, 112));
-  /*The background extends to the outside edge of the padding. No background is drawn beneath the border.*/
+
+  /* The background extends to the outside edge of the padding. No background is drawn beneath the border. */
   background-clip: padding-box;
   border: solid 8px transparent;
   border-radius: 1.2rem;

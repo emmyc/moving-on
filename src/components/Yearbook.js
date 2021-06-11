@@ -4,7 +4,8 @@ import Caption from './Caption';
 import '../styles/Yearbook.scss';
 import Sound from 'react-sound';
 import pageSound from '../assets/pageFlipSound.mp3';
-import yearbookCoverImg from '../assets/yearbook-cover.jpeg';
+import yearbookCoverImg from '../assets/yearbook/yearbook-cover.jpg';
+import yearbookBackImg from '../assets/yearbook/yearbook-back.jpg';
 import yearbookSignaturesImg from '../assets/yearbook/signatures.png';
 import yearbookDrawingsImg from '../assets/yearbook/drawings.png';
 import PHOTO_PLACEHOLDER from '../assets/yearbook/members/placeholder.png';
@@ -338,7 +339,7 @@ function Yearbook(props) {
         <Page>
           <img className='cover-img' src={yearbookSignaturesImg} />
         </Page>
-        <Page />
+        <Page> <img className='cover-img' src={yearbookBackImg} /> </Page >
       </HTMLFlipBook>
       <Sound
         url={pageSound}

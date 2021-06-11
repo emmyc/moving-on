@@ -76,7 +76,7 @@ const FISHING_FRIEND_KEYCHAIN_TXT = 'The main character of Fropper; what a cutie
 const FISHING_FRIEND_KEEP = 'There\'s so much replayability! What\'s a few more playthroughs?';
 const FISHING_FRIEND_DISCARD = 'I\'ve already played this so many times. I could resell the game for some cash.';
 
-const FOOD_JOURNAL_KEEP = 'It wasn\'t just good food I kept track of and want to remember — it was also all the fun times with friends, care packages from family, and my evolution into a total food connoisseur.';
+const FOOD_JOURNAL_KEEP = 'I can use this as inspiration to cook in the future.';
 const FOOD_JOURNAL_DISCARD = 'I\'d hate to see this diary just collecting dust on the shelf, but I don\'t see myself getting much use out of it anymore. At least I can recycle it.';
 const FOOD_JOURNAL_FOCUS = 'I kept this food diary over the past year. There\'s still a faint fragrance of those late-night fries I snacked on once while jotting things down.';
 
@@ -137,16 +137,17 @@ export const GAME_ITEMS = [
     trashCaption: 'It might be time to let this go. Tossing this might give me some more closure.',
     keepCaption: 'I can\'t believe she drew all these pictures for me. It was so sweet. I\'ll keep this for the memories. Maybe our paths will cross again someday.',
     focusCaption: 'Oh my goodness, I haven\'t opened this up since we broke up.',
-    background: <div className='background-notebook-image full-size'><div className='fieldbook-blue3-overlay full-size' /></div>,
+    background: <div className='background-notebook-image full-size'>
+      <div className='fieldbook-blue3-overlay full-size' /></div>,
   },
   //food journal
   {
     explore: <img src={FoodIcon} draggable='false' alt='SOMETHING' />,
-    focus: <div className = "smaller"><FoodJournal /></div>,
+    focus: <div className="smaller"><FoodJournal /></div>,
     trashCaption: FOOD_JOURNAL_DISCARD,
     keepCaption: FOOD_JOURNAL_KEEP,
     focusCaption: FOOD_JOURNAL_FOCUS,
-    background: <div className='background-notebook-image full-size'><div className='foodjournal-green-overlay full-size' /></div>,
+    background: <div className='background-notebook-image full-size'><div className='ournal-green-overlay full-size' /></div>,
   },
   {
     explore: <img src={PhotosPreview} draggable='false' alt='Stack of polaroids'></img>,

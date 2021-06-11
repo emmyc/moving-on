@@ -154,7 +154,9 @@ function Plants() {
       { showingPreview ?
         <div className='plant-preview'>
           <FadeIn transitionDuration='1500' delay='800'>
-            As you read your plant journal, you look toward your window at all of your plants, glowing in soft moonlight.
+            As you read your plant journal
+            you look toward your window at your plants,
+            glowing in soft moonlight.
           </FadeIn>
         </div>
         :

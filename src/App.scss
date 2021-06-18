@@ -1,5 +1,5 @@
 body {
-  margin: 0px;
+  margin: 0;
 }
 
 .App {
@@ -8,12 +8,12 @@ body {
 
 .bound0 {
   top: 400px;
-  left: 0px;
+  left: 0;
 }
 
 .bound1 {
   top: 400px;
-  right: 0px;
+  right: 0;
 }
 
 #discard {
@@ -28,13 +28,12 @@ body {
   right: 110px;
 }
 
-
 .minimal-button {
   border: none;
   background: none;
   font-family: 'B612', sans-serif;
   font-size: calc(10px + 2vmin);
-  transition: 0.2s cubic-bezier(.08,.51,.95,.49);
+  transition: 0.2s cubic-bezier(0.08, 0.51, 0.95, 0.49);
   cursor: pointer;
 }
 
@@ -55,6 +54,7 @@ body {
   top: 20px;
   transition: 0.2s ease;
   z-index: 5;
+
   &:hover {
     transform: scale(1.05);
   }
@@ -70,7 +70,7 @@ body {
   width: 80%;
   height: 68px;
   left: 30px;
-  top: 0px;
+  top: 0;
   // font-family:  'B612', monospace;
   // font-weight: normal;
   // font-size: 25px;
@@ -80,7 +80,7 @@ body {
 }
 
 .fade-wrapper {
-  transition:opacity ease-in-out;
+  transition: opacity ease-in-out;
 }
 
 .fade-in {
@@ -91,4 +91,3 @@ body {
   opacity: 0;
   transition: opacity 1s ease;
 }
-

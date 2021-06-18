@@ -3,16 +3,16 @@
   grid-template-columns: 15% 70% 15%;
   width: 100vw;
   height: 80vh;
-  border: 0px;
+  border: 0;
 }
 
 .fieldbook {
   grid-column: 2;
   width: fit-content;
   margin: auto;
-  border: 0px;
-}  
-  
+  border: 0;
+}
+
 .fpage {
   border-radius: 4px;
   outline: 1px solid rgb(59, 58, 57);
@@ -22,12 +22,12 @@
 
 .cassette {
   border: none;
-  background-color: Transparent;
+  background-color: transparent;
 }
 
 .cassette:hover {
   transform: scale(1.1);
-  transition: .1s ease-out;
+  transition: 0.1s ease-out;
 }
 
 .songTitle {
